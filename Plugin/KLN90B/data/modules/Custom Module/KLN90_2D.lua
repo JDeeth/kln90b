@@ -20,7 +20,7 @@ components = {
   textureLit {
     position = { 250, 60, 399, 230 },
     image = get(display),
-    brt2 = 1,   --function() return get(display_brughtness) end,
+    brt2 = 1,
     x = 399,
     y = 230,
   },
@@ -30,7 +30,6 @@ components = {
     image = get(bg),
     brt2 = 1,
   },
-
 
   clickable {
     position = { 250, 70, 399, 201 },
@@ -49,7 +48,6 @@ components = {
       return false
     end
   },
-
 
   clickable {
     position = { 77, 151, 70, 40 },
@@ -91,7 +89,6 @@ components = {
 
   clickable {
     position = { 602, 15, 70, 40 },
-
 
     cursor = {
       x = -15.5,
@@ -371,7 +368,6 @@ components = {
     end
   },
 
-
   clickable {
     position = { 755, 43, 60, 60 },
 
@@ -382,9 +378,7 @@ components = {
     end
   },
 
-
   textureRotate {
-
     position = { 762, 217, 48, 47 },
     image = get(powerknob),
     angle = function()
@@ -394,7 +388,6 @@ components = {
   },
 
   textureRotate {
-
     position = { 58, 18, 111, 111 },
     image = get(lknobbtex),
     angle = function()
@@ -404,7 +397,6 @@ components = {
   },
 
   textureRotate {
-
     position = { 729, 18, 111, 111 },
     image = get(rknobbtex),
     angle = function()
@@ -414,8 +406,6 @@ components = {
   },
 
   textureRotate {
-
-    -- position = {763, 36, 77, 77},
     position = function()
       if get(scan_mode) == 1 then
         return { 734, 26, 100, 100 }
@@ -431,7 +421,6 @@ components = {
   },
 
   textureRotate {
-
     position = { 76, 35, 74, 75 },
     image = get(lknobstex),
     angle = function()
@@ -441,7 +430,6 @@ components = {
   },
 
 }
-
 
 function draw()
   --   sasl.gl.drawTexture(display, 250, 60, 399, 230)

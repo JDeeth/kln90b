@@ -2,59 +2,57 @@ size = { 210, 110 }
 
 local currentPosition = get(position)
 ------------------- Aircraft power bus
-local avionics_power = globalPropertyi("sim/cockpit/electrical/battery_on")
+local avionics_power = globalProperty("sim/cockpit/electrical/battery_on")
 --replace with dataref fitting your aircraft electrical systems to simulate electrical system connection. example "sim/cockpit/electrical/battery_on" or "sim/cockpit2/switches/avionics_power_on". "sim/cockpit2/electrical/cross_tie" - for default cessna172
-defineProperty("kln_power", createGlobalPropertyi("custom/KLN90/kln_power", get(avionics_power)))
-external_view = globalPropertyf("sim/graphics/view/view_is_external")
+kln_power = createGlobalPropertyi("custom/KLN90/kln_power", get(avionics_power))
+external_view = globalProperty("sim/graphics/view/view_is_external")
 -------------------------------------------------------------------------------------
 
 -------------------------------NAV SYSTEMS DO NOT MODIFY-------------------------------------------
 
-defineProperty("HSIOBS", globalPropertyf("sim/cockpit2/radios/actuators/hsi_obs_deg_mag_pilot"))
-defineProperty("NAVOBS", globalPropertyf("sim/cockpit2/radios/actuators/nav1_obs_deg_mag_pilot"))
+HSIOBS = globalProperty("sim/cockpit2/radios/actuators/hsi_obs_deg_mag_pilot")
+NAVOBS = globalProperty("sim/cockpit2/radios/actuators/nav1_obs_deg_mag_pilot")
 
-defineProperty("NAVfromtoout", globalPropertyi("sim/cockpit/radios/nav1_fromto"))
-defineProperty("NAVhdefout", globalPropertyf("sim/cockpit/radios/nav1_hdef_dot"))
-defineProperty("NAVvdefout", globalPropertyf("sim/cockpit/radios/nav1_vdef_dot"))
-defineProperty("GPSvdefout", globalPropertyf("sim/cockpit/radios/gps_vdef_dot"))
+NAVfromtoout = globalProperty("sim/cockpit/radios/nav1_fromto")
+NAVhdefout = globalProperty("sim/cockpit/radios/nav1_hdef_dot")
+NAVvdefout = globalProperty("sim/cockpit/radios/nav1_vdef_dot")
+GPSvdefout = globalProperty("sim/cockpit/radios/gps_vdef_dot")
+GPS2vdefout = globalProperty("sim/cockpit/radios/gps2_vdef_dot")
 
-defineProperty("GPS2vdefout", globalPropertyf("sim/cockpit/radios/gps2_vdef_dot"))
+GPSCourse = globalProperty("sim/cockpit/radios/gps_course_degtm")
+GPSRelBear = globalProperty("sim/cockpit/radios/gps_dir_degt")
+GPSnmPdot = globalProperty("sim/cockpit/radios/gps_hdef_nm_per_dot")
+GPShdefout = globalProperty("sim/cockpit/radios/gps_hdef_dot")
+GPSfromtoout = globalProperty("sim/cockpit/radios/gps_fromto")
+GPSDMEout = globalProperty("sim/cockpit/radios/gps_dme_dist_m")
+GPSDMESPDout = globalProperty("sim/cockpit/radios/gps_dme_speed_kts")
+GPSDMETIMEout = globalProperty("sim/cockpit/radios/gps_dme_time_secs")
 
+NAVDMEout = globalProperty("sim/cockpit/radios/nav1_dme_dist_m")
 
-defineProperty("GPSCourse", globalPropertyf("sim/cockpit/radios/gps_course_degtm"))
-defineProperty("GPSRelBear", globalPropertyf("sim/cockpit/radios/gps_dir_degt"))
-defineProperty("GPSnmPdot", globalPropertyf("sim/cockpit/radios/gps_hdef_nm_per_dot"))
-defineProperty("GPShdefout", globalPropertyf("sim/cockpit/radios/gps_hdef_dot"))
-defineProperty("GPSfromtoout", globalPropertyi("sim/cockpit/radios/gps_fromto"))
-defineProperty("GPSDMEout", globalPropertyf("sim/cockpit/radios/gps_dme_dist_m"))
-defineProperty("GPSDMESPDout", globalPropertyf("sim/cockpit/radios/gps_dme_speed_kts"))
-defineProperty("GPSDMETIMEout", globalPropertyf("sim/cockpit/radios/gps_dme_time_secs"))
-
-defineProperty("NAVDMEout", globalPropertyf("sim/cockpit/radios/nav1_dme_dist_m"))
-
-defineProperty("APBankLim", globalPropertyi("sim/cockpit2/autopilot/bank_angle_mode"))
+APBankLim = globalProperty("sim/cockpit2/autopilot/bank_angle_mode")
 -----------------------------------------------------------------------------------------
 
 --------------------------imports from kln90.lua and md41_panel.lua----------------
-defineProperty("MD41test", createGlobalPropertyi("custom/MD41/test", 0))
-defineProperty("OBS", createGlobalPropertyi("custom/KLN90/OBS", 1))
-defineProperty("OBSreq", createGlobalPropertyi("custom/MD41/OBSreq", 0))
-defineProperty("APR", createGlobalPropertyi("custom/KLN90/APR", 0))
-defineProperty("MSG", createGlobalPropertyi("custom/KLN90/MSG", 0))
-defineProperty("WPT", createGlobalPropertyi("custom/KLN90/WPT", 0))
-defineProperty("Flash", createGlobalPropertyi("custom/KLN90/Flash", 0))
+MD41test = createGlobalPropertyi("custom/MD41/test", 0)
+OBS = createGlobalPropertyi("custom/KLN90/OBS", 1)
+OBSreq = createGlobalPropertyi("custom/MD41/OBSreq", 0)
+APR = createGlobalPropertyi("custom/KLN90/APR", 0)
+MSG = createGlobalPropertyi("custom/KLN90/MSG", 0)
+WPT = createGlobalPropertyi("custom/KLN90/WPT", 0)
+Flash = createGlobalPropertyi("custom/KLN90/Flash", 0)
 -----------------------------------------------------------------------------------
 
 -- Animation datarefs for 3D model --
-defineProperty("L_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_L_Angle", 1))
-defineProperty("R_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_R_Angle", 1))
-defineProperty("B_L_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_B_L_Angle", 1))
-defineProperty("B_R_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_B_R_Angle", 1))
-defineProperty("scan_mode", createGlobalPropertyi("custom/KLN90/scan_mode", 0));
-defineProperty("power_but", createGlobalPropertyi("custom/KLN90/power_but", 0));
-defineProperty("display_brughtness", createGlobalPropertyf("custom/KLN90/display_brughtness", 0.8));
+L_Angle_3D = createGlobalPropertyi("custom/KLN90/3D_L_Angle", 1)
+R_Angle_3D = createGlobalPropertyi("custom/KLN90/3D_R_Angle", 1)
+B_L_Angle_3D = createGlobalPropertyi("custom/KLN90/3D_B_L_Angle", 1)
+B_R_Angle_3D = createGlobalPropertyi("custom/KLN90/3D_B_R_Angle", 1)
+scan_mode = createGlobalPropertyi("custom/KLN90/scan_mode", 0)
+power_but = createGlobalPropertyi("custom/KLN90/power_but", 0)
+display_brughtness = createGlobalPropertyf("custom/KLN90/display_brughtness", 0.8)
 
-defineProperty("power", createGlobalPropertyi("custom/KLN90/kln_state", 0))
+power = createGlobalPropertyi("custom/KLN90/kln_state", 0)
 
 local glass = sasl.gl.loadImage("KLN90.dds", 10, 17, 426, 199)
 local mapplane = sasl.gl.loadImage("KLNmap.dds", 15, 47, 8, 7)
@@ -106,35 +104,35 @@ local digit8tex = sasl.gl.loadImage("KLNmap.dds", 49, 13, 5, 7)
 local digit9tex = sasl.gl.loadImage("KLNmap.dds", 55, 13, 5, 7)
 
 --most of these should be local but hitting 60 upval limit for function update()
-defineProperty("scale_line", createGlobalPropertys("custom/KLN90/scale_line", " "));
+scale_line = createGlobalPropertys("custom/KLN90/scale_line", " ")
 
-defineProperty("sim_run_time", globalPropertyf("sim/time/total_running_time_sec")) -- sim time
+sim_run_time = globalProperty("sim/time/total_running_time_sec")
 
-defineProperty("HSIsource", globalPropertyi("sim/cockpit2/radios/actuators/HSI_source_select_pilot"))
+HSIsource = globalProperty("sim/cockpit2/radios/actuators/HSI_source_select_pilot")
 
-defineProperty("overrideGPS", globalPropertyi("sim/operation/override/override_gps"))
-defineProperty("overrideNAV1", globalPropertyi("sim/operation/override/override_nav1_needles"))
+overrideGPS = globalProperty("sim/operation/override/override_gps")
+overrideNAV1 = globalProperty("sim/operation/override/override_nav1_needles")
 
-defineProperty("hourin", globalPropertyi("sim/cockpit2/clock_timer/zulu_time_hours"))
-defineProperty("minutein", globalPropertyi("sim/cockpit2/clock_timer/zulu_time_minutes"))
-defineProperty("secondin", globalPropertyi("sim/cockpit2/clock_timer/zulu_time_seconds"))
-defineProperty("dayin", globalPropertyi("sim/cockpit2/clock_timer/current_day"))
-defineProperty("monthin", globalPropertyi("sim/cockpit2/clock_timer/current_month"))
+hourin = globalProperty("sim/cockpit2/clock_timer/zulu_time_hours")
+minutein = globalProperty("sim/cockpit2/clock_timer/zulu_time_minutes")
+secondin = globalProperty("sim/cockpit2/clock_timer/zulu_time_seconds")
+dayin = globalProperty("sim/cockpit2/clock_timer/current_day")
+monthin = globalProperty("sim/cockpit2/clock_timer/current_month")
 
-defineProperty("ALTin", globalPropertyf("sim/flightmodel/position/elevation"))
+ALTin = globalProperty("sim/flightmodel/position/elevation")
 
-defineProperty("BAROin", globalPropertyf("sim/weather/barometer_sealevel_inhg"))
-defineProperty("MACHin", globalPropertyf("sim/flightmodel/misc/machno"))
-defineProperty("TASin", globalPropertyf("sim/flightmodel/position/true_airspeed"))
+BAROin = globalProperty("sim/weather/barometer_sealevel_inhg")
+MACHin = globalProperty("sim/flightmodel/misc/machno")
+TASin = globalProperty("sim/flightmodel/position/true_airspeed")
 
-defineProperty("WINDHEADin", globalPropertyf("sim/cockpit2/gauges/indicators/wind_heading_deg_mag"))
-defineProperty("WINDSPEEDin", globalPropertyf("sim/cockpit2/gauges/indicators/wind_speed_kts"))
+WINDHEADin = globalProperty("sim/cockpit2/gauges/indicators/wind_heading_deg_mag")
+WINDSPEEDin = globalProperty("sim/cockpit2/gauges/indicators/wind_speed_kts")
 
-defineProperty("SATin", globalPropertyf("sim/cockpit2/temperature/outside_air_temp_degc"))
-defineProperty("TATin", globalPropertyf("sim/cockpit2/temperature/outside_air_LE_temp_degc"))
+SATin = globalProperty("sim/cockpit2/temperature/outside_air_temp_degc")
+TATin = globalProperty("sim/cockpit2/temperature/outside_air_LE_temp_degc")
 
-defineProperty("EnginesNum", globalPropertyi("sim/aircraft/overflow/acf_num_thrustpoints"))
-defineProperty("Enginestype", globalPropertyiae("sim/aircraft/prop/acf_en_type", 1))
+EnginesNum = globalProperty("sim/aircraft/overflow/acf_num_thrustpoints")
+Enginestype = globalPropertyiae("sim/aircraft/prop/acf_en_type", 1)
 
 FuelFlow1 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 1)
 FuelFlow2 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 2)
@@ -144,24 +142,24 @@ FuelFlow5 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 5)
 FuelFlow6 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 6)
 FuelFlow7 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 7)
 FuelFlow8 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 8)
-FuelTOT = globalPropertyf("sim/flightmodel/weight/m_fuel_total")
+FuelTOT = globalProperty("sim/flightmodel/weight/m_fuel_total")
 
-defineProperty("GPSmode", globalPropertyi("custom/KLN90/OBS"))
-defineProperty("OBSreq", globalPropertyi("custom/MD41/OBSreq"))
-defineProperty("APR", globalPropertyi("custom/KLN90/APR"))
+GPSmode = globalProperty("custom/KLN90/OBS")
+OBSreq = globalProperty("custom/MD41/OBSreq")
+APR = globalProperty("custom/KLN90/APR")
 
-defineProperty("WPTalert", globalPropertyi("custom/KLN90/WPT"))
-defineProperty("MSGalert", globalPropertyi("custom/KLN90/MSG"))
-defineProperty("Flash", globalPropertyi("custom/KLN90/Flash"))
+WPTalert = globalProperty("custom/KLN90/WPT")
+MSGalert = globalProperty("custom/KLN90/MSG")
+Flash = globalProperty("custom/KLN90/Flash")
 
-defineProperty("LATin", globalPropertyf("sim/flightmodel/position/latitude"))
-defineProperty("LONin", globalPropertyf("sim/flightmodel/position/longitude"))
-defineProperty("SPEEDin", globalPropertyf("sim/flightmodel/position/groundspeed"))
-defineProperty("PSIin", globalPropertyf("sim/flightmodel2/position/mag_psi"))
+LATin = globalProperty("sim/flightmodel/position/latitude")
+LONin = globalProperty("sim/flightmodel/position/longitude")
+SPEEDin = globalProperty("sim/flightmodel/position/groundspeed")
+PSIin = globalProperty("sim/flightmodel2/position/mag_psi")
 
-defineProperty("MAGVARin", globalPropertyf("sim/flightmodel/position/magnetic_variation"))
-defineProperty("paused", globalPropertyf("sim/time/paused"))
-defineProperty("simspeed", globalPropertyf("sim/time/sim_speed"))
+MAGVARin = globalProperty("sim/flightmodel/position/magnetic_variation")
+paused = globalProperty("sim/time/paused")
+simspeed = globalProperty("sim/time/sim_speed")
 
 local alert = sasl.al.loadSample('sounds/altitude_alerts.wav')
 local alertl = sasl.al.loadSample('sounds/altitude_alert.wav')
@@ -781,11 +779,13 @@ function parse_apt(path, data)
         end
         if words[1] == "1" or words[1] == "16" or words[1] == "17" then
           words[3], words[4], words[5], words[6], words[7] = words[2]:match("(%w+) (%w+) (%w+) (%w+) (.+)")
-          for i = 3, 7, 1 do if words[i] == nil then
+          for i = 3, 7, 1 do
+            if words[i] == nil then
               print("APT Parsing ERROR in " ..
-              filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i - 1 .. " LINE: " .. line)
+                filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i - 1 .. " LINE: " .. line)
               goto continue
-            end end                                                                                                                                                                         --check if correct format was read
+            end
+          end       --check if correct format was read
           if string.len(words[6]) > 4 then
             print("APT Parsing: Skipping: " .. words[6] .. " - ICAO code longer than 4 digits")
             goto continue
@@ -793,21 +793,19 @@ function parse_apt(path, data)
           --icao 1, name 2, amsl 3, lat 4, lon 5, rwy{} 6, atis{} 7, type 8
           icao_code = words[6]
           data["airport"][icao_code] = {
-            words[6],                                          --icao
+            words[6],                                                   --icao
             words[7]:upper():gsub("[^A-Za-z0-9 ]", ""):gsub(" +", " "), --name
-            words[3],                                          --amsl
-            "",                                                --lat
-            "",                                                --lon
-            {},                                                -- rwy{}
-            {},                                                --atis{}
-            words[1],                                          --type
+            words[3],                                                   --amsl
+            "",                                                         --lat
+            "",                                                         --lon
+            {},                                                         -- rwy{}
+            {},                                                         --atis{}
+            words[1],                                                   --type
           }
         elseif words[1] == "1302" then
           local id, lat_lon = words[2]:match("(%w+%p+%w+) (.+)")
           if tonumber(lat_lon) then
             if id == "datum_lat" then
-              --(data["airport"][icao_code][1])
-              --print(id, lat_lon)
               lat_lon = string.format("%.6f", lat_lon)
               data["airport"][icao_code][4] = lat_lon;
             elseif id == "datum_lon" then
@@ -819,11 +817,13 @@ function parse_apt(path, data)
           local fields = {}
 
           for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
-          for i = 1, 19, 1 do if fields[i] == nil then
+          for i = 1, 19, 1 do
+            if fields[i] == nil then
               print("APT Parsing ERROR in " ..
-              filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i + 1 .. " LINE: " .. line)
+                filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i + 1 .. " LINE: " .. line)
               goto continue
-            end end                                                                                                                                                                           --check if correct format was read
+            end
+          end       --check if correct format was read
           if fields[8]:len() < 2 then
             fields[8] = "0" .. fields[8]
           elseif fields[8]:len() < 3 and tonumber(string.sub(fields[8], -1)) == nil then
@@ -858,11 +858,13 @@ function parse_apt(path, data)
           local fields = {}
 
           for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
-          for i = 1, 11, 1 do if fields[i] == nil then
+          for i = 1, 11, 1 do
+            if fields[i] == nil then
               print("APT Parsing ERROR in " ..
-              filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i + 1 .. " LINE: " .. line)
+                filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i + 1 .. " LINE: " .. line)
               goto continue
-            end end                                                                                                                                                                           --check if correct format was read
+            end
+          end       --check if correct format was read
           fields[2] = string.format("%.6f", fields[2])
           fields[3] = string.format("%.6f", fields[3])
 
@@ -879,11 +881,13 @@ function parse_apt(path, data)
           local fields = {}
 
           for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
-          for i = 1, 8, 1 do if fields[i] == nil then
+          for i = 1, 8, 1 do
+            if fields[i] == nil then
               print("APT Parsing ERROR in " ..
-              filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i - 1 .. " LINE: " .. line)
+                filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i - 1 .. " LINE: " .. line)
               goto continue
-            end end                                                                                                                                                                          --check if correct format was read
+            end
+          end       --check if correct format was read
           if fields[3]:len() < 2 then
             fields[3] = "0" .. fields[3]
           elseif fields[3]:len() < 3 and tonumber(string.sub(fields[3], -1)) == nil then
@@ -1016,11 +1020,13 @@ function parse_nav(path, data)
     if words[1] == "2" then
       local fields = {}
       for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
-      for i = 1, 10, 1 do if fields[i] == nil then
+      for i = 1, 10, 1 do
+        if fields[i] == nil then
           print("NAV Parsing ERROR in " ..
-          filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
+            filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
           goto continue
-        end end                                                                                                                                                                          --check format
+        end
+      end       --check format
       fields[1] = string.format("%.6f", fields[1])
       fields[2] = string.format("%.6f", fields[2])
       if #fields > 10 then
@@ -1030,26 +1036,28 @@ function parse_nav(path, data)
       end
       local tid = fields[7] .. fields[9] .. fields[4]
       data["nav"][tid] = {
-        fields[1],      --lat
-        fields[2],      --lon
-        fields[7],      --id
-        fields[10],     --name
-        fields[9],      --code
-        fields[3],      --elev
+        fields[1],          --lat
+        fields[2],          --lon
+        fields[7],          --id
+        fields[10],         --name
+        fields[9],          --code
+        fields[3],          --elev
         fields[4] .. "000", --frq
-        fields[5],      --class
-        0,              --vorndb
-        0,              --dme
+        fields[5],          --class
+        0,                  --vorndb
+        0,                  --dme
         " "
       }
     elseif words[1] == "3" then
       local fields = {}
       for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
-      for i = 1, 10, 1 do if fields[i] == nil then
+      for i = 1, 10, 1 do
+        if fields[i] == nil then
           print("NAV Parsing ERROR in " ..
-          filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
+            filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
           goto continue
-        end end                                                                                                                                                                          --check format
+        end
+      end       --check format
 
       fields[1] = string.format("%.6f", fields[1])
       fields[2] = string.format("%.6f", fields[2])
@@ -1060,16 +1068,16 @@ function parse_nav(path, data)
       end
       local tid = fields[7] .. fields[9] .. fields[4]
       data["nav"][tid] = {
-        fields[1],                   --lat
-        fields[2],                   --lon
-        fields[7],                   --id
-        fields[10],                  --name
-        fields[9],                   --code
-        fields[3],                   --elev
-        fields[4] .. "0",            --frq
-        fields[5],                   --class
-        1,                           --vorndb
-        0,                           --dme
+        fields[1],                       --lat
+        fields[2],                       --lon
+        fields[7],                       --id
+        fields[10],                      --name
+        fields[9],                       --code
+        fields[3],                       --elev
+        fields[4] .. "0",                --frq
+        fields[5],                       --class
+        1,                               --vorndb
+        0,                               --dme
         string.format("%.1f", fields[6]) --magvar
       }
     end
@@ -1097,13 +1105,13 @@ function create_navidsdb(path, data)
   --lat 1, lon 2, id 3, name 4, code 5, elev 6, frq 7, class 8, vorndb 9, dme 10
   for k, v in pairsByKeys(data["nav"]) do
     file:write(v[3] ..
-    "|" ..
-    v[4] ..
-    "|" ..
-    v[7] ..
-    "|" ..
-    v[9] .. "|" .. v[10] ..
-    "|" .. v[8] .. "|" .. v[1] .. "|" .. v[2] .. "|" .. v[6] .. "|" .. v[5] .. "|" .. v[11] .. "\n")
+      "|" ..
+      v[4] ..
+      "|" ..
+      v[7] ..
+      "|" ..
+      v[9] .. "|" .. v[10] ..
+      "|" .. v[8] .. "|" .. v[1] .. "|" .. v[2] .. "|" .. v[6] .. "|" .. v[5] .. "|" .. v[11] .. "\n")
     count = count + 1
   end
   print(count .. " navaids added to the database")
@@ -1126,7 +1134,7 @@ function create_aptdb(path, data)
   local month = fields[6]:sub(3, 4)
   --icao 1, name 2, amsl 3, lat 4, lon 5, rwy{} 6, atis{} 7, type 8
   file:write("X|" ..
-  fields[6]:sub(1, 4) .. "|" .. "XXXXX01" .. numbertomonth(tonumber(month)) .. "/" .. year .. "|XXXXXXXXXXXXXXXXXX\n\n")
+    fields[6]:sub(1, 4) .. "|" .. "XXXXX01" .. numbertomonth(tonumber(month)) .. "/" .. year .. "|XXXXXXXXXXXXXXXXXX\n\n")
   for k, v in pairsByKeys(data["airport"]) do
     if v[2] == nil then break end
     count = count + 1
@@ -1179,18 +1187,18 @@ function create_aptdb(path, data)
         file:write("H|" .. v1[4] .. "|" .. v1[5] .. "|" .. v1[6] .. "|" .. v1[3] .. "|" .. surf .. "|" .. light .. "\n")
       elseif surf == "WAT" then
         file:write("W|" ..
-        v1[4] ..
-        "|" ..
-        v1[5] ..
-        "|" ..
-        v1[6] .. "|" .. v1[7] .. "|" .. v1[8] .. "|" .. v1[9] .. "|" .. v1[3] .. "|" .. surf .. "|" .. light .. "\n")
+          v1[4] ..
+          "|" ..
+          v1[5] ..
+          "|" ..
+          v1[6] .. "|" .. v1[7] .. "|" .. v1[8] .. "|" .. v1[9] .. "|" .. v1[3] .. "|" .. surf .. "|" .. light .. "\n")
       else
         file:write("R|" ..
-        v1[4] ..
-        "|" ..
-        v1[5] ..
-        "|" ..
-        v1[6] .. "|" .. v1[7] .. "|" .. v1[8] .. "|" .. v1[9] .. "|" .. v1[3] .. "|" .. surf .. "|" .. light .. "\n")
+          v1[4] ..
+          "|" ..
+          v1[5] ..
+          "|" ..
+          v1[6] .. "|" .. v1[7] .. "|" .. v1[8] .. "|" .. v1[9] .. "|" .. v1[3] .. "|" .. surf .. "|" .. light .. "\n")
       end
     end
 
@@ -1601,7 +1609,7 @@ function reset()
   rsubpage = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }
 end
 
-function tprint(tbl, indent)  --debug
+function tprint(tbl, indent) --debug
   if not indent then indent = 0 end
   for k, v in pairs(tbl) do
     formatting = string.rep("  ", indent) .. k .. ": "
@@ -1967,7 +1975,7 @@ function course(lat1, lon1, lat2, lon2)
   lat2 = lat2 * pi / 180
   lon2 = lon2 * pi / -180
   local course = math.fmod(
-  math.atan2(sin(lon1 - lon2) * cos(lat2), cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(lon1 - lon2)), 2 * pi)
+    math.atan2(sin(lon1 - lon2) * cos(lat2), cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(lon1 - lon2)), 2 * pi)
   course = (course * 180 / pi) + get(MAGVARin)
   if course < 0 then
     course = course + 360
@@ -2087,10 +2095,10 @@ function FMS()
         while num2 <= 6 do
           local str = string.sub(lat, num2, num2)
           if str == "." then
-            str = "period"                  --workaround error sim/FMS/key_. does not exsist
+            str = "period" --workaround error sim/FMS/key_. does not exsist
           elseif str == "" then
             break
-          end                               --workaround error sim/FMS/key_ does not exsist
+          end --workaround error sim/FMS/key_ does not exsist
           commandOnce(findCommand("sim/FMS/key_" .. str))
           num2 = num2 + 1
         end
@@ -2109,10 +2117,10 @@ function FMS()
         while num2 <= 7 do
           local str = string.sub(lat, num2, num2)
           if str == "." then
-            str = "period"                  --workaround error sim/FMS/key_. does not exsist
+            str = "period" --workaround error sim/FMS/key_. does not exsist
           elseif str == "" then
             break
-          end                               --workaround error sim/FMS/key_ does not exsist
+          end --workaround error sim/FMS/key_ does not exsist
           commandOnce(findCommand("sim/FMS/key_" .. str))
           num2 = num2 + 1
         end
@@ -2399,10 +2407,14 @@ function search_nav_paths()
               local files2 = sasl.listFiles(path .. files[i].name .. "/" .. folder1[j].name)
               if #files2 > 0 then
                 for y = 1, #files2 do
-                  if files2[y].name == "apt.dat" and files[i].name ~= "Global Airports" then folders["apt"][#folders["apt"] + 1] =
-                    path .. files[i].name .. "/" .. folder1[j].name .. "/" end
-                  if files2[y].name == "earth_nav.dat" then folders["nav"][#folders["nav"] + 1] = path ..
-                    files[i].name .. "/" .. folder1[j].name .. "/" end
+                  if files2[y].name == "apt.dat" and files[i].name ~= "Global Airports" then
+                    folders["apt"][#folders["apt"] + 1] =
+                        path .. files[i].name .. "/" .. folder1[j].name .. "/"
+                  end
+                  if files2[y].name == "earth_nav.dat" then
+                    folders["nav"][#folders["nav"] + 1] = path ..
+                        files[i].name .. "/" .. folder1[j].name .. "/"
+                  end
                 end
               end
             end
@@ -2484,8 +2496,10 @@ function check_files()
   if #files > 0 then
     for i = 1, #files do
       if files[i].type == "file" then
-        if files[i].name == "airports.txt" or files[i].name == "navaids.txt" or files[i].name == "waypoints.txt" then found =
-          found + 1 end
+        if files[i].name == "airports.txt" or files[i].name == "navaids.txt" or files[i].name == "waypoints.txt" then
+          found =
+              found + 1
+        end
       end
     end
   else
@@ -2679,11 +2693,11 @@ while true do
   for w in line:gmatch("([^|]+)") do fields[#fields + 1] = w end
 
   if fields[4] == "1" then
-    WPTlength = WPTlength + 1
-    WPTtable[WPTlength] = {}
-    WPTtable[WPTlength]["types"] = 1
-    WPTtable[WPTlength]["USR"] = 0
-    WPTtable[WPTlength]["ident"] = makelength(fields[1], 5, 0)
+    WPTlength                                                  = WPTlength + 1
+    WPTtable[WPTlength]                                        = {}
+    WPTtable[WPTlength]["types"]                               = 1
+    WPTtable[WPTlength]["USR"]                                 = 0
+    WPTtable[WPTlength]["ident"]                               = makelength(fields[1], 5, 0)
 
     local name                                                 = fields[2]
     WPTtable[WPTlength]["name1"], WPTtable[WPTlength]["name2"] = namelines(name)
@@ -2977,7 +2991,7 @@ function createSIDSTAR(name)
   if name == "SID" then
     while num <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][values["SIDSTARsel"][name .. "RWY"]]["num"] do
       local waypoint = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][values["SIDSTARsel"][name .. "RWY"]]
-      [num]
+          [num]
       local flyo = waypoint["flyo"]
       waypoint = enterident(makelength(waypoint["ident"], 5, 0), 9, 0, 5, 0, waypoint["lat"], waypoint["lon"])
       if waypoint["length"] > 0 then
@@ -2992,7 +3006,7 @@ function createSIDSTAR(name)
     num = 1
     while num <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"][values["SIDSTARsel"][name .. "TRANS"]]["num"] do
       local waypoint = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]
-      [values["SIDSTARsel"][name .. "TRANS"]][num]
+          [values["SIDSTARsel"][name .. "TRANS"]][num]
       local flyo = waypoint["flyo"]
       waypoint = enterident(makelength(waypoint["ident"], 5, 0), 9, 0, 5, 0, waypoint["lat"], waypoint["lon"])
       if waypoint["length"] > 0 then
@@ -3007,16 +3021,16 @@ function createSIDSTAR(name)
     num = 1
     while num <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][values["SIDSTARsel"][name .. "RWY"]]["num"] do
       local waypoint = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][values["SIDSTARsel"][name .. "RWY"]]
-      [num]
+          [num]
       local flyo = waypoint["flyo"]
       waypoint = enterident(makelength(waypoint["ident"], 5, 0), 9, 0, 5, 0, waypoint["lat"], waypoint["lon"])
       if name == "APP" and string.sub(waypoint[1]["ident"], 1, 2) == "RW" then
         createWPT(5, waypoint[1]["ident"], 0)
         waypoint = enterident(waypoint[1]["ident"], 5, 0, 5, 0)
         waypoint[1]["lat"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]
-        [values["SIDSTARsel"][name .. "RWY"]][num]["lat"]
+            [values["SIDSTARsel"][name .. "RWY"]][num]["lat"]
         waypoint[1]["lon"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]
-        [values["SIDSTARsel"][name .. "RWY"]][num]["lon"]
+            [values["SIDSTARsel"][name .. "RWY"]][num]["lon"]
         values["SIDSTARsel"]["num"] = values["SIDSTARsel"]["num"] + 1
         values["SIDSTARsel"][values["SIDSTARsel"]["num"]] = table.copy(waypoint[1])
         values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["flyo"] = flyo
@@ -3125,8 +3139,8 @@ function findnearestleg(num2, lat, lon)
   while num <= FPlan[0]["length"] do
     local f1 = 0
     local f2 = 5 /
-    distance(FPlan[num2 or 0][num - 1]["lat"], FPlan[num2 or 0][num - 1]["lon"], FPlan[num2 or 0][num]["lat"],
-      FPlan[num2 or 0][num]["lon"])
+        distance(FPlan[num2 or 0][num - 1]["lat"], FPlan[num2 or 0][num - 1]["lon"], FPlan[num2 or 0][num]["lat"],
+          FPlan[num2 or 0][num]["lon"])
     --this increases the accuracy
     if f2 > 0.1 then f2 = 0.1 end
     while f1 <= 1 do
@@ -3272,7 +3286,7 @@ function onModuleDone()
   local filename = sasl.getAircraftPath() .. "/KLNconfig.txt"
   local file = io.open(filename, "w")
   file:write(
-  "###########################\n  DO NOT MODIFY THIS FILE!\nYOU SHOULDN'T EVEN READ IT!\n###########################\n")
+    "###########################\n  DO NOT MODIFY THIS FILE!\nYOU SHOULDN'T EVEN READ IT!\n###########################\n")
   file:write("#1" .. values["welcome1"] .. "\n")
   file:write("#2" .. values["welcome2"] .. "\n")
   file:write("#3" .. values["welcome3"] .. "\n")
@@ -3676,9 +3690,9 @@ function drawmap(size, orientation, range, mode)
       local y1 = cy + cos((CRS1) * pi / 180) * dist1
       local x1 = cx + cos((CRS1 - 90) * pi / 180) * dist1
       dist1 = distance(values["GPSlat"], values["GPSlon"], values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"]) *
-      PXnm
+          PXnm
       CRS1 = course(values["GPSlat"], values["GPSlon"], values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"]) -
-      orient
+          orient
 
       local y2 = cy + cos((CRS1) * pi / 180) * dist1
       local x2 = cx + cos((CRS1 - 90) * pi / 180) * dist1
@@ -3727,7 +3741,7 @@ function drawmap(size, orientation, range, mode)
                 RWYtable[values["activeWPT"][2]["ident"]][RWYnum]["lat2"],
                 RWYtable[values["activeWPT"][2]["ident"]][RWYnum]["lon2"]) * PXnm
               CRS1 = course(values["GPSlat"], values["GPSlon"], RWYtable[values["activeWPT"][2]["ident"]][RWYnum]
-              ["lat2"], RWYtable[values["activeWPT"][2]["ident"]][RWYnum]["lon2"]) - orient
+                ["lat2"], RWYtable[values["activeWPT"][2]["ident"]][RWYnum]["lon2"]) - orient
 
               local y2 = cy + cos((CRS1) * pi / 180) * dist1
               local x2 = cx + cos((CRS1 - 90) * pi / 180) * dist1
@@ -3755,9 +3769,9 @@ function drawmap(size, orientation, range, mode)
     while WPTnum <= FPlan[0]["length"] do
       if FPlan[0][WPTnum]["lat"] ~= nil and FPlan[0][WPTnum]["lon"] ~= nil then
         local dist1 = distance(values["GPSlat"], values["GPSlon"], FPlan[0][WPTnum]["lat"], FPlan[0][WPTnum]["lon"]) *
-        PXnm
+            PXnm
         local CRS1 = course(values["GPSlat"], values["GPSlon"], FPlan[0][WPTnum]["lat"], FPlan[0][WPTnum]["lon"]) -
-        orient
+            orient
 
         local y1 = cy + cos((CRS1) * pi / 180) * dist1
         local x1 = cx + cos((CRS1 - 90) * pi / 180) * dist1
@@ -3831,11 +3845,13 @@ function drawmap(size, orientation, range, mode)
               --workaround for EDDF
               if RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat2"] then
                 local dist1 = distance(values["GPSlat"], values["GPSlon"],
-                  RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat"], RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lon"]) *
-                PXnm
+                      RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat"],
+                      RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lon"]) *
+                    PXnm
                 local CRS1 = course(values["GPSlat"], values["GPSlon"],
-                  RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat"], RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lon"]) -
-                orient
+                      RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat"],
+                      RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lon"]) -
+                    orient
                 local y1 = cy + cos((CRS1) * pi / 180) * dist1
                 local x1 = cx + cos((CRS1 - 90) * pi / 180) * dist1
                 dist1 = distance(values["GPSlat"], values["GPSlon"], RWYtable[FPlan[0][WPTnum]["ident"]][RWYnum]["lat2"],
@@ -4038,8 +4054,10 @@ function editvalue(mode, side, value)
         elseif mode == 3 then
           values[side .. "editvalue"] = {}
           values[side .. "editvalue"]["hour"] = 23 - value["zonediff"]
-          if values[side .. "editvalue"]["hour"] > 23 then values[side .. "editvalue"]["hour"] = values
-            [side .. "editvalue"]["hour"] - 24 end
+          if values[side .. "editvalue"]["hour"] > 23 then
+            values[side .. "editvalue"]["hour"] = values
+                [side .. "editvalue"]["hour"] - 24
+          end
 
           values[side .. "editvalue"]["minute"] = "__"
         elseif mode == 4 then
@@ -4512,12 +4530,12 @@ function editvalue(mode, side, value)
             x = 1
           end
           values[side .. "editvalue"] = replaceChar(values[side .. "editvalue"], controls[side .. "CRSRchar"] - 1,
-            value2string(x))                                                                                                  -- values[side .."editvalue"]-1
+            value2string(x)) -- values[side .."editvalue"]-1
         end
       end
       controls[side .. "knobs"] = 0
       --when we use ENT, we'll need to return the results!
-    elseif controls[ent] == 1 and controls[side .. "CRSRchar"] == 0 and mode == 1 and controls["SCAN"] == 1 then  --new for scan selecting wpt from fpl
+    elseif controls[ent] == 1 and controls[side .. "CRSRchar"] == 0 and mode == 1 and controls["SCAN"] == 1 then --new for scan selecting wpt from fpl
       if values[side .. "editvalue"]["length"] == 1 then
         values[side .. "editstate"] = 3
       end
@@ -4552,10 +4570,10 @@ function editvalue(mode, side, value)
             values["statustimer"] = 5
           else
             --we need to create a User WPT
-            controls["rsselect"]                   = 3
-            controls["WPTCRSR"]                    = 1
+            controls["rsselect"]                    = 3
+            controls["WPTCRSR"]                     = 1
             values[side .. "editvalue"][1]["types"] = 4
-            values[side .. "editstate"]            = 3
+            values[side .. "editstate"]             = 3
           end
         elseif values[side .. "editvalue"]["length"] > 1 then
           --if this happens, we need to display the duplicate waypoint page and/or the waypoint page!
@@ -4988,14 +5006,14 @@ function editvalue(mode, side, value)
     elseif controls["lsknobl"] == 1 then
       controls["multiselect"] = controls["multiselect"] + 1
     elseif controls["sENT"] == 1 then
-      values[side .. "editstate"]          = 3
-      controls["sENT"]                     = 0
-      local WPT                            = values[side .. "editvalue"][controls["multiselect"]]
-      local len                            = values[side .. "editvalue"]["length"]
-      values[side .. "editvalue"]          = {}
-      values[side .. "editvalue"][1]       = WPT
+      values[side .. "editstate"]           = 3
+      controls["sENT"]                      = 0
+      local WPT                             = values[side .. "editvalue"][controls["multiselect"]]
+      local len                             = values[side .. "editvalue"]["length"]
+      values[side .. "editvalue"]           = {}
+      values[side .. "editvalue"][1]        = WPT
       values[side .. "editvalue"]["length"] = len
-      controls["lsCRSR"]                   = 0
+      controls["lsCRSR"]                    = 0
     elseif controls["sCLR"] == 1 then
       values[side .. "editstate"] = 0
       controls["sCLR"]            = 0
@@ -5553,7 +5571,7 @@ function WPTpage(types, mode, subpage)
         end
       elseif values["SIDSTARsel"][name .. "RWY"] == nil then
         values["SIDSTARsel"][name .. "RWY"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]
-        [controls[page .. "select"]]
+            [controls[page .. "select"]]
         controls[page .. "select"] = 1
         controls["SIDSTARview"] = 0
         if values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] == 1 then
@@ -5565,7 +5583,7 @@ function WPTpage(types, mode, subpage)
         end
       elseif values["SIDSTARsel"][name .. "TRANS"] == nil then
         values["SIDSTARsel"][name .. "TRANS"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]
-        [controls[page .. "select"]]
+            [controls[page .. "select"]]
         controls[page .. "select"] = 1
         controls["SIDSTARview"] = 0
         --we now generate a list of WPTs which can be inserted into the FPLN
@@ -5917,14 +5935,20 @@ function WPTpage(types, mode, subpage)
       values["MSGENT"] = 2
     end
     if subpage ~= 80 or values["SIDSTARsel"]["APPTRANS"] ~= nil then
-      if controls[page .. "select"] > controls["SIDSTARview"] + 3 then controls["SIDSTARview"] = controls
-        [page .. "select"] - 3 end
+      if controls[page .. "select"] > controls["SIDSTARview"] + 3 then
+        controls["SIDSTARview"] = controls
+            [page .. "select"] - 3
+      end
     else
-      if controls[page .. "select"] > controls["SIDSTARview"] + 4 then controls["SIDSTARview"] = controls
-        [page .. "select"] - 4 end
+      if controls[page .. "select"] > controls["SIDSTARview"] + 4 then
+        controls["SIDSTARview"] = controls
+            [page .. "select"] - 4
+      end
     end
-    if controls[page .. "select"] < controls["SIDSTARview"] + 1 then controls["SIDSTARview"] = controls
-      [page .. "select"] - 1 end
+    if controls[page .. "select"] < controls["SIDSTARview"] + 1 then
+      controls["SIDSTARview"] = controls
+          [page .. "select"] - 1
+    end
     if values["SIDSTARsel"][name] == nil then
       if controls[page .. "select"] == 0 and controls[page .. "CRSRchar"] == 0 then
         if mode == 1 then
@@ -5936,24 +5960,30 @@ function WPTpage(types, mode, subpage)
         controls[page .. "select"] = 0
         controls[page .. "CRSRchar"] = 1
       end
-      if controls["SIDSTARview"] > values["SIDSTAR"][name]["num"] - 4 then controls["SIDSTARview"] = values["SIDSTAR"]
-        [name]["num"] - 4 end
+      if controls["SIDSTARview"] > values["SIDSTAR"][name]["num"] - 4 then
+        controls["SIDSTARview"] = values["SIDSTAR"]
+            [name]["num"] - 4
+      end
     elseif values["SIDSTARsel"][name .. "RWY"] == nil then
       if controls[page .. "select"] == 0 then
         controls[page .. "select"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"]
       elseif controls[page .. "select"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] then
         controls[page .. "select"] = 1
       end
-      if controls["SIDSTARview"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] - 4 then controls["SIDSTARview"] =
-        values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] - 4 end
+      if controls["SIDSTARview"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] - 4 then
+        controls["SIDSTARview"] =
+            values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] - 4
+      end
     elseif values["SIDSTARsel"][name .. "TRANS"] == nil then
       if controls[page .. "select"] == 0 then
         controls[page .. "select"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"]
       elseif controls[page .. "select"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] then
         controls[page .. "select"] = 1
       end
-      if controls["SIDSTARview"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] - 4 then controls["SIDSTARview"] =
-        values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] - 4 end
+      if controls["SIDSTARview"] > values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] - 4 then
+        controls["SIDSTARview"] =
+            values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] - 4
+      end
     else
       if controls[page .. "select"] == 0 then
         controls[page .. "select"] = values["SIDSTARsel"]["num"] + 1
@@ -5961,11 +5991,15 @@ function WPTpage(types, mode, subpage)
         controls[page .. "select"] = 1
       end
       if controls[page .. "select"] < values["SIDSTARsel"]["num"] then
-        if controls["SIDSTARview"] > values["SIDSTARsel"]["num"] - 3 then controls["SIDSTARview"] = values["SIDSTARsel"]
-          ["num"] - 3 end
+        if controls["SIDSTARview"] > values["SIDSTARsel"]["num"] - 3 then
+          controls["SIDSTARview"] = values["SIDSTARsel"]
+              ["num"] - 3
+        end
       else
-        if controls["SIDSTARview"] > values["SIDSTARsel"]["num"] - 4 then controls["SIDSTARview"] = values["SIDSTARsel"]
-          ["num"] - 4 end
+        if controls["SIDSTARview"] > values["SIDSTARsel"]["num"] - 4 then
+          controls["SIDSTARview"] = values["SIDSTARsel"]
+              ["num"] - 4
+        end
       end
     end
     if controls["SIDSTARview"] < 0 then controls["SIDSTARview"] = 0 end
@@ -6033,9 +6067,9 @@ function WPTpage(types, mode, subpage)
       bline[1] = bline[1] .. " " .. highlightchar(waypoint[1]["ident"], controls[page .. "CRSRchar"])
     else
       bline[1] = bline[1] ..
-      " " ..
-      makelength(string.gsub(string.sub(waypoint[1]["ident"], controls[page .. "CRSRchar"], typeslength), " ", "#"),
-        typeslength, 1)
+          " " ..
+          makelength(string.gsub(string.sub(waypoint[1]["ident"], controls[page .. "CRSRchar"], typeslength), " ", "#"),
+            typeslength, 1)
     end
   elseif controls[page .. "select"] == 2 and subpage ~= 70 and subpage ~= 71 and subpage ~= 80 then
     if controls["SCAN"] == 0 then
@@ -6043,7 +6077,7 @@ function WPTpage(types, mode, subpage)
     else
       -- we do this if we scan!
       bline[2] = bline[2] ..
-      makelength(string.gsub(string.sub(waypoint[1]["name1"], controls[page .. "CRSRchar"], 11), " ", "#"), 11, 1)
+          makelength(string.gsub(string.sub(waypoint[1]["name1"], controls[page .. "CRSRchar"], 11), " ", "#"), 11, 1)
     end
   end
 
@@ -6126,9 +6160,9 @@ function WPTpage(types, mode, subpage)
                     if TRANSident ~= values["SIDSTAR"][name][SIDident]["TRANS"][values["SIDSTAR"][name][SIDident]["TRANS"]["num"]] then
                       --we generate a new transition
                       values["SIDSTAR"][name][SIDident]["TRANS"]["num"] = values["SIDSTAR"][name][SIDident]["TRANS"]
-                      ["num"] + 1
+                          ["num"] + 1
                       values["SIDSTAR"][name][SIDident]["TRANS"][values["SIDSTAR"][name][SIDident]["TRANS"]["num"]] =
-                      TRANSident
+                          TRANSident
                       values["SIDSTAR"][name][SIDident]["TRANS"][TRANSident] = {}
                       values["SIDSTAR"][name][SIDident]["TRANS"][TRANSident]["num"] = 0
                     end
@@ -6214,9 +6248,9 @@ function WPTpage(types, mode, subpage)
                   if TRANSident ~= values["SIDSTAR"][name][SIDident]["TRANS"][values["SIDSTAR"][name][SIDident]["TRANS"]["num"]] then
                     --we generate a new transition
                     values["SIDSTAR"][name][SIDident]["TRANS"]["num"] = values["SIDSTAR"][name][SIDident]["TRANS"]
-                    ["num"] + 1
+                        ["num"] + 1
                     values["SIDSTAR"][name][SIDident]["TRANS"][values["SIDSTAR"][name][SIDident]["TRANS"]["num"]] =
-                    TRANSident
+                        TRANSident
                     values["SIDSTAR"][name][SIDident]["TRANS"][TRANSident] = {}
                     values["SIDSTAR"][name][SIDident]["TRANS"][TRANSident]["num"] = 0
                   end
@@ -6452,13 +6486,13 @@ function WPTpage(types, mode, subpage)
       if waypoint["length"] > 0 then
         if waypoint[1]["USR"] == 0 then
           gline[3] = gline[3] .. waypoint[1]["name2"]
-          gline[4] = gline[4]       --.. waypoint[1]["name2"]
+          gline[4] = gline[4] --.. waypoint[1]["name2"]
           gline[5] = gline[5] .. convertLatLon(waypoint[1]["lat"], 0)
           gline[6] = gline[6] .. convertLatLon(waypoint[1]["lon"], 1)
         end
         --nearestlist
       elseif waypoint["length"] == -1 then
-        if waypoint[1]["USR"] == 1 then       --fix to usr airports not shown correctly in nearest list and nil errors
+        if waypoint[1]["USR"] == 1 then --fix to usr airports not shown correctly in nearest list and nil errors
           gline[2] = gline[2] .. "USER APT"
           gline[4] = string.format("%s %s' %s", gline[4], waypoint[1]["LRWY"], waypoint[1]["surface"])
           gline[5] = string.format("%s     %03d*to", string.sub(gline[5], 0, 12),
@@ -6572,22 +6606,22 @@ function WPTpage(types, mode, subpage)
       if waypoint["length"] ~= 0 then
         if waypoint[1]["USR"] == 0 then
           gline[3] = gline[3] ..
-          RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["number1"] ..
-          "/" ..
-          RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["number2"] ..
-          "  " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["light"]
+              RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["number1"] ..
+              "/" ..
+              RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["number2"] ..
+              "  " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["light"]
           gline[4] = gline[4] ..
-          makelength(RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["length"], 6, 1) ..
-          "' " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["surf"]
+              makelength(RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["length"], 6, 1) ..
+              "' " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2 - 1]["surf"]
           if waypoint[1]["RWYs"] >= (subpage - 30) * 2 then
             gline[5] = gline[5] ..
-            RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["number1"] ..
-            "/" ..
-            RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["number2"] ..
-            "  " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["light"]
+                RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["number1"] ..
+                "/" ..
+                RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["number2"] ..
+                "  " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["light"]
             gline[6] = gline[6] ..
-            makelength(RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["length"], 6, 1) ..
-            "' " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["surf"]
+                makelength(RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["length"], 6, 1) ..
+                "' " .. RWYtable[waypoint[1]["ident"]][(subpage - 30) * 2]["surf"]
           end
         else
           gline[3] = gline[3] .. "RWY LEN"
@@ -6719,8 +6753,8 @@ function WPTpage(types, mode, subpage)
             while line <= 5 do
               if controls["SIDSTARview"] + line - 2 <= values["SIDSTAR"][name]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
-                " " .. makelength(values["SIDSTAR"][name][controls["SIDSTARview"] + line - 2], 8, 0)
+                    makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
+                    " " .. makelength(values["SIDSTAR"][name][controls["SIDSTARview"] + line - 2], 8, 0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 2 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. string.gsub(string.sub(gline[line], 13, 23), " ", "#")
                 end
@@ -6729,8 +6763,8 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 4 <= values["SIDSTAR"][name]["num"] then
               gline[6] = gline[6] ..
-              makelength(values["SIDSTAR"][name]["num"], 2, 1) ..
-              " " .. makelength(values["SIDSTAR"][name][values["SIDSTAR"][name]["num"]], 8, 0)
+                  makelength(values["SIDSTAR"][name]["num"], 2, 1) ..
+                  " " .. makelength(values["SIDSTAR"][name][values["SIDSTAR"][name]["num"]], 8, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 4 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[6] = bline[6] .. string.gsub(string.sub(gline[6], 13, 23), " ", "#")
               end
@@ -6746,10 +6780,11 @@ function WPTpage(types, mode, subpage)
             while line <= 5 do
               if controls["SIDSTARview"] + line - 2 <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
-                " " ..
-                makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][controls["SIDSTARview"] + line - 2],
-                  5, 0)
+                    makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
+                    " " ..
+                    makelength(
+                      values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"][controls["SIDSTARview"] + line - 2],
+                      5, 0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 2 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. string.gsub(string.sub(gline[line], 13, 23), " ", "#")
                 end
@@ -6758,11 +6793,11 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 4 <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"] then
               gline[6] = gline[6] ..
-              makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"], 2, 1) ..
-              " " ..
-              makelength(
-              values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]
-              [values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"]], 5, 0)
+                  makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"], 2, 1) ..
+                  " " ..
+                  makelength(
+                    values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]
+                    [values["SIDSTAR"][name][values["SIDSTARsel"][name]]["RWY"]["num"]], 5, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 4 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[6] = bline[6] .. string.gsub(string.sub(gline[6], 13, 23), " ", "#")
               end
@@ -6778,10 +6813,11 @@ function WPTpage(types, mode, subpage)
             while line <= 5 do
               if controls["SIDSTARview"] + line - 2 <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
-                " " ..
-                makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"][controls["SIDSTARview"] + line - 2],
-                  5, 0)
+                    makelength(controls["SIDSTARview"] + line - 2, 2, 1) ..
+                    " " ..
+                    makelength(
+                      values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"][controls["SIDSTARview"] + line - 2],
+                      5, 0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 2 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. string.gsub(string.sub(gline[line], 13, 23), " ", "#")
                 end
@@ -6790,11 +6826,11 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 4 <= values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] then
               gline[6] = gline[6] ..
-              makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"], 2, 1) ..
-              " " ..
-              makelength(
-              values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]
-              [values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"]], 5, 0)
+                  makelength(values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"], 2, 1) ..
+                  " " ..
+                  makelength(
+                    values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]
+                    [values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"]], 5, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 4 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[6] = bline[6] .. string.gsub(string.sub(gline[6], 13, 23), " ", "#")
               end
@@ -6809,8 +6845,8 @@ function WPTpage(types, mode, subpage)
             while line <= 4 do
               if controls["SIDSTARview"] + line - 1 <= values["SIDSTARsel"]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
-                " " .. makelength(values["SIDSTARsel"][controls["SIDSTARview"] + line - 1]["ident"], 8, 0)
+                    makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
+                    " " .. makelength(values["SIDSTARsel"][controls["SIDSTARview"] + line - 1]["ident"], 8, 0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 1 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. string.gsub(string.sub(gline[line], -11), " ", "#")
                 end
@@ -6819,8 +6855,8 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 4 <= values["SIDSTARsel"]["num"] then
               gline[5] = gline[5] ..
-              makelength(values["SIDSTARsel"]["num"], 2, 1) ..
-              " " .. makelength(values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["ident"], 8, 0)
+                  makelength(values["SIDSTARsel"]["num"], 2, 1) ..
+                  " " .. makelength(values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["ident"], 8, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 4 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[5] = bline[5] .. string.gsub(string.sub(gline[5], 13, 23), " ", "#")
               end
@@ -6909,12 +6945,13 @@ function WPTpage(types, mode, subpage)
             while line <= 5 do
               if controls["SIDSTARview"] + line - 1 <= values["SIDSTAR"]["APP"]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
-                " " ..
-                makelength(
-                appname(values["SIDSTAR"]["APP"][controls["SIDSTARview"] + line - 1],
-                  values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"][controls["SIDSTARview"] + line - 1]]["RWY"][1], 0), 8,
-                  0)
+                    makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
+                    " " ..
+                    makelength(
+                      appname(values["SIDSTAR"]["APP"][controls["SIDSTARview"] + line - 1],
+                        values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"][controls["SIDSTARview"] + line - 1]]["RWY"][1],
+                        0), 8,
+                      0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 1 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. string.gsub(string.sub(gline[line], -11), " ", "#")
                 end
@@ -6923,19 +6960,20 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 5 <= values["SIDSTAR"]["APP"]["num"] then
               gline[6] = gline[6] ..
-              makelength(values["SIDSTAR"]["APP"]["num"], 2, 1) ..
-              " " ..
-              makelength(
-              appname(values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"]["num"]],
-                values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"]["num"]]]["RWY"][1], 0), 8, 0)
+                  makelength(values["SIDSTAR"]["APP"]["num"], 2, 1) ..
+                  " " ..
+                  makelength(
+                    appname(values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"]["num"]],
+                      values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"][values["SIDSTAR"]["APP"]["num"]]]["RWY"][1], 0),
+                    8, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 5 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[6] = bline[6] .. string.gsub(string.sub(gline[6], 13, 23), " ", "#")
               end
             end
           elseif values["SIDSTARsel"]["APPTRANS"] == nil then
             gline[1] = string.sub(gline[1], 1, 12) ..
-            appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
-            "-" .. waypoint[1]["ident"]
+                appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
+                "-" .. waypoint[1]["ident"]
 
             local line = 2
             while line <= 5 do
@@ -6945,11 +6983,12 @@ function WPTpage(types, mode, subpage)
                   iaf = "IAF"
                 end
                 gline[line] = gline[line] ..
-                iaf ..
-                makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
-                " " ..
-                makelength(
-                values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"][controls["SIDSTARview"] + line - 1], 5, 0)
+                    iaf ..
+                    makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
+                    " " ..
+                    makelength(
+                      values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"][controls["SIDSTARview"] + line - 1],
+                      5, 0)
                 if controls["rselect"] == controls["SIDSTARview"] + line - 1 and controls[CRSR] == 1 and values["flash"] == 1 then
                   bline[line] = bline[line] .. "   " .. string.gsub(string.sub(gline[line], -8), " ", "#")
                 end
@@ -6959,26 +6998,26 @@ function WPTpage(types, mode, subpage)
 
             if controls["SIDSTARview"] + 5 <= values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"] then
               gline[6] = gline[6] ..
-              "   " ..
-              makelength(values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"], 2, 1) ..
-              " " ..
-              makelength(
-              values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]
-              [values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"]], 5, 0)
+                  "   " ..
+                  makelength(values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"], 2, 1) ..
+                  " " ..
+                  makelength(
+                    values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]
+                    [values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"]], 5, 0)
               if controls["rselect"] == controls["SIDSTARview"] + 5 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[6] = bline[6] .. "   " .. string.gsub(string.sub(gline[6], 16, 23), " ", "#")
               end
             end
           elseif values["SIDSTARsel"]["stat"] == 0 then
             gline[1] = string.sub(gline[1], 1, 12) ..
-            appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
-            "-" .. waypoint[1]["ident"]
+                appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
+                "-" .. waypoint[1]["ident"]
             local line = 2
             while line <= 4 do
               if controls["SIDSTARview"] + line - 1 <= values["SIDSTARsel"]["num"] then
                 gline[line] = gline[line] ..
-                makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
-                " " .. makelength(values["SIDSTARsel"][controls["SIDSTARview"] + line - 1]["ident"], 5, 0)
+                    makelength(controls["SIDSTARview"] + line - 1, 2, 1) ..
+                    " " .. makelength(values["SIDSTARsel"][controls["SIDSTARview"] + line - 1]["ident"], 5, 0)
                 if controls["SIDSTARview"] + line - 1 == values["SIDSTARsel"]["MAP"] then
                   gline[line] = gline[line] .. string.char(31) .. "  "
                 elseif controls["SIDSTARview"] + line == values["SIDSTARsel"]["MAP"] then
@@ -6996,9 +7035,9 @@ function WPTpage(types, mode, subpage)
             end
             if controls["SIDSTARview"] + 4 <= values["SIDSTARsel"]["num"] then
               gline[5] = gline[5] ..
-              makelength(values["SIDSTARsel"]["num"], 2, 1) ..
-              " " ..
-              makelength(values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["ident"], 5, 0) .. string.char(30) .. "  "
+                  makelength(values["SIDSTARsel"]["num"], 2, 1) ..
+                  " " ..
+                  makelength(values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["ident"], 5, 0) .. string.char(30) .. "  "
               if controls["rselect"] == controls["SIDSTARview"] + 4 and controls[CRSR] == 1 and values["flash"] == 1 then
                 bline[5] = bline[5] .. string.gsub(string.sub(gline[5], 13, 23), " ", "#")
               end
@@ -7009,8 +7048,8 @@ function WPTpage(types, mode, subpage)
             end
           elseif values["SIDSTARsel"]["stat"] == 2 then
             gline[1] = string.sub(gline[1], 1, 12) ..
-            appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
-            "-" .. waypoint[1]["ident"]
+                appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
+                "-" .. waypoint[1]["ident"]
             gline[2] = gline[2] .. "PRESS ENT"
             gline[3] = gline[3] .. "TO REPLACE"
             gline[4] = gline[4] .. "EXISTING"
@@ -7021,8 +7060,8 @@ function WPTpage(types, mode, subpage)
             end
           elseif values["SIDSTARsel"]["stat"] == 3 then
             gline[1] = string.sub(gline[1], 1, 12) ..
-            appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
-            "-" .. waypoint[1]["ident"]
+                appname(values["SIDSTARsel"]["APP"], values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["RWY"][1], 1) ..
+                "-" .. waypoint[1]["ident"]
             gline[2] = gline[2] .. "PRESS ENT"
             gline[3] = gline[3] .. "TO ADD " .. waypoint[1]["ident"]
             gline[4] = gline[4] .. "AND APPR TO"
@@ -7068,7 +7107,7 @@ function WPTpage(types, mode, subpage)
         end
 
         gline[4] = gline[4] ..
-        string.sub(waypoint[1]["freq"], 1, 3) .. "." .. string.sub(waypoint[1]["freq"], 4, 5) .. magvar
+            string.sub(waypoint[1]["freq"], 1, 3) .. "." .. string.sub(waypoint[1]["freq"], 4, 5) .. magvar
         if values["VORpage"]["length"] > 0 then
           gline[5] = gline[5] .. convertLatLon(waypoint[1]["lat"], 0)
           gline[6] = gline[6] .. convertLatLon(waypoint[1]["lon"], 1)
@@ -7082,7 +7121,7 @@ function WPTpage(types, mode, subpage)
         gline[3] = gline[3] .. "          U"
         if controls[page .. "select"] == 3 then
           gline[4] = gline[4] ..
-          string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 5)
+              string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 5)
           if waypoint[1]["magvar"] == "__" then
             gline[4] = gline[4] .. " __*_"
           elseif tonumber(waypoint[1]["magvar"]) < 0 then
@@ -7091,15 +7130,16 @@ function WPTpage(types, mode, subpage)
             gline[4] = gline[4] .. makelength(waypoint[1]["magvar"], 3, 1) .. "*E"
           end
           bline[4] = bline[4] ..
-          string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 5)
+              string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 5)
         elseif controls[page .. "select"] == 4 then
           gline[4] = gline[4] ..
-          string.sub(waypoint[1]["freq"], 1, 3) ..
-          "." ..
-          string.sub(waypoint[1]["freq"], 4, 5) ..
-          " " .. string.sub(values[page .. "gstring"], 1, 2) .. "*" .. string.sub(values[page .. "gstring"], 3, 3)
+              string.sub(waypoint[1]["freq"], 1, 3) ..
+              "." ..
+              string.sub(waypoint[1]["freq"], 4, 5) ..
+              " " .. string.sub(values[page .. "gstring"], 1, 2) .. "*" .. string.sub(values[page .. "gstring"], 3, 3)
           bline[4] = bline[4] ..
-          "       " .. string.sub(values[page .. "bstring"], 1, 2) .. "*" .. string.sub(values[page .. "bstring"], 3, 3)
+              "       " ..
+              string.sub(values[page .. "bstring"], 1, 2) .. "*" .. string.sub(values[page .. "bstring"], 3, 3)
         else
           gline[4] = gline[4] .. string.sub(waypoint[1]["freq"], 1, 3) .. "." .. string.sub(waypoint[1]["freq"], 4, 5)
 
@@ -7134,12 +7174,14 @@ function WPTpage(types, mode, subpage)
       else
         if controls[page .. "select"] == 3 then
           gline[4] = gline[4] ..
-          "FREQ " .. string.sub(values[page .. "gstring"], 1, 4) .. "." .. string.sub(values[page .. "gstring"], 5, 5)
+              "FREQ " ..
+              string.sub(values[page .. "gstring"], 1, 4) .. "." .. string.sub(values[page .. "gstring"], 5, 5)
           bline[4] = bline[4] ..
-          "     " .. string.sub(values[page .. "bstring"], 1, 4) .. "." .. string.sub(values[page .. "bstring"], 5, 5)
+              "     " ..
+              string.sub(values[page .. "bstring"], 1, 4) .. "." .. string.sub(values[page .. "bstring"], 5, 5)
         else
           gline[4] = gline[4] ..
-          "FREQ " .. string.sub(waypoint[1]["freq"], 1, 4) .. "." .. string.sub(waypoint[1]["freq"], 5, 5)
+              "FREQ " .. string.sub(waypoint[1]["freq"], 1, 4) .. "." .. string.sub(waypoint[1]["freq"], 5, 5)
         end
       end
     end
@@ -7150,10 +7192,10 @@ function WPTpage(types, mode, subpage)
     end
   elseif types == 3 or types == 4 or types == 5 then
     --no nearestlist!
-    if types == 4 and waypoint["length"] == 0 then       --was commented
+    if types == 4 and waypoint["length"] == 0 then --was commented
       values["statusmessage"] = "NO#SUP#WPTS"
-      values["statustimer"] = 1                          --was 5 but too long
-    end                                                  --to here
+      values["statustimer"] = 1                    --was 5 but too long
+    end                                            --to here
     if waypoint["length"] ~= 0 then
       if controls[page .. "select"] == 3 then
         gline[2] = gline[2] .. "REF:  " .. values[page .. "gstring"]
@@ -7168,8 +7210,8 @@ function WPTpage(types, mode, subpage)
         if values["CALC3timer"] > 3 then
           values["INTref"] = closestVOR(waypoint[1]["lat"], waypoint[1]["lon"])
           values["INTdist"] = makelength(
-          math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) *
-          10), 4, 1)
+            math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) *
+              10), 4, 1)
           values["INTrad"] = string.format("%04d",
             course(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) * 10)
         end
@@ -7177,30 +7219,31 @@ function WPTpage(types, mode, subpage)
         gline[3] = gline[3] .. "RAD: ___._*"
         gline[4] = gline[4] .. "DIS:___._nm"
         values["INTdist"] = makelength(
-        math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) *
-        10), 4, 1)
+          math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) *
+            10), 4, 1)
         values["INTrad"] = string.format("%04d",
           course(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) * 10)
       else
         if controls[page .. "select"] == 4 then
           gline[3] = gline[3] ..
-          "RAD: " ..
-          string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 4) .. "*"
+              "RAD: " ..
+              string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 4) .. "*"
           bline[3] = bline[3] ..
-          "     " .. string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 4)
+              "     " ..
+              string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 4)
         else
           gline[3] = gline[3] ..
-          "RAD: " .. string.sub(values["INTrad"], 1, 3) .. "." .. string.sub(values["INTrad"], 4, 4) .. "*"
+              "RAD: " .. string.sub(values["INTrad"], 1, 3) .. "." .. string.sub(values["INTrad"], 4, 4) .. "*"
         end
         if controls[page .. "select"] == 5 then
           gline[4] = gline[4] ..
-          "DIS:" ..
-          string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 4) .. "nm"
+              "DIS:" ..
+              string.sub(values[page .. "gstring"], 1, 3) .. "." .. string.sub(values[page .. "gstring"], 4, 4) .. "nm"
           bline[4] = bline[4] ..
-          "    " .. string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 4)
+              "    " .. string.sub(values[page .. "bstring"], 1, 3) .. "." .. string.sub(values[page .. "bstring"], 4, 4)
         else
           gline[4] = gline[4] ..
-          "DIS:" .. string.sub(values["INTdist"], 1, 3) .. "." .. string.sub(values["INTdist"], 4, 4) .. "nm"
+              "DIS:" .. string.sub(values["INTdist"], 1, 3) .. "." .. string.sub(values["INTdist"], 4, 4) .. "nm"
         end
       end
       if waypoint[1]["USR"] == 0 then
@@ -8287,7 +8330,7 @@ function update()
     local dist = distance(FPlan[0]["APPAPT"]["lat"], FPlan[0]["APPAPT"]["lon"], values["GPSlat"], values["GPSlon"])
 
     if get(APR) == 0 then
-      if dist <= 30 and dist > 29.5 then           --and toto == 0 then -- patch toto 30072014
+      if dist <= 30 and dist > 29.5 then --and toto == 0 then -- patch toto 30072014
         set(APR, 1)
         table.insert(values["MSGLIST"], 1, "")
         table.insert(values["MSGLIST"], 1, "PRESS ALT TO SET BARO")
@@ -8392,7 +8435,7 @@ function update()
     --the ident tells it's direct
     new["ident"] = "     "
     local cour = values["HSIOBS"] - 180 -
-    get(MAGVARin)
+        get(MAGVARin)
     --For VORs, we use the published magvar.
     if values["activeWPT"][2]["types"] == 1 and get(GPSmode) == 2 then
       cour = values["HSIOBS"] - 180 + values["activeWPT"][2]["magvar"]
@@ -8416,7 +8459,7 @@ function update()
       new["ident"] = "    $"
 
       local cour = values["HSIOBS"] - 180 -
-      get(MAGVARin)
+          get(MAGVARin)
       --For VORs, we use the published magvar.
       if values["activeWPT"][2]["types"] == 1 and get(GPSmode) == 2 then
         cour = values["HSIOBS"] - 180 + values["activeWPT"][2]["magvar"]
@@ -8452,7 +8495,6 @@ function update()
       --else we rejoin the FPLN normally
       activateFPLN0()
     end
-
   elseif get(OBSreq) == 2 then
     set(OBSreq, 0)
     if values["activeWPT"]["length"] >= 2 then
@@ -8680,7 +8722,7 @@ function update()
     end
 
     values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
-    ["zone"])
+      ["zone"])
 
     if controls["rselect"] == 2 then
       bline[3] = string.format("                    %s", values["time"]["zonename"])
@@ -8700,7 +8742,7 @@ function update()
           values["time"]["zonename"])
       else
         gline[3] = string.format("OBS IN %03d*|%s:%02d%s", values["HSIOBS"], values["rgstring"], values["time"]
-        ["second"], values["time"]["zonename"])
+          ["second"], values["time"]["zonename"])
       end
       bline[3] = "            " .. values["rbstring"]
     else
@@ -8804,13 +8846,13 @@ function update()
     gline[1]            = "     INTERNATIONAL"
     gline[7]            = "     "
 
-    local month2 = string.sub(nav_cycle, 15, 17)
-    local days = tonumber(string.sub(nav_cycle, 13, 14))
-    local year2 = tonumber(string.sub(nav_cycle, 19, 20))
+    local month2        = string.sub(nav_cycle, 15, 17)
+    local days          = tonumber(string.sub(nav_cycle, 13, 14))
+    local year2         = tonumber(string.sub(nav_cycle, 19, 20))
 
-    days2 = monthstodays(month2, days)
-    local days3 = monthstodays(numbertomonth(values["date"]["month"]), values["date"]["days"])
-    local expired = 0
+    days2               = monthstodays(month2, days)
+    local days3         = monthstodays(numbertomonth(values["date"]["month"]), values["date"]["days"])
+    local expired       = 0
     if year2 < values["date"]["year"] then
       expired = 1
     elseif year2 == values["date"]["year"] and days2 < days3 then
@@ -8878,7 +8920,7 @@ function update()
       controls["rCRSR"] = 0
     end
   end
-  
+
   --Lpage begins here
 
   --This is the TRI page
@@ -9138,7 +9180,7 @@ function update()
           if (math.abs(SWC) > 1) then
           else
             values["TRI1SPD"] = round(values["TRI0TAS"] * math.sqrt(1 - SWC ^ 2) -
-            values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
+              values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
           end
         end
 
@@ -9195,8 +9237,9 @@ function update()
         gline[2] = "ESA -----ft|"
       else
         gline[2] = "ESA " ..
-        getMSA(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"], values["TRI1"][2]["lat"], values["TRI1"][2]["lon"]) ..
-        "ft|"
+            getMSA(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"], values["TRI1"][2]["lat"], values["TRI1"][2]
+            ["lon"]) ..
+            "ft|"
       end
       gline[3] = "           |"
       gline[4] = "           |"
@@ -9342,7 +9385,7 @@ function update()
           if (math.abs(SWC) > 1) then
           else
             values["TRI3SPD"] = round(values["TRI0TAS"] * math.sqrt(1 - SWC ^ 2) -
-            values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
+              values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
           end
         end
 
@@ -9414,8 +9457,9 @@ function update()
         gline[2] = "ESA -----ft|"
       else
         gline[2] = "ESA " ..
-        getMSA(values["TRI3"][1]["lat"], values["TRI3"][1]["lon"], values["TRI3"][2]["lat"], values["TRI3"][2]["lon"]) ..
-        "ft|"
+            getMSA(values["TRI3"][1]["lat"], values["TRI3"][1]["lon"], values["TRI3"][2]["lat"], values["TRI3"][2]
+            ["lon"]) ..
+            "ft|"
       end
       gline[3] = "           |"
       gline[4] = "           |"
@@ -9561,14 +9605,14 @@ function update()
           bline[1] = "            "
         end
         gline[2] = FPlan[values["TRI5num"]][1]["ident"] ..
-        "-" .. FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["ident"] .. "|"
+            "-" .. FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["ident"] .. "|"
         if values["TRI5SPD"] == -1 then
           local SWC = (values["TRI0WSpeed"] / values["TRI0TAS"]) * sin((values["TRI0WHead"] - crs) * pi / 180)
 
           if (math.abs(SWC) > 1) then
           else
             values["TRI5SPD"] = round(values["TRI0TAS"] * math.sqrt(1 - SWC ^ 2) -
-            values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
+              values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
           end
         end
 
@@ -10451,12 +10495,14 @@ function update()
           if WPTnum == FPlan[lsubpage[3] / 10]["APPstart"] then
             if WPTnum == values["activeWPT"]["active"] and controls["lCRSRchar"] == 0 and controls["FPLstate"] == 0 and values["activeWPT"][1]["ident"] ~= "    $" and values["activeWPT"][1]["ident"] ~= "     " then
               gline[line] = '"' ..
-              makelength(FPlan[lsubpage[3] / 10]["APPident"] .. "-" .. FPlan[lsubpage[3] / 10]["APPAPT"]["ident"], 10, 0) ..
-              "|"
+                  makelength(FPlan[lsubpage[3] / 10]["APPident"] .. "-" .. FPlan[lsubpage[3] / 10]["APPAPT"]["ident"], 10,
+                    0) ..
+                  "|"
             else
               gline[line] = " " ..
-              makelength(FPlan[lsubpage[3] / 10]["APPident"] .. "-" .. FPlan[lsubpage[3] / 10]["APPAPT"]["ident"], 10, 0) ..
-              "|"
+                  makelength(FPlan[lsubpage[3] / 10]["APPident"] .. "-" .. FPlan[lsubpage[3] / 10]["APPAPT"]["ident"], 10,
+                    0) ..
+                  "|"
             end
             if controls["lselect"] == controls["lview"] + line and controls["lCRSR"] == 1 then
               if controls["FPLstate"] == 1 then
@@ -10510,15 +10556,15 @@ function update()
                     end
                   else
                     gline[line] = FplanArrows(line, WPTnum) ..
-                    makelength(WPTnum, 2, 1) .. dot .. values["lgstring"] .. suffix(WPTnum, lsubpage[3]) .. " |"
+                        makelength(WPTnum, 2, 1) .. dot .. values["lgstring"] .. suffix(WPTnum, lsubpage[3]) .. " |"
                     bline[line] = "    " .. values["lbstring"] .. suffix(WPTnum, lsubpage[3]) .. "  "
                   end
                 else
                   bline[line] = "            "
                   if WPTnum <= FPlan[lsubpage[3] / 10]["length"] then
                     gline[line] = FplanArrows(line, WPTnum) ..
-                    makelength(WPTnum, 2, 1) ..
-                    dot .. FPlan[lsubpage[3] / 10][WPTnum]["ident"] .. suffix(WPTnum, lsubpage[3]) .. " |"
+                        makelength(WPTnum, 2, 1) ..
+                        dot .. FPlan[lsubpage[3] / 10][WPTnum]["ident"] .. suffix(WPTnum, lsubpage[3]) .. " |"
                   elseif WPTnum == FPlan[lsubpage[3] / 10]["length"] + 1 then
                     gline[line] = " " .. makelength(WPTnum, 2, 1) .. ":       |"
                   else
@@ -10551,12 +10597,12 @@ function update()
       end
     else
       bline[6] = "            "
-      if controls["lview"] + 5 <= maxlen and FPlan[lsubpage[3] / 10][FPlan[lsubpage[3] / 10]] ~= nil then                                                                           --fix for error on fpl deletion
+      if controls["lview"] + 5 <= maxlen and FPlan[lsubpage[3] / 10][FPlan[lsubpage[3] / 10]] ~= nil then --fix for error on fpl deletion
         gline[6] = FplanArrows(6) ..
-        makelength(FPlan[lsubpage[3] / 10]["length"], 2, 1) ..
-        ":" ..
-        FPlan[lsubpage[3] / 10][FPlan[lsubpage[3] / 10]["length"]]["ident"] ..
-        "  |"                                                                                                                                                                       --errors if active fplan deleted while in obs --no bad efects observed
+            makelength(FPlan[lsubpage[3] / 10]["length"], 2, 1) ..
+            ":" ..
+            FPlan[lsubpage[3] / 10][FPlan[lsubpage[3] / 10]["length"]]["ident"] ..
+            "  |" --errors if active fplan deleted while in obs --no bad efects observed
       elseif controls["lview"] + 5 == maxlen + 1 then
         gline[6] = " " .. makelength(WPTnum + 1, 2, 1) .. ":       |"
       else
@@ -10657,8 +10703,8 @@ function update()
         gline[3] = string.format("%s%03d*fr|", values["REFVOR"]["ident"],
           round(course(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"])))
         gline[4] = "     " ..
-        dynaround(distance(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"]), 4) ..
-        "nm|"
+            dynaround(distance(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"]), 4) ..
+            "nm|"
         gline[5] = convertLatLon(values["GPSlat"], 0) .. "|"
         gline[6] = convertLatLon(values["GPSlon"], 1) .. "|"
       else
@@ -10785,8 +10831,8 @@ function update()
           end
         else
           gline[6] = "ESA " ..
-          getMSA(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"]) ..
-          "ft|"
+              getMSA(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"]) ..
+              "ft|"
         end
       end
     elseif lsubpage[4] == 40 then
@@ -10932,9 +10978,9 @@ function update()
           values["VNVANG"] = " 0.0"
         else
           values["VNVANG"] = makelength(
-          float(
-          -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
-          (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
+            float(
+              -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
+                (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
         end
       elseif values["VNVstat"][0] == 1 then
         if values["VNVstat"][2] == -1 then
@@ -11033,7 +11079,7 @@ function update()
           gline[6] = strin .. "   " .. makelength(num2range(values["NAV5RNG2"]), 4, 1) .. "|"
         else
           gline[6] = string.format("%03d*   %s", values["NAV5ORI2"], makelength(num2range(values["NAV5RNG2"]), 4, 1)) ..
-          "|"
+              "|"
         end
         if controls["lselect"] == 0 and controls["lCRSR"] == 1 then
           bline[6] = string.gsub(strin, " ", "#") .. "        "
@@ -11482,11 +11528,12 @@ function update()
 
       --We blank gline 3, as we assume that HDG input is there, because it's available on OTH9
       local WS = math.sqrt((values["cal2TAS"] / 1.94384 - values["GPSSPD"]) ^ 2 +
-      4 * (values["cal2TAS"] / 1.94384 * values["GPSSPD"]) * (sin((get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) / 2)) ^
-      2)
+        4 * (values["cal2TAS"] / 1.94384 * values["GPSSPD"]) *
+        (sin((get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) / 2)) ^
+        2)
       local WD = values["GPSTRK"] * pi / 180 +
-      math.atan2(values["cal2TAS"] / 1.94384 * sin(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180),
-        values["cal2TAS"] / 1.94384 * cos(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) - values["GPSSPD"])
+          math.atan2(values["cal2TAS"] / 1.94384 * sin(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180),
+            values["cal2TAS"] / 1.94384 * cos(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) - values["GPSSPD"])
 
       local HW = (WS) * cos(WD - (get(PSIin) * pi / 180))
 
@@ -11568,7 +11615,8 @@ function update()
             x = string2value(string.sub(values["cal4ANG"], y, y)) - 1
             if x < 1 then x = 10 end
             values["cal4ANG"] = replaceChar(values["cal4ANG"], y, value2string(x))
-            values["cal4FPM"] = makelength(round((values["cal4GS"] * 6076 / 60) * math.tan(values["cal4ANG"] * pi / 180),
+            values["cal4FPM"] = makelength(
+            round((values["cal4GS"] * 6076 / 60) * math.tan(values["cal4ANG"] * pi / 180),
               -2), 4, 2)
           end
           controls["lknobs"] = 0
@@ -11597,7 +11645,8 @@ function update()
             x = string2value(string.sub(values["cal4ANG"], y, y)) + 1
             if x > 10 then x = 1 end
             values["cal4ANG"] = replaceChar(values["cal4ANG"], y, value2string(x))
-            values["cal4FPM"] = makelength(round((values["cal4GS"] * 6076 / 60) * math.tan(values["cal4ANG"] * pi / 180),
+            values["cal4FPM"] = makelength(
+            round((values["cal4GS"] * 6076 / 60) * math.tan(values["cal4ANG"] * pi / 180),
               -2), 4, 2)
           end
           controls["lknobs"] = 0
@@ -11945,7 +11994,7 @@ function update()
         controls["lselect"] = 0
       end
       values["suntime"]["zonename"], values["suntime"]["zonediff"], values["suntime"]["sunzonenamel"] = timezone(values
-      ["sunzone"])
+        ["sunzone"])
 
       if controls["lCRSR"] == 1 and controls["lselect"] == 0 then
         gline[2] = "WPT: " .. values["lgstring"] .. " |"
@@ -12018,7 +12067,7 @@ function update()
           gline[line] = "           |"
         else
           gline[line] = string.format("%s%02d%s %02d %02d*|", values["GPSSAT"][line - 2][0], values["GPSSAT"][line - 2]
-          [1], values["GPSSAT"][line - 2][2], values["GPSSAT"][line - 2][3], values["GPSSAT"][line - 2][4])
+            [1], values["GPSSAT"][line - 2][2], values["GPSSAT"][line - 2][3], values["GPSSAT"][line - 2][4])
         end
         line = line + 1
       end
@@ -12038,7 +12087,7 @@ function update()
           gline[line] = "           |"
         else
           gline[line] = string.format("%s%02d%s %02d %02d*|", values["GPSSAT"][line + 4][0], values["GPSSAT"][line + 4]
-          [1], values["GPSSAT"][line + 4][2], values["GPSSAT"][line + 4][3], values["GPSSAT"][line + 4][4])
+            [1], values["GPSSAT"][line + 4][2], values["GPSSAT"][line + 4][3], values["GPSSAT"][line + 4][4])
         end
         line = line + 1
       end
@@ -12277,7 +12326,7 @@ function update()
       end
 
       values["RAIMtime"]["zonename"], values["RAIMtime"]["zonediff"], values["RAIMtime"]["zonenamel"] = timezone(values
-      ["RAIMtime"]["zone"])
+        ["RAIMtime"]["zone"])
 
       gline[1] = "RAIM STATUS|"
       if controls["lselect"] == 0 and controls["lCRSR"] == 1 then
@@ -12352,7 +12401,6 @@ function update()
       end
     end
   elseif lpage == 7 then
-
     --This is the SET0 page
     if lsubpage[7] == 0 then
       if controls["lCRSR"] == 0 then
@@ -12704,7 +12752,7 @@ function update()
       gline[1] = " DATE/TIME |"
       gline[2] = "           |"
       values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
-      ["zone"])
+        ["zone"])
 
       if controls["lCRSR"] == 1 and controls["lselect"] == 0 then
         gline[3] = "  " .. values["lgstring"] .. "|"
@@ -12826,7 +12874,7 @@ function update()
       bline[2] = "            "
       bline[3] = "            "
       bline[5] = "            "
-      
+
       --This is the SET4 page
     elseif lsubpage[7] == 40 then
       if controls["lCRSR"] == 1 then
@@ -13821,7 +13869,7 @@ function update()
       if values["activeWPT"]["length"] >= 2 then
         local REQ = distanceFPLN(values["activeWPT"], 2, values["activeWPT"]["length"], 0)
         local endurance = get(FuelTOT) /
-        (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
+            (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
         if endurance > 356400 or endurance < 0 then
           gline[3] = "REQD  -----|"
           gline[4] = "L FOB -----|"
@@ -13837,7 +13885,7 @@ function update()
             gline[3] = "REQD" .. makelength(round(REQ * multi), 7, 1) .. "|"
             gline[4] = "L FOB" .. makelength(round((get(FuelTOT) - REQ) * multi), 6, 1) .. "|"
             gline[6] = "EXTRA" .. makelength(round((get(FuelTOT) - REQ) * multi - tonumber(values["reserve"])), 6, 1) ..
-            "|"
+                "|"
           end
         end
       else
@@ -13920,7 +13968,7 @@ function update()
       end
       --this is how many seconds we can run
       local endurance = (get(FuelTOT) - tonumber(values["reserve"]) / multi) /
-      (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
+          (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
 
       if endurance > 356400 or endurance < 0 then
         gline[3] = " ENDUR -:--|"
@@ -14029,9 +14077,9 @@ function update()
         gline[5] = "           |"
         gline[6] = string.format("     %s|",
           makelength(
-          makelength(
-          round((get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8)) *
-          3600 * multi), 5, 0), 6, 1))
+            makelength(
+              round((get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8)) *
+                3600 * multi), 5, 0), 6, 1))
       end
       gline[7] = "OTH 7"
 
@@ -14108,8 +14156,8 @@ function update()
         gline[5] = "           |"
         gline[6] = string.format("     %s|",
           makelength(
-          round((values["fuelused1"] + values["fuelused2"] + values["fuelused3"] + values["fuelused4"] + values["fuelused5"] + values["fuelused6"] + values["fuelused7"] + values["fuelused8"]) *
-          multi), 6, 1))
+            round((values["fuelused1"] + values["fuelused2"] + values["fuelused3"] + values["fuelused4"] + values["fuelused5"] + values["fuelused6"] + values["fuelused7"] + values["fuelused8"]) *
+              multi), 6, 1))
       end
       gline[7] = "OTH 8"
 
@@ -14126,10 +14174,10 @@ function update()
       gline[3] = string.format("MACH    .%s|", string.sub(float(get(MACHin), 2), 3, 4))
 
       local WS = math.sqrt((get(TASin) - values["GPSSPD"]) ^ 2 +
-      4 * (get(TASin) * values["GPSSPD"]) * (sin((get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) / 2)) ^ 2)
+        4 * (get(TASin) * values["GPSSPD"]) * (sin((get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) / 2)) ^ 2)
       local WD = values["GPSTRK"] * pi / 180 +
-      math.atan2(get(TASin) * sin(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180),
-        get(TASin) * cos(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) - values["GPSSPD"])
+          math.atan2(get(TASin) * sin(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180),
+            get(TASin) * cos(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) - values["GPSSPD"])
       local HW = (WS) * cos(WD - (get(PSIin) * pi / 180))
       WD = WD * 180 / pi + get(MAGVARin)
 
@@ -14210,7 +14258,7 @@ function update()
   end
 
   --Rpage begins here
-  
+
   --This is the CTR page
   if not (lpage == 7 and lsubpage[7] < 10) and not (lpage == 6 and lsubpage[6] == 40 and controls["lCRSR"] == 1) then
     if rpage == 1 then
@@ -14251,7 +14299,8 @@ function update()
             local crs23 = courseFPLN(FPlan[lsubpage[3] / 10], near) * pi / 180
             local crs13 = crs23 + 0.5 * pi
 
-            local dst12 = 2 * asin(sqrt((sin((lat1 - lat2) / 2)) ^ 2 + cos(lat1) * cos(lat2) * sin((lon1 - lon2) / 2) ^ 2))
+            local dst12 = 2 *
+            asin(sqrt((sin((lat1 - lat2) / 2)) ^ 2 + cos(lat1) * cos(lat2) * sin((lon1 - lon2) / 2) ^ 2))
             local crs12 = 0
             local crs21 = 0
 
@@ -14313,7 +14362,7 @@ function update()
               --The ref will be the entered WPT
               values["INTref"] = values["reditvalue"][1]
               values["INTdist"] = makelength(
-              math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], WPT[1]["lat"], WPT[1]["lon"]) * 10),
+                math.floor(distance(values["INTref"]["lat"], values["INTref"]["lon"], WPT[1]["lat"], WPT[1]["lon"]) * 10),
                 4, 1)
               values["INTrad"] = string.format("%04d",
                 course(values["INTref"]["lat"], values["INTref"]["lon"], WPT[1]["lat"], WPT[1]["lon"]) * 10)
@@ -14322,16 +14371,16 @@ function update()
               table.insert(FPlan[lsubpage[3] / 10], near, {})
               FPlan[lsubpage[3] / 10][near]["ident"] = "     "
 
-              FPlan[lsubpage[3] / 10]["length"]    = FPlan[lsubpage[3] / 10]["length"] + 1
+              FPlan[lsubpage[3] / 10]["length"]      = FPlan[lsubpage[3] / 10]["length"] + 1
 
-              controls["lselect"]                  = near + 1
-              controls["lCRSR"]                    = 1
-              controls["lCRSRchar"]                = 5
-              values["leditvalue"]                 = WPT
-              values["leditstate"]                 = 3
+              controls["lselect"]                    = near + 1
+              controls["lCRSR"]                      = 1
+              controls["lCRSRchar"]                  = 5
+              values["leditvalue"]                   = WPT
+              values["leditstate"]                   = 3
               --The WPT is handed over to the left (FPLN), we don't need it on the right anymore.
-              values["reditstate"]                 = 0
-              controls["rCRSRchar"]                = 0
+              values["reditstate"]                   = 0
+              controls["rCRSRchar"]                  = 0
             end
           end
         else
@@ -14412,8 +14461,8 @@ function update()
                           if FPlan[0][WPTnum]["ident"] ~= "     " then
                             local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], WPTnum, 0)
                             gline[line] = string.sub(gline[line], 1, 12) ..
-                            makelength(makelength(round(dist), 3, 1), 4, 0) ..
-                            "  " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
+                                makelength(makelength(round(dist), 3, 1), 4, 0) ..
+                                "  " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                           else
                             stop = 1
                           end
@@ -14423,7 +14472,7 @@ function update()
                       if WPTnum <= FPlan[lsubpage[3] / 10]["length"] then
                         if FPlan[lsubpage[3] / 10][WPTnum]["ident"] ~= "     " then
                           gline[line] = string.sub(gline[line], 1, 12) ..
-                          makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, WPTnum, 1)), 3, 1)
+                              makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, WPTnum, 1)), 3, 1)
                         end
                       else
                         stop = 1
@@ -14461,13 +14510,14 @@ function update()
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)
                   gline[6] = string.sub(gline[6], 1, 12) ..
-                  makelength(makelength(round(dist), 3, 1), 4, 0) ..
-                  "  " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
+                      makelength(makelength(round(dist), 3, 1), 4, 0) ..
+                      "  " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                 end
               else
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.sub(gline[6], 1, 12) ..
-                  makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3, 1)
+                      makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3,
+                        1)
                 end
               end
             end
@@ -14476,10 +14526,10 @@ function update()
           if values["activeWPT"] ~= nil and values["activeWPT"][1] ~= nil and values["activeWPT"]["active"] >= 2 and values["activeWPT"][1]["ident"] ~= "" then
             if get(WPTalert) == 1 and values["flash"] == 0 then
               gline[1] = gline[1] ..
-              "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             else
               gline[1] = gline[1] ..
-              " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             end
 
             local dist = distance(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"],
@@ -14493,8 +14543,8 @@ function update()
             end
             if dest > 2 then
               gline[4] = gline[4] ..
-              "  " .. makelength(dest + values["activeWPT"]["active"] - 2, 2, 1) ..
-              " " .. values["activeWPT"][dest]["ident"]
+                  "  " .. makelength(dest + values["activeWPT"]["active"] - 2, 2, 1) ..
+                  " " .. values["activeWPT"][dest]["ident"]
               dist = distanceFPLN(values["activeWPT"], 2, dest, 0)
               gline[5] = gline[5] .. "DIS  " .. makelength(makelength(round(dist), 3, 1), 4, 0) .. "NM"
               gline[6] = gline[6] .. "ETE   " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
@@ -14518,7 +14568,7 @@ function update()
           end
 
           values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
-          ["zone"])
+            ["zone"])
 
 
           gline[1] = gline[1] .. "DIS     " .. values["time"]["zonename"]
@@ -14562,8 +14612,8 @@ function update()
                           if FPlan[0][WPTnum]["ident"] ~= "     " then
                             local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], WPTnum, 0)
                             gline[line] = string.sub(gline[line], 1, 12) ..
-                            makelength(makelength(round(dist), 3, 1), 4, 0) ..
-                            "  " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600)
+                                makelength(makelength(round(dist), 3, 1), 4, 0) ..
+                                "  " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                           else
                             stop = 1
                           end
@@ -14573,7 +14623,7 @@ function update()
                       if WPTnum <= FPlan[lsubpage[3] / 10]["length"] then
                         if FPlan[lsubpage[3] / 10][WPTnum]["ident"] ~= "     " then
                           gline[line] = string.sub(gline[line], 1, 12) ..
-                          makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, WPTnum, 1)), 3, 1)
+                              makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, WPTnum, 1)), 3, 1)
                         end
                       else
                         stop = 1
@@ -14611,13 +14661,14 @@ function update()
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)
                   gline[6] = string.sub(gline[6], 1, 12) ..
-                  makelength(makelength(round(dist), 3, 1), 4, 0) ..
-                  "  " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600)
+                      makelength(makelength(round(dist), 3, 1), 4, 0) ..
+                      "  " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                 end
               else
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.sub(gline[6], 1, 12) ..
-                  makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3, 1)
+                      makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3,
+                        1)
                 end
               end
             end
@@ -14626,28 +14677,28 @@ function update()
           if values["activeWPT"] ~= nil and values["activeWPT"][1] ~= nil and values["activeWPT"]["active"] >= 2 and values["activeWPT"][1]["ident"] ~= "" then
             if get(WPTalert) == 1 and values["flash"] == 0 then
               gline[1] = gline[1] ..
-              "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             else
               gline[1] = gline[1] ..
-              " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             end
             local dist = distance(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"],
               values["activeWPT"][2]["lon"])
             gline[2] = gline[2] .. "DIS  " .. makelength(makelength(round(dist), 3, 1), 4, 0) .. "NM"
             gline[3] = gline[3] ..
-            "   " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600) .. values["time"]["zonename"]
+                "   " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600) .. values["time"]["zonename"]
             local dest = values["activeWPT"]["length"]
             if FPlan[0]["APPstart"] < 50 and values["activeWPT"]["active"] <= FPlan[0]["APPMAP"] then
               dest = FPlan[0]["APPMAP"] - values["activeWPT"]["active"] + 1
             end
             if dest > 2 then
               gline[4] = gline[4] ..
-              "  " .. makelength(dest + values["activeWPT"]["active"] - 2, 2, 1) ..
-              " " .. values["activeWPT"][dest]["ident"]
+                  "  " .. makelength(dest + values["activeWPT"]["active"] - 2, 2, 1) ..
+                  " " .. values["activeWPT"][dest]["ident"]
               dist = distanceFPLN(values["activeWPT"], 2, dest, 0)
               gline[5] = gline[5] .. "DIS  " .. makelength(makelength(round(dist), 3, 1), 4, 0) .. "NM"
               gline[6] = gline[6] ..
-              "   " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600) .. values["time"]["zonename"]
+                  "   " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600) .. values["time"]["zonename"]
             end
           end
         end
@@ -14692,7 +14743,7 @@ function update()
                           if FPlan[0][WPTnum]["ident"] ~= "     " then
                             gline[line] = string.format("%s%s   %03d*", string.sub(gline[line], 1, 12),
                               makelength(
-                              makelength(round(distanceFPLN(FPlan[0], values["activeWPT"]["active"], WPTnum, 0)), 3, 1),
+                                makelength(round(distanceFPLN(FPlan[0], values["activeWPT"]["active"], WPTnum, 0)), 3, 1),
                                 4, 0), round(courseFPLN(FPlan[0], WPTnum)))
                           else
                             stop = 1
@@ -14738,15 +14789,16 @@ function update()
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   gline[6] = string.format("%s%s   %03d*", string.sub(gline[6], 1, 12),
                     makelength(
-                    makelength(round(distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)), 3, 1),
+                      makelength(round(distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)), 3,
+                        1),
                       4, 0), round(courseFPLN(FPlan[0], FPlan[0]["length"])))
                 end
               else
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.format("%s%s   %03d*", string.sub(gline[6], 1, 12),
                     makelength(
-                    makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3,
-                      1), 4, 0), round(courseFPLN(FPlan[lsubpage[3] / 10], FPlan[lsubpage[3] / 10]["length"])))
+                      makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3,
+                        1), 4, 0), round(courseFPLN(FPlan[lsubpage[3] / 10], FPlan[lsubpage[3] / 10]["length"])))
                 end
               end
             end
@@ -14755,10 +14807,10 @@ function update()
           if values["activeWPT"] ~= nil and values["activeWPT"][1] ~= nil and values["activeWPT"]["active"] >= 2 and values["activeWPT"][1]["ident"] ~= "" then
             if get(WPTalert) == 1 and values["flash"] == 0 then
               gline[1] = gline[1] ..
-              "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  "  " .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             else
               gline[1] = gline[1] ..
-              " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
+                  " =" .. makelength(values["activeWPT"]["active"], 2, 1) .. " " .. values["activeWPT"][2]["ident"]
             end
             local dist = distance(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"],
               values["activeWPT"][2]["lon"])
@@ -14766,7 +14818,7 @@ function update()
             gline[3] = string.format("%sDTK    %03d*", gline[3], round(values["DTK"]))
             if values["activeWPT"]["length"] >= 3 then
               gline[4] = gline[4] ..
-              "  " .. makelength(values["activeWPT"]["active"] + 1, 2, 1) .. " " .. values["activeWPT"][3]["ident"]
+                  "  " .. makelength(values["activeWPT"]["active"] + 1, 2, 1) .. " " .. values["activeWPT"][3]["ident"]
               dist = distanceFPLN(values["activeWPT"], 2, 3, 0)
               gline[5] = gline[5] .. "DIS  " .. makelength(makelength(round(dist), 3, 1), 4, 0) .. "NM"
               gline[6] = string.format("%sDTK    %03d*", gline[6], round(courseFPLN(values["activeWPT"], 3)))
@@ -14789,7 +14841,7 @@ function update()
         end
 
         values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
-        ["zone"])
+          ["zone"])
         local dest = values["activeWPT"]["length"]
         if FPlan[0]["APPstart"] < 50 and values["activeWPT"]["active"] <= FPlan[0]["APPMAP"] and values["activeWPT"][1]["ident"] ~= "     " then
           dest = FPlan[0]["APPMAP"] - values["activeWPT"]["active"] + 1
@@ -14826,9 +14878,10 @@ function update()
         gline[3] = gline[3] .. string.format("TIME  %02d:%02d", hour2, values["time"]["minute"])
         if values["activeWPT"]["length"] > 1 then
           gline[4] = gline[4] ..
-          "ETA   " .. FplnETA(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
+              "ETA   " .. FplnETA(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
           gline[6] = gline[6] ..
-          "ETE   " .. convtime(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
+              "ETE   " ..
+              convtime(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
         else
           gline[4] = gline[4] .. "ETA   --:--"
           gline[6] = gline[6] .. "ETE   --:--"
@@ -14867,20 +14920,20 @@ function update()
           else
             if get(WPTalert) == 1 and values["flash"] == 0 then
               gline[1] = "      " ..
-              values["activeWPT"][1]["ident"] ..
-              " " .. values["activeWPT"][2]["ident"] .. suffix(values["activeWPT"]["active"], 0)
+                  values["activeWPT"][1]["ident"] ..
+                  " " .. values["activeWPT"][2]["ident"] .. suffix(values["activeWPT"]["active"], 0)
             else
               gline[1] = "      " ..
-              values["activeWPT"][1]["ident"] ..
-              "=" .. values["activeWPT"][2]["ident"] .. suffix(values["activeWPT"]["active"], 0)
+                  values["activeWPT"][1]["ident"] ..
+                  "=" .. values["activeWPT"][2]["ident"] .. suffix(values["activeWPT"]["active"], 0)
             end
 
             values["scaleline"] = scale(values["XTK"], values["scalefactor"], values["tofrom"])
             gline[2] = ""
             gline[3] = ""
             gline[4] = "DIS  " ..
-            dynaround(values["dist"], 4) ..
-            "nm   ETE " .. convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600)
+                dynaround(values["dist"], 4) ..
+                "nm   ETE " .. convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600)
             gline[5] = gline[5] .. string.format("   BRG  %03d*", round(values["bearing"]))
             gline[6] = ""
 
@@ -14929,12 +14982,12 @@ function update()
           end
 
           gline[3] = gline[3] ..
-          string.format("%s%03d*fr", values["REFVOR"]["ident"],
-            round(course(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"])))
+              string.format("%s%03d*fr", values["REFVOR"]["ident"],
+                round(course(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"])))
           gline[4] = gline[4] ..
-          "     " ..
-          dynaround(distance(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"]), 4) ..
-          "nm"
+              "     " ..
+              dynaround(distance(values["REFVOR"]["lat"], values["REFVOR"]["lon"], values["GPSlat"], values["GPSlon"]), 4) ..
+              "nm"
           gline[5] = gline[5] .. convertLatLon(values["GPSlat"], 0)
           gline[6] = gline[6] .. convertLatLon(values["GPSlon"], 1)
         else
@@ -14947,7 +15000,7 @@ function update()
         gline[7] = gline[7] .. "NAV 2"
       elseif rsubpage[5] == 30 then
         gline[5] = gline[5] ..
-        "MSA " .. getMSA(values["GPSlat"], values["GPSlon"], values["GPSlat"], values["GPSlon"]) .. "ft"
+            "MSA " .. getMSA(values["GPSlat"], values["GPSlon"], values["GPSlat"], values["GPSlon"]) .. "ft"
         gline[7] = gline[7] .. "NAV 3"
 
         if values["GPSSPD"] > 1 then
@@ -15046,9 +15099,9 @@ function update()
             end
           else
             gline[6] = gline[6] ..
-            "ESA " ..
-            getMSA(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"]) ..
-            "ft"
+                "ESA " ..
+                getMSA(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"]) ..
+                "ft"
           end
         end
       elseif rsubpage[5] == 40 then
@@ -15192,9 +15245,9 @@ function update()
             values["VNVANG"] = " 0.0"
           else
             values["VNVANG"] = makelength(
-            float(
-            -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
-            (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
+              float(
+                -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
+                  (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
           end
         elseif values["VNVstat"][0] == 1 then
           if values["VNVstat"][2] == -1 then
@@ -15406,7 +15459,7 @@ function update()
                   gline[5] = "èé-:--|"
                 else
                   gline[5] = "èé" ..
-                  string.sub(convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600), 2, 5) .. "|"
+                      string.sub(convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600), 2, 5) .. "|"
                 end
               end
             elseif string.sub(values["NAV5LNS"], 1, 1) == "2" then
@@ -16343,9 +16396,9 @@ function update()
         values["VNVANG"] = " 0.0"
       else
         values["VNVANG"] = makelength(
-        float(
-        -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
-        (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
+          float(
+            -math.atan((IndALT - values["VNVSEL"]) * 0.000164578834 /
+              (distanceFPLN(values["activeWPT"], 2, WPTnum, 0) - values["VNVOFFS"])) / pi * 180, 1), 4, 1)
       end
     elseif values["VNVstat"][0] == 1 then
       if values["VNVstat"][2] == -1 then
@@ -16955,9 +17008,9 @@ function update()
         timediff = 1000
       else
         local time1 = (((monthstodays(values["date"]["month"], values["date"]["days"]) * 24 + values["time"]["hour"]) * 60) + values["time"]["minute"]) *
-        60 + values["time"]["second"]
+            60 + values["time"]["second"]
         local time2 = (((monthstodays(get(monthin), get(dayin)) * 24 + get(hourin)) * 60) + get(minutein)) * 60 +
-        get(secondin)
+            get(secondin)
 
         timediff = time1 - time2
       end
@@ -17008,9 +17061,9 @@ function update()
             values["GPSSAT"][values["GPSnum"]][5] = math.random(-10800, 10800)
             values["GPSSAT"][values["GPSnum"]][6] = math.random(0, 90)
             values["GPSSAT"][values["GPSnum"]][4] = -(10 / 12960000) * values["GPSSAT"][values["GPSnum"]][5] ^ 2 +
-            values["GPSSAT"][values["GPSnum"]][6]
+                values["GPSSAT"][values["GPSnum"]][6]
             values["GPSSAT"][values["GPSnum"]][3] = -(10 / (2332800 * (100000 / (values["GPSSAT"][values["GPSnum"]][7] ^ 2)))) *
-            values["GPSSAT"][values["GPSnum"]][5] ^ 2 + values["GPSSAT"][values["GPSnum"]][7]
+                values["GPSSAT"][values["GPSnum"]][5] ^ 2 + values["GPSSAT"][values["GPSnum"]][7]
             table.sort(values["GPSSAT"],
               function(a, b)
                 a = a[1]
@@ -17033,7 +17086,7 @@ function update()
           values["GPSSAT"][GPSnum][5] = values["GPSSAT"][GPSnum][5] + passed
           values["GPSSAT"][GPSnum][4] = -(10 / 12960000) * values["GPSSAT"][GPSnum][5] ^ 2 + values["GPSSAT"][GPSnum][6]
           values["GPSSAT"][GPSnum][3] = -(10 / (2332800 * (100000 / (values["GPSSAT"][GPSnum][7] ^ 2)))) *
-          values["GPSSAT"][GPSnum][5] ^ 2 + values["GPSSAT"][GPSnum][7]
+              values["GPSSAT"][GPSnum][5] ^ 2 + values["GPSSAT"][GPSnum][7]
         end
       end
       GPSnum = GPSnum + 1
@@ -17122,25 +17175,25 @@ function update()
 
           if get(GPSmode) == 1 then
             values["XTK"] = asin(sin(distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
-              values["GPSlat"], values["GPSlon"]) * pi / 10800) *
-            sin((course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["GPSlat"], values["GPSlon"]) - course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])) *
-            pi / 180)) / pi * -10800
+                values["GPSlat"], values["GPSlon"]) * pi / 10800) *
+              sin((course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["GPSlat"], values["GPSlon"]) - course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])) *
+                pi / 180)) / pi * -10800
             --DTK doesn't change over great distances, therefore I need to calculate an interm point on the route to recalculate the DTK from that point.
             local deslat = 0
             local deslon = 0
 
             local f1 = -values["dist"] /
-            distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"],
-              values["activeWPT"][2]["lon"]) + 1
+                distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"],
+                  values["activeWPT"][2]["lon"]) + 1
 
             deslat, deslon = intermediat(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
               values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"], f1)
             values["DTK"] = course(deslat, deslon, values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
           else
             values["XTK"] = asin(sin(distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
-              values["GPSlat"], values["GPSlon"]) * pi / 10800) *
-            sin((course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["GPSlat"], values["GPSlon"]) - course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])) *
-            pi / 180)) / pi * -10800
+                values["GPSlat"], values["GPSlon"]) * pi / 10800) *
+              sin((course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["GPSlat"], values["GPSlon"]) - course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])) *
+                pi / 180)) / pi * -10800
           end
 
           if values["primary"] == 1 then
