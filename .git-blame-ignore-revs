@@ -1,0 +1,7 @@
+# To use this file
+#     git config blame.ignoreRevsFile .git-blame-ignore-revs
+# This makes formatting-only changes transparent to git blame
+# For more info: https://akrabat.com/ignoring-revisions-with-git-blame/
+
+# Run code through Lua autoformatter
+118214caa6bfac7064c77001e222560469ecb4bc
