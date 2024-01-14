@@ -106,17 +106,17 @@ local Wtex = sasl.gl.loadImage("KLNmap.dds", 133, 21, 5, 7)
 local Xtex = sasl.gl.loadImage("KLNmap.dds", 139, 21, 5, 7)
 local Ytex = sasl.gl.loadImage("KLNmap.dds", 145, 21, 5, 7)
 local Ztex = sasl.gl.loadImage("KLNmap.dds", 151, 21, 5, 7)
-local ötex = sasl.gl.loadImage("KLNmap.dds", 157, 21, 5, 7)
-local ö0tex = sasl.gl.loadImage("KLNmap.dds", 1, 13, 5, 7)
-local ö1tex = sasl.gl.loadImage("KLNmap.dds", 7, 13, 5, 7)
-local ö2tex = sasl.gl.loadImage("KLNmap.dds", 13, 13, 5, 7)
-local ö3tex = sasl.gl.loadImage("KLNmap.dds", 19, 13, 5, 7)
-local ö4tex = sasl.gl.loadImage("KLNmap.dds", 25, 13, 5, 7)
-local ö5tex = sasl.gl.loadImage("KLNmap.dds", 31, 13, 5, 7)
-local ö6tex = sasl.gl.loadImage("KLNmap.dds", 37, 13, 5, 7)
-local ö7tex = sasl.gl.loadImage("KLNmap.dds", 43, 13, 5, 7)
-local ö8tex = sasl.gl.loadImage("KLNmap.dds", 49, 13, 5, 7)
-local ö9tex = sasl.gl.loadImage("KLNmap.dds", 55, 13, 5, 7)
+local spacetex = sasl.gl.loadImage("KLNmap.dds", 157, 21, 5, 7)
+local digit0tex = sasl.gl.loadImage("KLNmap.dds", 1, 13, 5, 7)
+local digit1tex = sasl.gl.loadImage("KLNmap.dds", 7, 13, 5, 7)
+local digit2tex = sasl.gl.loadImage("KLNmap.dds", 13, 13, 5, 7)
+local digit3tex = sasl.gl.loadImage("KLNmap.dds", 19, 13, 5, 7)
+local digit4tex = sasl.gl.loadImage("KLNmap.dds", 25, 13, 5, 7)
+local digit5tex = sasl.gl.loadImage("KLNmap.dds", 31, 13, 5, 7)
+local digit6tex = sasl.gl.loadImage("KLNmap.dds", 37, 13, 5, 7)
+local digit7tex = sasl.gl.loadImage("KLNmap.dds", 43, 13, 5, 7)
+local digit8tex = sasl.gl.loadImage("KLNmap.dds", 49, 13, 5, 7)
+local digit9tex = sasl.gl.loadImage("KLNmap.dds", 55, 13, 5, 7)
 
 --most of these should be local but hitting 60 upval limit for function update()
 defineProperty("scale_line", createGlobalPropertys("custom/KLN90/scale_line", " "));
@@ -2412,25 +2412,25 @@ function string2tex(tables, strings, x, y, size)
       elseif strings_loc == "Z" then
         file = get(Ztex)
       elseif strings_loc == "0" then
-        file = get(ö0tex)
+        file = get(digit0tex)
       elseif strings_loc == "1" then
-        file = get(ö1tex)
+        file = get(digit1tex)
       elseif strings_loc == "2" then
-        file = get(ö2tex)
+        file = get(digit2tex)
       elseif strings_loc == "3" then
-        file = get(ö3tex)
+        file = get(digit3tex)
       elseif strings_loc == "4" then
-        file = get(ö4tex)
+        file = get(digit4tex)
       elseif strings_loc == "5" then
-        file = get(ö5tex)
+        file = get(digit5tex)
       elseif strings_loc == "6" then
-        file = get(ö6tex)
+        file = get(digit6tex)
       elseif strings_loc == "7" then
-        file = get(ö7tex)
+        file = get(digit7tex)
       elseif strings_loc == "8" then
-        file = get(ö8tex)
+        file = get(digit8tex)
       elseif strings_loc == "9" then
-        file = get(ö9tex)
+        file = get(digit9tex)
       end
 
       table.insert(tables, textureLit2 {
