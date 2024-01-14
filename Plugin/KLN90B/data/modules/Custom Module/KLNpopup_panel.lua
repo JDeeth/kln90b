@@ -3,20 +3,11 @@
 addSearchPath(sasl.getXPlanePath() .. "/Resources/bitmaps/interface")
 local bg = sasl.gl.loadImage("KLNpopup.dds", 0, 0, 64, 64)
 
-
---defineProperty("KLN90popupvisible", globalPropertyi("sim/custom/xap/KLN90pop/visible"))
---defineProperty("MD41visible", globalPropertyi("sim/custom/xap/MD41/visible"))
---defineProperty("KLN90visible", globalPropertyi("sim/custom/xap/KLN90/visible"))
-
-
-
 components = {
-
   texture {
     position = { 0, 0, size[1], size[2] },
     image = get(bg),
   },
-
 
   clickable {
     position = { 0, 28, 64, 26 },

@@ -30,7 +30,6 @@ components = {
 	},
 }
 
-
 KLN90B = contextWindow {
 	name         = "KLN90B",
 	position     = { 50, 50, 898, 296 },
@@ -206,8 +205,9 @@ KLNPanel = contextWindow {
 	}
 }
 
+-- for all commands phase equals: 0 on press; 1 while holding; 2 on release
 KLNc_command = sasl.createCommand("custom/KLN90/Toggle_KLN_90B_Panel", "KLN90visible")
-function KLNc_handler(phase) -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNc_handler(phase)
 	if 0 == phase then
 		if KLN90B:isVisible() then
 			KLN90B:setIsVisible(false)
@@ -217,11 +217,10 @@ function KLNc_handler(phase) -- for all commands phase equals: 0 on press; 1 whi
 	end
 	return false
 end
-
 sasl.registerCommandHandler(KLNc_command, 0, KLNc_handler)
 
 KLNDISPc_command = sasl.createCommand("custom/KLN90/Toggle_KLN_90B_Display", "KLN90DISPLAYvisible")
-function KLNDISPc_handler(phase) -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNDISPc_handler(phase)
 	if 0 == phase then
 		if KLN90B_DISPLAY:isVisible() then
 			KLN90B_DISPLAY:setIsVisible(false)
@@ -231,11 +230,10 @@ function KLNDISPc_handler(phase) -- for all commands phase equals: 0 on press; 1
 	end
 	return false
 end
-
 sasl.registerCommandHandler(KLNDISPc_command, 0, KLNDISPc_handler)
 
 MD41c_command = sasl.createCommand("custom/KLN90/Toggle_MD41_Panel", "MD41visible")
-function MD41c_handler(phase) -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function MD41c_handler(phase)
 	if 0 == phase then
 		if MD41:isVisible() then
 			MD41:setIsVisible(false)
@@ -245,9 +243,7 @@ function MD41c_handler(phase) -- for all commands phase equals: 0 on press; 1 wh
 	end
 	return 0
 end
-
 sasl.registerCommandHandler(MD41c_command, 0, MD41c_handler)
-
 
 menu_master = sasl.appendMenuItem(PLUGINS_MENU_ID, "KLN90B/MD41")
 menu_main = sasl.createMenu("", PLUGINS_MENU_ID, menu_master)

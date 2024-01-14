@@ -30,19 +30,8 @@ defineProperty("GPSDMEout", globalPropertyf("sim/cockpit/radios/gps_dme_dist_m")
 defineProperty("GPSDMESPDout", globalPropertyf("sim/cockpit/radios/gps_dme_speed_kts"))
 defineProperty("GPSDMETIMEout", globalPropertyf("sim/cockpit/radios/gps_dme_time_secs"))
 
---defineProperty("GPS2Course", globalPropertyf("sim/cockpit/radios/gps2_course_degtm"))
---defineProperty("GPS2RelBear", globalPropertyf("sim/cockpit/radios/gps2_dir_degt"))
---defineProperty("GPS2nmPdot", globalPropertyf("sim/cockpit/radios/gps2_hdef_nm_per_dot"))
---defineProperty("GPS2hdefout", globalPropertyf("sim/cockpit/radios/gps2_hdef_dot"))
---defineProperty("GPS2fromtoout", globalPropertyi("sim/cockpit/radios/gps2_fromto"))
---defineProperty("GPS2DMEout", globalPropertyf("sim/cockpit/radios/gps2_dme_dist_m"))
---defineProperty("GPS2DMESPDout", globalPropertyf("sim/cockpit/radios/gps2_dme_speed_kts"))
---defineProperty("GPS2DMETIMEout", globalPropertyf("sim/cockpit/radios/gps2_dme_time_secs"))
-
 defineProperty("NAVDMEout", globalPropertyf("sim/cockpit/radios/nav1_dme_dist_m"))
 
---sim/cockpit2/autopilot/bank_angle_mode	int	y	enum	Maximum bank angle mode, 0->6. Higher number is steeper allowable bank.
---sim/cockpit/autopilot/heading_roll_mode	int	y	enum	Bank limit - 0 = auto, 1-6 = 5-30 degrees of bank
 defineProperty("APBankLim", globalPropertyi("sim/cockpit2/autopilot/bank_angle_mode"))
 -----------------------------------------------------------------------------------------
 
@@ -57,7 +46,6 @@ defineProperty("Flash", createGlobalPropertyi("custom/KLN90/Flash", 0))
 -----------------------------------------------------------------------------------
 
 -- Animation datarefs for 3D model --
-
 defineProperty("L_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_L_Angle", 1))
 defineProperty("R_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_R_Angle", 1))
 defineProperty("B_L_Angle_3D", createGlobalPropertyi("custom/KLN90/3D_B_L_Angle", 1))
@@ -67,7 +55,6 @@ defineProperty("power_but", createGlobalPropertyi("custom/KLN90/power_but", 0));
 defineProperty("display_brughtness", createGlobalPropertyf("custom/KLN90/display_brughtness", 0.8));
 
 defineProperty("power", createGlobalPropertyi("custom/KLN90/kln_state", 0))
-
 
 local glass = sasl.gl.loadImage("KLN90.dds", 10, 17, 426, 199)
 local mapplane = sasl.gl.loadImage("KLNmap.dds", 15, 47, 8, 7)
@@ -126,12 +113,7 @@ defineProperty("sim_run_time", globalPropertyf("sim/time/total_running_time_sec"
 defineProperty("HSIsource", globalPropertyi("sim/cockpit2/radios/actuators/HSI_source_select_pilot"))
 
 defineProperty("overrideGPS", globalPropertyi("sim/operation/override/override_gps"))
---defineProperty("GPSglideslope", globalPropertyi("sim/cockpit/radios/gps_has_glideslope"))
---defineProperty("overrideNAV", globalPropertyi("sim/operation/override/override_nav_heading"))
 defineProperty("overrideNAV1", globalPropertyi("sim/operation/override/override_nav1_needles"))
---defineProperty("overrideNAV2", globalPropertyi("sim/operation/override/override_nav2_needles"))
-
---defineProperty("VNAVslope", globalPropertyf("sim/cockpit/radios/gps_slope_degt"))
 
 defineProperty("hourin", globalPropertyi("sim/cockpit2/clock_timer/zulu_time_hours"))
 defineProperty("minutein", globalPropertyi("sim/cockpit2/clock_timer/zulu_time_minutes"))
@@ -164,9 +146,6 @@ FuelFlow7 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 7)
 FuelFlow8 = globalPropertyfae("sim/flightmodel/engine/ENGN_FF_", 8)
 FuelTOT = globalPropertyf("sim/flightmodel/weight/m_fuel_total")
 
---defineProperty("APState", globalPropertyf("sim/cockpit/autopilot/autopilot_state"))
---defineProperty("NavState", globalPropertyf("sim/cockpit2/autopilot/nav_status"))
-
 defineProperty("GPSmode", globalPropertyi("custom/KLN90/OBS"))
 defineProperty("OBSreq", globalPropertyi("custom/MD41/OBSreq"))
 defineProperty("APR", globalPropertyi("custom/KLN90/APR"))
@@ -175,16 +154,11 @@ defineProperty("WPTalert", globalPropertyi("custom/KLN90/WPT"))
 defineProperty("MSGalert", globalPropertyi("custom/KLN90/MSG"))
 defineProperty("Flash", globalPropertyi("custom/KLN90/Flash"))
 
-
 defineProperty("LATin", globalPropertyf("sim/flightmodel/position/latitude"))
 defineProperty("LONin", globalPropertyf("sim/flightmodel/position/longitude"))
 defineProperty("SPEEDin", globalPropertyf("sim/flightmodel/position/groundspeed"))
---defineProperty("COURSEin", globalPropertyf("sim/flightmodel/position/true_psi"))
---defineProperty("BETAin", globalPropertyf("sim/flightmodel/position/beta"))
 defineProperty("PSIin", globalPropertyf("sim/flightmodel2/position/mag_psi"))
 
-
---defineProperty("HPATHin", globalPropertyf("sim/flightmodel/position/hpath"))
 defineProperty("MAGVARin", globalPropertyf("sim/flightmodel/position/magnetic_variation"))
 defineProperty("paused", globalPropertyf("sim/time/paused"))
 defineProperty("simspeed", globalPropertyf("sim/time/sim_speed"))
@@ -227,9 +201,6 @@ rsubpage[100] = 0
 
 local FPlan = {}
 local values = {}
-
---local APT3_Serializer = { }
---local Nav5Comp_Serializer = { }
 
 --0 nothing, 1 controls["MSG"], 2 controls["ENT"]
 values["MSGENT"] = 0
@@ -374,8 +345,6 @@ values["magvar"] = 0
 
 values["GPSlat"] = get(LATin)
 values["GPSlon"] = get(LONin)
---values["oldlat"] = values["GPSlat"]
---values["oldlon"] = values["GPSlon"]
 values["GPSSPD"] = 0
 values["GPSTRK"] = 0
 values["bearing"] = 0
@@ -423,8 +392,6 @@ values["rsbstring"] = " "
 values["lsgstring"] = " "
 values["lsbstring"] = " "
 
-
---values["WPTalert"] = 0
 values["WPTalertdist2"] = 0
 values["XTK"] = 0
 values["dist"] = 0
@@ -607,7 +574,6 @@ values["MSAtable"][72] = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000,
 values["MSAtable"][73] = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1500, 1700, 1900, 2100, 2100, 2300, 2500, 2300, 2000, 1800, 2100, 1200, 1200, 1000, 1200, 1000, 1600, 1800, 1800, 1900, 1500, 1000, 1400, 1300, 1700, 1700, 1800, 2300, 2100, 2400, 2600, 2300, 2300, 2400, 2300, 2000, 2500, 2600, 2800, 2900, 4000, 5300, 5000, 5000, 7300, 7600, 8300, 7700, 5100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2000, 4700, 5900, 8200, 8900, 9600, 9600, 9500, 10000, 10500, 11100, 11300, 11500, 11600, 11900, 12100, 12100, 12300, 12500, 12500, 12300, 12000, 11800, 11400, 11300, 11100, 10500, 10000, 9900, 9000, 9000, 8100, 7300, 7100, 5700, 5000, 3100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 3800, 5000, 4600, 4800, 3000, 1200, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1100, 1600, 2000, 2300, 2100, 2100, 1800, 1900, 1700, 1900, 2200, 2400, 1900, 2500, 2900, 2700, 2900, 3000, 1700, 1600, 1800, 1700, 1700, 1700, 1600, 1700, 1600, 2200, 1600, 1500, 1200, 1300, 1300, 1300, 1300, 1400, 1600, 1800, 1600, 1400, 1400, 1200, 1000, 1100, 1100, 1100, 1100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1500, 1700, 1000, 1000, 1500, 1500, 1700, 1700, 1900, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, }
 values["MSAtable"][74] = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1200, 1600, 2000, 2200, 2000, 1900, 2500, 2300, 2100, 2300, 2100, 2100, 2100, 1900, 1700, 1700, 1300, 1500, 1300, 1000, 1000, 1000, 1000, 1000, 1000, 1100, 1800, 1900, 1500, 1700, 2100, 2100, 1800, 2200, 2400, 2500, 2600, 3300, 3500, 3500, 3500, 3900, 5100, 5100, 4000, 1600, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2900, 3900, 4500, 5800, 8000, 8600, 9500, 9600, 9500, 9900, 10500, 11100, 11300, 11500, 11500, 11600, 11700, 11700, 11700, 11700, 11700, 11500, 11300, 11000, 10500, 10300, 10000, 9600, 9500, 9200, 8700, 8100, 8500, 8600, 8200, 7400, 7000, 5000, 4000, 2200, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1500, 2400, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2300, 3800, 4800, 4600, 4100, 2900, 2100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1600, 1400, 1300, 1300, 1400, 1600, 1800, 2100, 2200, 2600, 2400, 2700, 3000, 3000, 3100, 3700, 2700, 3000, 2900, 3100, 3000, 3000, 2100, 2900, 2400, 3100, 2400, 1700, 1900, 1900, 1700, 1400, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1500, 1400, 1300, 2100, 1700, 1100, 1100, 1200, 1000, 1000, 1000, 1000, 1300, 1200, 1200, 1200, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, }
 
-
 local controls = {}
 controls["lselect"] = 0
 controls["rselect"] = 0
@@ -626,7 +592,6 @@ controls["rknobsangle"] = 0
 controls["lknobsangle"] = 0
 controls["brknobsangle"] = 0
 controls["blknobsangle"] = 0
-
 
 controls["rsCRSRchar"] = 0
 controls["lsCRSRchar"] = 0
@@ -649,7 +614,6 @@ controls["FPLstate"] = 0
 controls["lspage"] = 0
 --1 WPT, 2, create 3 ALT
 controls["rspage"] = 0
-
 
 controls["MSG"] = 0
 controls["ALT"] = 0
@@ -754,7 +718,6 @@ else
   values["baro"] = 1013
   values["cal1baro"] = 1013
 end
-
 
 function numbertomonth(month2)
   local months = "___"
@@ -1293,28 +1256,6 @@ function makelength(strings, lengths, beforeafter)
   return strings
 end
 
--- function makelength(strings, lengths, beforeafter)
-
--- local length = string.len(strings)
-
--- while length < lengths do
--- if beforeafter == 0 then
--- strings = strings .. " "
--- elseif beforeafter == 1 then
--- strings = " " .. strings
--- elseif beforeafter == 2 then
--- if string.find(strings, "-") then
--- strings = "-0" .. string.sub(strings, 2)
-
--- else
--- strings = "0" .. strings
--- end
--- end
--- length = length + 1
--- end
--- return strings
--- end
-
 --to0, from1
 function scale(dev, range, tofrom)
   dev = dev / range
@@ -1324,11 +1265,9 @@ function scale(dev, range, tofrom)
     dev = -1
   end
 
-
   local Scales = "qqqqqiqqqqq"
 
   --calculate here if flag should be shown!
-
 
   if tofrom == 2 then
     Scales = "qqqqqjqqqqq"
@@ -1336,18 +1275,13 @@ function scale(dev, range, tofrom)
 
   --this shows the character to replace (1-11)
   local char = math.floor((dev * 5.5) + 6.5)
-  -- gline[2] = char
   --this is the letter to replace(1-10)
   local letter = math.floor((dev * 55) + 66 - char * 10)
   if char == 12 then
     char = 11
     letter = 10
   end
-  -- gline[3] = letter
-  -- gline[4] = dev
 
-
-  --print(scale, char, letter)
   local a = "q"
   if letter == 1 then
     a = "À"
@@ -1370,7 +1304,6 @@ function scale(dev, range, tofrom)
   elseif letter == 10 then
     a = "É"
   end
-
 
   if char == 6 and tofrom == 1 then
     if letter == 1 then
@@ -1418,10 +1351,6 @@ function scale(dev, range, tofrom)
     end
   end
 
-
-
-
-
   if letter == 10 and char ~= 11 then
     if char == 5 and tofrom == 1 then
       Scales = replaceChar(Scales, char + 1, "Ê")
@@ -1430,15 +1359,11 @@ function scale(dev, range, tofrom)
     else
       Scales = replaceChar(Scales, char + 1, "À")
     end
-    -- gline[7] = "À"
   end
 
-
   Scales = replaceChar(Scales, char, a)
-  --print("1", Scales)
 
   --I need to workaround a Unicode bug
-
   if letter == 1 and char ~= 1 then
     if char == 7 and tofrom == 1 then
       local scales1 = string.sub(Scales, 1, char - 2)
@@ -1453,7 +1378,6 @@ function scale(dev, range, tofrom)
       local scales2 = string.sub(Scales, char)
       Scales = scales1 .. "É" .. scales2
     end
-    --print("2", Scales, scales1, scales2)
   end
 
   return Scales
@@ -1527,7 +1451,6 @@ function reset()
   values["activeWPT"]["length"] = 0
   values["activeWPT"]["active"] = 0
 
-
   values["leditstate"] = 0
   values["reditstate"] = 0
   values["lseditstate"] = 0
@@ -1542,7 +1465,6 @@ function reset()
   values["INTrad"] = "____"
   values["INTdist"] = "____"
   values["soundtest"] = 0
-
 
   values["cal1ind"] = "00000"
   values["cal1temp"] = "000"
@@ -1595,10 +1517,6 @@ function reset()
   values["MSGSTAT"] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
   values["MSGLIST"] = {}
   values["MSGLIST"]["length"] = 0
-  --values["NAV5RNG"] = 0
-  -- values["NAV5LNS"] = "111"
-  --values["NAV5SHOW"] = "0000"
-  --values["NAV5Clut"] = 0
   values["NAV5ORI"] = 0
   values["NAV5DCT"] = {}
   values["NAV5DCT"]["ident"] = "     "
@@ -1661,7 +1579,6 @@ function reset()
   controls["lspage"] = 0
   controls["rspage"] = 0
 
-
   controls["MSG"] = 0
   controls["ALT"] = 0
   controls["DCT"] = 0
@@ -1718,18 +1635,6 @@ function getImage(idx)
     return mappixel
   end
 end
-
---function WrapTextLit(p1, p2, p3, p4, p5 )
---  return "1;"..p1..";"..p2..";"..p3..";"..p4..";"..p5..";"
---end
---
---function WrapLine(p1, p2, p3, p4, p5)
---  return "2;".. round(p1) .. ";" .. round(p2) .. ";" ..round(p3) .. ";" ..round(p4) .. ";" .. p5[1].. ";" .. p5[2]..";"..p5[3].. ";" .. p5[4]
---end
---
---function WrapString2tex(p1, p2, p3, p4)
---  return "3;"..p1..";"..round(p2)..";"..round(p3)..";"..p4[1]..";"..p4[2].. ";" .. p4[3]..";"..p4[4]
---end
 
 function string2value(strings)
   local value = -1
@@ -2043,10 +1948,6 @@ function distance(lat1, lon1, lat2, lon2)
   if lat1 == "_" or lon1 == "_" or lat2 == "_" or lon2 == "_" then
     return 99999
   end
-  -- elseif lat1 == nil or lon1 == nil or lat2 == nil or lon2 == nil then
-  -- return 99999
-  -- end
-
 
   lat1 = lat1 * pi / 180
   lon1 = lon1 * pi / -180
@@ -2061,7 +1962,6 @@ function course(lat1, lon1, lat2, lon2)
   if lat1 == "_" or lon1 == "_" or lat2 == "_" or lon2 == "_" then
     return 0
   end
-  --local magvar = getmagvar(lat1, lon1)
   lat1 = lat1 * pi / 180
   lon1 = lon1 * pi / -180
   lat2 = lat2 * pi / 180
@@ -2092,14 +1992,12 @@ end
 function distanceFPLN(FPLN, start, finish, page)
   local dist = 0
 
-
   if page == 0 then
     if (FPLN[start]) ~= nil then --fix for nil error if no fpl present and select wpt in vnv page
       dist = distance(values["GPSlat"], values["GPSlon"], FPLN[start]["lat"], FPLN[start]["lon"])
     else
       dist = 0
     end
-    --  start = start + 1
   end
 
   while start < finish do
@@ -2185,8 +2083,6 @@ function FMS()
         local dec = string.find(lat, "%.")
         lat = ("0"):rep(3 - dec) .. lat
 
-
-
         local num2 = 1
         while num2 <= 6 do
           local str = string.sub(lat, num2, num2)
@@ -2195,7 +2091,6 @@ function FMS()
           elseif str == "" then
             break
           end                               --workaround error sim/FMS/key_ does not exsist
-          --print(str)
           commandOnce(findCommand("sim/FMS/key_" .. str))
           num2 = num2 + 1
         end
@@ -2260,10 +2155,6 @@ function drawline(tables, x1, y1, x2, y2, size)
       y3 = y2
       y4 = y1
     end
-    -- if y1 < y2 then
-    -- y3 = y2
-    -- y4 = y1
-    -- end
     local climb = (y2 - y1) / (x2 - x1)
 
     y3 = y3 + climb
@@ -2295,15 +2186,10 @@ function drawline(tables, x1, y1, x2, y2, size)
       x3 = x2
       x4 = x1
     end
-    -- if x1 < x2 then
-    -- x3 = x2
-    -- x4 = x1
-    -- end
     local climb = (x2 - x1) / (y2 - y1)
 
     x3 = x3 + climb
     y3 = y3 + 1
-    --print("bb",climb, x1, y3, x2, y2)
     while y3 < y4 do
       if x3 - 0.5 > size[1] and x3 + 0.5 < size[1] + size[3] and y3 - 0.5 > size[2] and y3 + 0.5 < size[2] + size[4] then
         table.insert(tables, textureLit2 {
@@ -2347,7 +2233,6 @@ function string2tex(tables, strings, x, y, size)
   local num2 = 1
   local switchx = { 6, 6, 6, -length / 2, -6 - length, -6 - length, -6 - length, -length / 2, 6 }
   local switchy = { -7, 0, 7, 7, 7, 0, -7, -7, -7 }
-  --print(strings, x, switchx[1], switchx[4], switchx[5], length)
   --we check all eight positions if they are free! (we don't even need to check 9)
   while num2 <= 8 do
     if notoccupied(tables, round(x - 2.5 + switchx[num2]), round(y - 3.5 + switchy[num2]), length) == true and round(x - 2.5 + switchx[num2]) > size[1] and round(x + length + 2.5 + switchx[num2]) < size[1] + size[3] and round(y - 3.5 + switchy[num2]) > size[2] and round(y + 3.5 + switchy[num2]) < size[2] + size[4] then break end
@@ -2673,7 +2558,6 @@ while true do
 
     WPTtable[WPTlength]["name1"], WPTtable[WPTlength]["name2"] = namelines(fields[3])
 
-
     WPTtable[WPTlength]["lat"] = tonumber(fields[4])
     WPTtable[WPTlength]["lon"] = tonumber(fields[5])
     WPTtable[WPTlength]["elev"] = fields[6]
@@ -2692,7 +2576,6 @@ while true do
     WPTtable[WPTlength]["ident"] = makelength(fields[2], 5, 0)
 
     WPTtable[WPTlength]["name1"], WPTtable[WPTlength]["name2"] = namelines(fields[3])
-
 
     WPTtable[WPTlength]["lat"] = tonumber(fields[4])
     WPTtable[WPTlength]["lon"] = tonumber(fields[5])
@@ -2801,7 +2684,6 @@ while true do
     WPTtable[WPTlength]["types"] = 1
     WPTtable[WPTlength]["USR"] = 0
     WPTtable[WPTlength]["ident"] = makelength(fields[1], 5, 0)
-
 
     local name                                                 = fields[2]
     WPTtable[WPTlength]["name1"], WPTtable[WPTlength]["name2"] = namelines(name)
@@ -2958,7 +2840,6 @@ while true do
 end
 file:close()
 
-
 --this list contains all remarks. Pretty cool, eh?
 filename = "Custom Data/KLN90B_Navdata/Remarks.txt"
 file = io.open(filename, "a+")
@@ -2971,10 +2852,8 @@ while true do
   RMKtable[ident][1] = string.sub(line, 7, 17)
   RMKtable[ident][2] = string.sub(line, 19, 29)
   RMKtable[ident][3] = string.sub(line, 31, 41)
-  --print(RMKtable[RMKlength][1])
 end
 file:close()
-
 
 function table.copy(t)
   local t2 = {}
@@ -3014,7 +2893,6 @@ function table.copyi(t)
 end
 
 --this function generates a nice name for approaches
-
 function appname(names, rwy, mode)
   local names2 = ""
   if mode == 0 then
@@ -3148,7 +3026,6 @@ function createSIDSTAR(name)
       elseif waypoint["length"] > 0 then
         if string.sub(waypoint[1]["ident"], 1, 1) == "M" and string.find(waypoint[1]["ident"], string.sub(values["SIDSTARsel"][name .. "RWY"], 3)) ~= nil then
           values["SIDSTARsel"]["MAP"] = values["SIDSTARsel"]["num"] + 1
-          --       print(values["SIDSTARsel"]["MAP"])
         end
         if values["SIDSTARsel"]["MAP"] ~= 100 then
           if num == 1 and values["SIDSTARsel"]["num"] > 0 then
@@ -3187,7 +3064,6 @@ end
 function round(num, idp)
   --workaround for the SASL bug
   local mult = string.format("%f", 10 ^ (idp or 0))
-  --local mult = 10^(idp or 0)
   return math.floor(num * mult + 0.5) / mult
 end
 
@@ -3221,7 +3097,6 @@ end
 function dynaround(num, len)
   local idp = string.find(num, "%.")
   if idp == nil then idp = string.len(num) + 1 end
-  --print(idp)
   if idp > len - 1 then
     num = makelength(round(num), len, 1)
     if string.len(num) > len then
@@ -3249,14 +3124,11 @@ function findnearestleg(num2, lat, lon)
   local distmin = 99999
   while num <= FPlan[0]["length"] do
     local f1 = 0
-    --print(FPlan[0][num-1]["ident"], FPlan[0][num]["ident"])
     local f2 = 5 /
     distance(FPlan[num2 or 0][num - 1]["lat"], FPlan[num2 or 0][num - 1]["lon"], FPlan[num2 or 0][num]["lat"],
       FPlan[num2 or 0][num]["lon"])
-    --print(f2)
     --this increases the accuracy
     if f2 > 0.1 then f2 = 0.1 end
-    --  local f2 = 0.1
     while f1 <= 1 do
       local dist = 99999
       if lat then
@@ -3273,7 +3145,6 @@ function findnearestleg(num2, lat, lon)
       end
       f1 = f1 + f2
     end
-    --local dist = distance(values["GPSlat"], values["GPSlon"], FPlan[0][num-1]["lat"], FPlan[0][num-1]["lon"]) + distance(values["GPSlat"], values["GPSlon"], FPlan[0][num]["lat"], FPlan[0][num]["lon"])
 
     num = num + 1
   end
@@ -3281,7 +3152,6 @@ function findnearestleg(num2, lat, lon)
 end
 
 function FplanArrows(line, num)
-  --if FPlan[0][num]["types"] == values["direct"]["types"] and FPlan[0][num]["numi"] == values["direct"]["numi"] then
   --only for 0
   if lsubpage[3] ~= 0 then
     return " "
@@ -3305,10 +3175,8 @@ function FplanArrows(line, num)
       if values["activeWPT"][1]["ident"] == "    $" or values["activeWPT"][1]["ident"] == "     " then
         return " "
       else
-        --if FPlan[0][controls["lview"]+line-1]["types"] == values["activeWPT"][1]["types"] and FPlan[0][controls["lview"]+line-1]["numi"] == values["activeWPT"][1]["numi"] then
         return ";"
       end
-      --elseif FPlan[0][controls["lview"]+line-1]["types"] == values["activeWPT"][2]["types"] and FPlan[0][controls["lview"]+line-1]["numi"] == values["activeWPT"][2]["numi"] then
     elseif num == values["activeWPT"]["active"] and controls["lCRSRchar"] == 0 and controls["FPLstate"] == 0 then
       if get(WPTalert) == 1 and values["flash"] == 0 then
         return " "
@@ -3336,7 +3204,6 @@ function nearestlist(types)
       if WPTtable[num]["lat"] ~= "_" and WPTtable[num]["lon"] ~= "_" then
         local dist2 = distance(values["GPSlat"], values["GPSlon"], WPTtable[num]["lat"], WPTtable[num]["lon"])
         while num2 <= 9 do
-          -- print(WPTtable[num]["ident"])
           if dist2 < dist1[num2] then
             if types == 0 then
               local longestRWY = 0
@@ -3345,7 +3212,6 @@ function nearestlist(types)
               if WPTtable[num]["USR"] == 0 then
                 if RWYtable[WPTtable[num]["ident"]][1] ~= nil then -- workaround for x-plane databse errors
                   longestRWY = RWYtable[WPTtable[num]["ident"]][1]["length"]
-                  --print(WPTtable[num]["ident"], longestRWY)
                   if RWYtable[WPTtable[num]["ident"]][1]["surf"] == "HRD" then
                     surf = 2
                   elseif RWYtable[WPTtable[num]["ident"]][1]["surf"] == "WAT" then
@@ -3368,15 +3234,12 @@ function nearestlist(types)
               if longestRWY >= values["RWYminlength"] and surf > values["RWYsurface"] then
                 table.insert(table2, num2, WPTtable[num])
                 table.insert(dist1, num2, dist2)
-                --print(dist1[num2])
               end
               num2 = 10
             else
               table.insert(table2, num2, WPTtable[num])
               table.insert(dist1, num2, dist2)
 
-              -- dist[num2] = dist2
-              -- table2[num2] = WPTtable[num]
               num2 = 10
             end
           end
@@ -3485,7 +3348,6 @@ function onModuleDone()
   --remarks
   filename = "Custom Data/KLN90B_Navdata/Remarks.txt"
 
-
   file = io.open(filename, "w")
   for i, v in pairs(RMKtable) do
     if v[1] ~= "           " or v[2] ~= "           " or v[3] ~= "           " then
@@ -3507,13 +3369,11 @@ function onModuleDone()
       file:write("I\n3 version\n1 \n1 \n")
       local num2 = 1
       while num2 <= FPlan[num1]["length"] do
-        --  print(FPlan[num1][num2]["ident"], num2, FPlan[num1]["SIDstart"], FPlan[num1]["SIDend"], FPlan[num1]["STARstart"], FPlan[num1]["STARend"], num2 < FPlan[num1]["SIDstart"], num2 > FPlan[num1]["SIDend"], num2 < FPlan[num1]["STARstart"], num2 > FPlan[num1]["STARend"])
         if FPlan[num1][num2]["ident"] ~= "     " and (num2 < FPlan[num1]["SIDstart"] or num2 > FPlan[num1]["SIDend"]) and (num2 < FPlan[num1]["STARstart"] or num2 > FPlan[num1]["STARend"]) and (num2 < FPlan[num1]["APPstart"] or num2 > FPlan[num1]["APPend"]) then
           if string.find(FPlan[num1][num2]["ident"], " ") then
             local a = string.find(FPlan[num1][num2]["ident"], " ")
             FPlan[num1][num2]["ident"] = string.sub(FPlan[num1][num2]["ident"], 1, a - 1)
           end
-          --  print(num1, num2, FPlan[num1][num2]["types"], FPlan[num1][num2]["ident"])
           local x = 28
           if FPlan[num1][num2]["types"] == 0 then
             x = 1
@@ -3526,7 +3386,6 @@ function onModuleDone()
           elseif FPlan[num1][num2]["types"] == 4 then
             x = 28
           end
-          --print("x", num2, FPlan[num1][num2]["types"], FPlan[num1][num2]["ident"])
 
           file:write(string.format("%s %s %s %s %s\n", x, FPlan[num1][num2]["ident"], 0, FPlan[num1][num2]["lat"],
             FPlan[num1][num2]["lon"]))
@@ -3537,7 +3396,6 @@ function onModuleDone()
     end
     num1 = num1 + 1
   end
-  --- file:close() --error on init -attempting to use closed file --fix moved in while loop where used
 end
 
 function closestVOR(lat, lon)
@@ -3634,9 +3492,6 @@ function drawmap(size, orientation, range, mode)
     cy = size[2] + (size[4] / 3)
   end
 
-
-
-
   if # Nav5Comp == 0 and values["GPSnum"] >= 4 then
     local orient = 0
     if orientation == 1 then
@@ -3646,15 +3501,6 @@ function drawmap(size, orientation, range, mode)
     elseif orientation == 3 then
       orient = get(PSIin)
     end
-
-
-    -- local x0 = 184
-    -- local y0 = 40
-
-    --window 137, 75
-    --center 37, 75 (perfect!)
-    --orientation = 0
-
 
     if mode == 1 then
       if string.sub(values["NAV5SHOW"], 1, 1) ~= "0" and values["NAV5Clut"] == 0 then
@@ -3675,7 +3521,6 @@ function drawmap(size, orientation, range, mode)
             end
             num2 = num2 + 1
           end
-
 
           if show == 1 then
             if values["VORnearestlist"][num]["range"] > VORrange then
@@ -3699,10 +3544,7 @@ function drawmap(size, orientation, range, mode)
                       return true
                     end,
                   })
-                  --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-2.5),round(y1-2.5),5,5,0,brt,1) )
                   table.insert(nametable, { values["VORnearestlist"][num]["ident"], x1, y1, size })
-
-                  -- string2tex(Nav5Comp, values["VORnearestlist"][num]["ident"], x1, y1, size)
                 end
               end
             end
@@ -3742,7 +3584,6 @@ function drawmap(size, orientation, range, mode)
                     return true
                   end,
                 })
-                --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-2),round(y1-2),4,4,6,brt,1) )
                 table.insert(nametable, { values["NDBnearestlist"][num]["ident"], x1, y1, size })
               end
             end
@@ -3784,7 +3625,6 @@ function drawmap(size, orientation, range, mode)
                     return true
                   end,
                 })
-                --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-2.5),round(y1-2.5),5,5,5,brt,1) )
                 table.insert(nametable, { values["APTnearestlist"][num]["ident"], x1, y1, size })
               end
             end
@@ -3822,12 +3662,9 @@ function drawmap(size, orientation, range, mode)
               return true
             end,
           })
-          --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-1.5),round(y1-1.5),3,3,5) )
         end
       end
     end
-
-
 
     --direct to
     if values["activeWPT"]["active"] == 0 and values["activeWPT"]["length"] == 2 then
@@ -3846,21 +3683,17 @@ function drawmap(size, orientation, range, mode)
       local y2 = cy + cos((CRS1) * pi / 180) * dist1
       local x2 = cx + cos((CRS1 - 90) * pi / 180) * dist1
 
-
       drawline(Nav5Comp, x1, y1, x2, y2, size)
-      --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
       local dist2 = 7
       local CRS3 = math.atan2(x1 - x2, y1 - y2) / pi * 180
       local CRS2 = CRS3 + 225
       local y3 = y1 + cos((CRS2) * pi / 180) * dist2
       local x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
       drawline(Nav5Comp, x1, y1, x3, y3, size)
-      --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
       CRS2 = CRS3 + 135
       y3 = y1 + cos((CRS2) * pi / 180) * dist2
       x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
       drawline(Nav5Comp, x1, y1, x3, y3, size)
-      --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
       if x1 - 2.5 > size[1] and x1 + 2.5 < size[1] + size[3] and y1 - 2.5 > size[2] and y1 + 2.5 < size[2] + size[4] then
         table.insert(Nav5Comp, textureLit2 {
           position = { round(x1 - 2.5), round(y1 - 2.5), 5, 5 },
@@ -3872,7 +3705,6 @@ function drawmap(size, orientation, range, mode)
             return true
           end,
         })
-        --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-2.5),round(y1-2.5),5,5,4,brt,1) )
         if mode == 1 then
           table.insert(nametable, { values["activeWPT"][2]["ident"], x1, y1, size })
         end
@@ -3900,7 +3732,6 @@ function drawmap(size, orientation, range, mode)
               local y2 = cy + cos((CRS1) * pi / 180) * dist1
               local x2 = cx + cos((CRS1 - 90) * pi / 180) * dist1
               drawline(Nav5Comp, x1, y1, x2, y2, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
               if range == 1 or RWYnum == 1 then
                 if x1 - 0.5 > size[1] and x1 + 0.5 < size[1] + size[3] and y1 - 0.5 > size[2] and y1 + 0.5 < size[2] + size[4] then
                   table.insert(nametable,
@@ -3912,16 +3743,11 @@ function drawmap(size, orientation, range, mode)
                 end
               end
             end
-            --end
-
             RWYnum = RWYnum + 1
-            --end
           end
         end
       end
     end
-
-
 
     local WPTnum = 1
     local x2 = 0
@@ -3936,15 +3762,11 @@ function drawmap(size, orientation, range, mode)
         local y1 = cy + cos((CRS1) * pi / 180) * dist1
         local x1 = cx + cos((CRS1 - 90) * pi / 180) * dist1
 
-
-        --print("aa",WPTnum, x1, y1, x2, y2)
         if values["activeWPT"]["active"] > 0 then
           if values["activeWPT"][1]["ident"] == "    $" and WPTnum > values["activeWPT"]["active"] and (WPTnum < FPlan[0]["APPMAP"] or values["activeWPT"]["active"] > FPlan[0]["APPMAP"]) and WPTnum > 1 then
             drawline(Nav5Comp, x1, y1, x2, y2, size)
-            --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
           elseif values["activeWPT"][1]["ident"] ~= "    $" and values["activeWPT"][1]["ident"] ~= "     " and (WPTnum < FPlan[0]["APPMAP"] or values["activeWPT"]["active"] > FPlan[0]["APPMAP"]) and WPTnum > 1 then
             drawline(Nav5Comp, x1, y1, x2, y2, size)
-            --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
           end
           --arrow:
           if WPTnum == values["activeWPT"]["active"] then
@@ -3958,19 +3780,16 @@ function drawmap(size, orientation, range, mode)
               local x2 = cx + cos((CRS1 - 90) * pi / 180) * dist1
 
               drawline(Nav5Comp, x1, y1, x2, y2, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
               local dist2 = 7
               local CRS3 = math.atan2(x1 - x2, y1 - y2) / pi * 180
               local CRS2 = CRS3 + 225
               local y3 = y1 + cos((CRS2) * pi / 180) * dist2
               local x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
               drawline(Nav5Comp, x1, y1, x3, y3, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
               CRS2 = CRS3 + 135
               y3 = y1 + cos((CRS2) * pi / 180) * dist2
               x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
               drawline(Nav5Comp, x1, y1, x3, y3, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
             else
               local dist2 = 7
               local CRS3 = math.atan2(x1 - x2, y1 - y2) / pi * 180
@@ -3978,12 +3797,10 @@ function drawmap(size, orientation, range, mode)
               local y3 = y1 + cos((CRS2) * pi / 180) * dist2
               local x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
               drawline(Nav5Comp, x1, y1, x3, y3, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
               CRS2 = CRS3 + 135
               y3 = y1 + cos((CRS2) * pi / 180) * dist2
               x3 = x1 + cos((CRS2 - 90) * pi / 180) * dist2
               drawline(Nav5Comp, x1, y1, x3, y3, size)
-              --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x3, y3, size  ) )
             end
           end
         end
@@ -4000,11 +3817,9 @@ function drawmap(size, orientation, range, mode)
               return true
             end,
           })
-          --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(x1-1.5),round(y1-1.5),3,3,1,brt,1) )
           if mode == 1 then
             table.insert(nametable, { FPlan[0][WPTnum]["ident"], x1, y1, size })
           else
-            --string2tex(Nav5Comp, WPTnum, x1-5, y1+7, size)
             table.insert(nametable, { makelength(WPTnum, 5, 0), x1, y1, size })
           end
         end
@@ -4042,12 +3857,8 @@ function drawmap(size, orientation, range, mode)
                   end
                 end
                 drawline(Nav5Comp, x1, y1, x2, y2, size)
-                --table.insert ( Nav5Comp_Serializer, WrapLine( x1, y1, x2, y2, size  ) )
               end
-              --end
-
               RWYnum = RWYnum + 1
-              --end
             end
           end
         end
@@ -4066,7 +3877,6 @@ function drawmap(size, orientation, range, mode)
           return true
         end,
       })
-      --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(cx-2.5),round(cy-2.5),5,5,3,brt,1) )
     else
       table.insert(Nav5Comp, textureLit2 {
         position = { round(cx - 2.5), round(cy - 2), 5, 4 },
@@ -4078,11 +3888,9 @@ function drawmap(size, orientation, range, mode)
           return true
         end,
       })
-      --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(cx-2.5),round(cy-2),5,4,2,brt,1) )
     end
     for i, v in ipairs(nametable) do
       string2tex(Nav5Comp, v[1], v[2], v[3], v[4])
-      --table.insert ( Nav5Comp_Serializer, WrapString2tex( v[1],  v[2],  v[3], v[4] ) )
     end
   end
 end
@@ -4093,16 +3901,12 @@ function activateFPLN0()
     local num2 = num - 1
     values["activeWPT"] = {}
     values["activeWPT"]["length"] = 0
-    --             for k, v in pairs(FPlan[0]) do
-    --               print(k, v["ident"])
-    --             end
     while num2 <= FPlan[0]["length"] do
       values["activeWPT"]["length"] = values["activeWPT"]["length"] + 1
       values["activeWPT"][values["activeWPT"]["length"]] = FPlan[0][num2]
       num2 = num2 + 1
     end
     values["activeWPT"]["active"] = num
-    --FMS()
     --ACT page won't freeze:
     controls["rview"] = num
   end
@@ -4145,10 +3949,6 @@ end
 
 --this function should be used whenever something can be edited with controls["ENT"] and controls["CLR"].
 function editvalue(mode, side, value)
-  -- print("mode " ..  mode)
-  -- print("side " .. side)
-  --dump(value)
-  --print("EDITSTATE = " .. values[side .. "editstate"])
   local ent = "ENT"
   local clr = "CLR"
   if string.sub(side, 2, 2) == "s" then
@@ -4422,7 +4222,7 @@ function editvalue(mode, side, value)
             controls[side .. "CRSRchar"] - 1)) - 1
           if x < 1 then x = 10 end
           values[side .. "editvalue"] = replaceChar(values[side .. "editvalue"], controls[side .. "CRSRchar"] - 1,
-            value2string(x))                                                                                                  -- values[side .."editvalue"]-1
+            value2string(x))
         end
       end
       controls[side .. "knobs"] = 0
@@ -5219,7 +5019,6 @@ function editvalue(mode, side, value)
       controls["sview"] = 1
     end
 
-
     controls[side .. "knobl"] = 0
     --we need to show the duplicate waypoint Page
     --the page should make the correct waypoint position 1 and set length to 1!
@@ -5269,7 +5068,6 @@ function WPTpage(types, mode, subpage)
     clr = "sCLR"
     CRSR = "WPTCRSR"
     waypoint = values["wpteditvalue"]
-    --waypoint["length"] = 1
   end
   gline[1] = string.sub(gline[1], 1, 12)
   if lpage == 4 and lsubpage[4] == 10 then
@@ -5353,7 +5151,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            ----APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5368,7 +5165,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5382,7 +5178,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5397,7 +5192,6 @@ function WPTpage(types, mode, subpage)
           nextWPT(waypoint, types, -2)
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5441,7 +5235,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5455,7 +5248,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5469,7 +5261,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -5586,7 +5377,6 @@ function WPTpage(types, mode, subpage)
         end
       end
 
-      --  enterident(waypoint[1]["ident"], 0, 0, controls["rCRSRchar"], 1)
       controls[page .. "knobl"] = 0
       --move to the next character
     elseif controls[page .. "knobl"] == 1 then
@@ -5663,15 +5453,12 @@ function WPTpage(types, mode, subpage)
       elseif controls[page .. "select"] == 3 then
         controls[page .. "select"] = 4
       elseif controls[page .. "select"] == 4 then
-        --if waypoint["length"] == 0 or waypoint[1]["USR"] == 1 then
         if mode == 0 then
           controls[page .. "select"] = 0
           controls[page .. "CRSRchar"] = 1
         else
           controls[page .. "select"] = 3
         end
-
-        --  end
       end
       controls[page .. "knobl"] = 0
     elseif controls[ent] == 1 and waypoint["length"] == 0 then
@@ -5761,7 +5548,6 @@ function WPTpage(types, mode, subpage)
             elseif values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]["num"] == 0 then
               values["SIDSTARsel"][name .. "TRANS"] = 0
               createSIDSTAR(name)
-              --    print(values["SIDSTARsel"]["MAP"])
             end
           end
         end
@@ -5777,9 +5563,6 @@ function WPTpage(types, mode, subpage)
           values["SIDSTARsel"][name .. "TRANS"] = 0
           createSIDSTAR(name)
         end
-
-
-        --values["SIDSTARsel"]["stat"] = 0
       elseif values["SIDSTARsel"][name .. "TRANS"] == nil then
         values["SIDSTARsel"][name .. "TRANS"] = values["SIDSTAR"][name][values["SIDSTARsel"][name]]["TRANS"]
         [controls[page .. "select"]]
@@ -5788,7 +5571,6 @@ function WPTpage(types, mode, subpage)
         --we now generate a list of WPTs which can be inserted into the FPLN
         --They are entered by enterident to remove unofficial WPTs.
         createSIDSTAR(name)
-        --values["SIDSTARsel"]["stat"] = 0
       elseif values["SIDSTARsel"]["stat"] == 0 and controls[page .. "select"] == values["SIDSTARsel"]["num"] + 1 then
         local num = 1
         while num <= FPlan[0]["length"] do
@@ -5876,66 +5658,9 @@ function WPTpage(types, mode, subpage)
           FPlan[0][name .. "start"] = num + 1
           FPlan[0][name .. "end"] = num + values["SIDSTARsel"]["num"]
 
-          --if the first WPT of the STAR is the same as the one in the FPLN, we'll skip the one from the FPLN
-          -- if subpage == 71 and num > 0 then
-          -- if values["SIDSTARsel"][1]["types"] == FPlan[0][num]["types"] and values["SIDSTARsel"][1]["ident"] == FPlan[0][num]["ident"] and values["SIDSTARsel"][1]["lat"] == FPlan[0][num]["lat"] then
-          -- table.remove(FPlan[0], num)
-          -- FPlan[0]["length"] = FPlan[0]["length"] - 1
-          -- if num <= FPlan[0]["SIDstart"] then
-          -- FPlan[0]["SIDstart"] = FPlan[0]["SIDstart"] - 1
-          -- end
-          -- if num <= FPlan[0]["SIDend"] then
-          -- FPlan[0]["SIDend"] = FPlan[0]["SIDend"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["APPstart"] then
-          -- FPlan[0]["APPstart"] = FPlan[0]["APPstart"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["APPend"] then
-          -- FPlan[0]["APPend"] = FPlan[0]["APPend"] - 1
-          -- end
-          -- num = num - 1
-          -- FPlan[0]["STARstart"] = FPlan[0]["STARstart"] - 1
-          -- FPlan[0]["STARend"] = FPlan[0]["STARend"] - 1
-          -- end
-          -- elseif subpage == 80 and num > 0 then
-          -- if values["SIDSTARsel"][1]["types"] == FPlan[0][num]["types"] and values["SIDSTARsel"][1]["ident"] == FPlan[0][num]["ident"] and values["SIDSTARsel"][1]["lat"] == FPlan[0][num]["lat"] then
-          -- table.remove(FPlan[0], num)
-          -- FPlan[0]["length"] = FPlan[0]["length"] - 1
-          -- if num <= FPlan[0]["SIDstart"] then
-          -- FPlan[0]["SIDstart"] = FPlan[0]["SIDstart"] - 1
-          -- end
-          -- if num <= FPlan[0]["SIDend"] then
-          -- FPlan[0]["SIDend"] = FPlan[0]["SIDend"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["STARstart"] then
-          -- FPlan[0]["STARstart"] = FPlan[0]["STARstart"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["STARend"] then
-          -- FPlan[0]["STARend"] = FPlan[0]["STARend"] - 1
-          -- end
-          -- num = num - 1
-          -- FPlan[0]["APPstart"] = FPlan[0]["APPstart"] - 1
-          -- FPlan[0]["APPend"] = FPlan[0]["APPend"] - 1
-          -- end
-          -- elseif subpage == 70 and num+1 <= FPlan[0]["length"] then
-          -- if values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["types"] == FPlan[0][num+1]["types"] and values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["ident"] == FPlan[0][num+1]["ident"] and values["SIDSTARsel"][values["SIDSTARsel"]["num"]]["lat"] == FPlan[0][num+1]["lat"] then
-          -- table.remove(FPlan[0], num+1)
-          -- FPlan[0]["length"] = FPlan[0]["length"] - 1
-          -- if num+1 <= FPlan[0]["STARstart"] then
-          -- FPlan[0]["STARstart"] = FPlan[0]["STARstart"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["STARend"] then
-          -- FPlan[0]["STARend"] = FPlan[0]["STARend"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["APPstart"] then
-          -- FPlan[0]["APPstart"] = FPlan[0]["APPstart"] - 1
-          -- end
-          -- if num+1 <= FPlan[0]["APPend"] then
-          -- FPlan[0]["APPend"] = FPlan[0]["APPend"] - 1
-          -- end
-          -- end
-          -- end
-          --after this is done, we check for redundant WPTs:
+          -- if the first WPT of the STAR is the same as the one in the FPLN, we'll skip the one from the FPLN
+          -- (code removed)
+          -- then check for redundant WPTs:
           local num2 = 1
           while num2 <= FPlan[0]["length"] and values["MSGSTAT"][8] == 0 do
             local num3 = 1
@@ -5955,8 +5680,6 @@ function WPTpage(types, mode, subpage)
           values["MSGSTAT"][8] = 0
 
           num2 = 1
-          --num = 2
-          --print(num, values["SIDSTARsel"]["num"], FPlan[0][num]["ident"])
           while num2 <= values["SIDSTARsel"]["num"] do
             num = num + 1
             FPlan[0]["length"] = FPlan[0]["length"] + 1
@@ -6001,8 +5724,6 @@ function WPTpage(types, mode, subpage)
               end
             end
             table.insert(FPlan[0], num, values["SIDSTARsel"][num2])
-            --print(values["SIDSTARsel"][num2]["ident"])
-            --print("x", FPlan[0][num]["ident"], num, num2)
             num2 = num2 + 1
           end
           activateFPLN0()
@@ -6071,7 +5792,6 @@ function WPTpage(types, mode, subpage)
           if waypoint[1]["USR"] == 1 and subpage == 30 then subpage = 31 end
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -6089,7 +5809,6 @@ function WPTpage(types, mode, subpage)
           values["INTref"]["ident"] = "_____"
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -6102,7 +5821,6 @@ function WPTpage(types, mode, subpage)
             if waypoint[1]["USR"] == 1 and subpage == 30 then subpage = 31 end
             if subpage == 30 then
               APT3Comp = {}
-              --APT3Comp_Serializer = {}
             elseif math.floor(subpage / 10) == 3 then
               subpage = 31
             elseif math.floor(subpage / 10) == 4 then
@@ -6125,7 +5843,6 @@ function WPTpage(types, mode, subpage)
             if waypoint[1]["USR"] == 1 and subpage == 30 then subpage = 31 end
             if subpage == 30 then
               APT3Comp = {}
-              --APT3Comp_Serializer = {}
             elseif math.floor(subpage / 10) == 3 then
               subpage = 31
             elseif math.floor(subpage / 10) == 4 then
@@ -6136,7 +5853,6 @@ function WPTpage(types, mode, subpage)
             if waypoint[1]["USR"] == 1 and subpage == 30 then subpage = 31 end
             if subpage == 30 then
               APT3Comp = {}
-              --APT3Comp_Serializer = {}
             elseif math.floor(subpage / 10) == 3 then
               subpage = 31
             elseif math.floor(subpage / 10) == 4 then
@@ -6153,7 +5869,6 @@ function WPTpage(types, mode, subpage)
           if waypoint[1]["USR"] == 1 and subpage == 30 then subpage = 31 end
           if subpage == 30 then
             APT3Comp = {}
-            --APT3Comp_Serializer = {}
           elseif math.floor(subpage / 10) == 3 then
             subpage = 31
           elseif math.floor(subpage / 10) == 4 then
@@ -6169,7 +5884,6 @@ function WPTpage(types, mode, subpage)
         if controls["rview"] < 1 then controls["rview"] = FPlan[0]["length"] end
         if subpage == 30 then
           APT3Comp = {}
-          --APT3Comp_Serializer = {}
         elseif math.floor(subpage / 10) == 3 then
           subpage = 31
         elseif math.floor(subpage / 10) == 4 then
@@ -6181,7 +5895,6 @@ function WPTpage(types, mode, subpage)
         if controls["rview"] > FPlan[0]["length"] then controls["rview"] = 1 end
         if subpage == 30 then
           APT3Comp = {}
-          --APT3Comp_Serializer = {}
         elseif math.floor(subpage / 10) == 3 then
           subpage = 31
         elseif math.floor(subpage / 10) == 4 then
@@ -6192,7 +5905,6 @@ function WPTpage(types, mode, subpage)
     end
   end
   --done with all controls
-
 
   if subpage == 70 or subpage == 71 or subpage == 80 then
     local name = "SID"
@@ -6350,7 +6062,6 @@ function WPTpage(types, mode, subpage)
 
       if waypoint[1]["ident"] ~= nil then
         local filename = cifp_path .. string.sub(waypoint[1]["ident"], 1, 4) .. ".dat"
-
 
         local file = io.open(filename, "r")
         if file and RWYtable[waypoint[1]["ident"]] then
@@ -6523,13 +6234,11 @@ function WPTpage(types, mode, subpage)
               end
             end
           end
-          --tprint(values["SIDSTAR"]["SID"])
           file:close()
         end
       end
     end
   end
-  --gline[1]=gline[1] .. values[typesname.."page"][1]["numi"]
   if waypoint["length"] == 0 then
     if controls[page .. "select"] == 2 then
       gline[1] = gline[1] .. "----"
@@ -6542,8 +6251,6 @@ function WPTpage(types, mode, subpage)
       gline[5] = gline[5] .. "USER POS?"
       gline[6] = gline[6] .. "PRES POS?"
       subpage = 10
-      --print(controls[page .. "select"])
-      --print(subpage)
       if controls[page .. "select"] == 3 then
         if values["flash"] == 1 then
           bline[5] = bline[5] .. "USER#POS?"
@@ -6613,7 +6320,6 @@ function WPTpage(types, mode, subpage)
       end
     end
   end
-
 
   if waypoint["length"] == -1 and values["flash"] == 1 then
     gline[1] = gline[1] .. " nr " .. values[typesname .. "nearestnum"]
@@ -6808,7 +6514,6 @@ function WPTpage(types, mode, subpage)
       if # APT3Comp == 0 then
         --we first calulate the range
         local RWYnum = 1
-        --  local PXnm = 75 / ((RWYtable[waypoint[1]["ident"]][1]["length"]*0.000164578834)+waypoint[1]["RWYs"]-0.5)
         local PXnm = 0
 
         while RWYnum <= waypoint[1]["RWYs"] do
@@ -6823,7 +6528,6 @@ function WPTpage(types, mode, subpage)
           RWYnum = RWYnum + 1
           --end
         end
-        --print(PXnm*2)
         PXnm = 70 / (PXnm * 2.3)
 
         RWYnum = 1
@@ -6849,23 +6553,15 @@ function WPTpage(types, mode, subpage)
             local cy = size[2] + (size[4] / 2)
 
             drawline(APT3Comp, x1, y1, x2, y2, size)
-            --table.insert ( APT3Comp_Serializer, WrapLine(x1, y1, x2, y2, size))
             string2tex(APT3Comp, makelength(RWYtable[waypoint[1]["ident"]][RWYnum]["number1"], 5, 0), x1, y1, size)
-            --table.insert ( APT3Comp_Serializer, WrapString2tex( makelength(RWYtable[waypoint[1]["ident"]][RWYnum]["number1"], 5, 0),  x1,  y1, size ) )
             string2tex(APT3Comp, makelength(RWYtable[waypoint[1]["ident"]][RWYnum]["number2"], 5, 0), x2, y2, size)
-            --table.insert ( APT3Comp_Serializer, WrapString2tex( makelength(RWYtable[waypoint[1]["ident"]][RWYnum]["number2"], 5, 0),  x2,  y2, size ) )
           else
             values["statusmessage"] = "RWY#MISSING"
             values["statustimer"] = 5
           end
-          --end
-
           RWYnum = RWYnum + 1
-          --end
         end
       end
-
-
 
       if mode == 1 then
         gline[7] = gline[7] .. "ACT+3"
@@ -6932,7 +6628,6 @@ function WPTpage(types, mode, subpage)
           gline[4] = gline[4] .. " DATA NOT"
           gline[5] = gline[5] .. " AVAILABLE"
         end
-
 
         if waypoint[1]["freqlen"] > 5 then
           if mode == 1 then
@@ -7013,8 +6708,6 @@ function WPTpage(types, mode, subpage)
           gline[4] = gline[4] .. "AIRPORT"
           gline[5] = gline[5] .. "IN DATABASE"
         else
-          -- values["SIDSTARsel"]["SID"] = "PORTE3"
-          -- values["SIDSTARsel"]["RWY"] = "01L"
           if values["SIDSTARsel"][name] == nil then
             if subpage == 70 then
               gline[2] = gline[2] .. "SELECT SID"
@@ -7168,8 +6861,6 @@ function WPTpage(types, mode, subpage)
             if values["flash"] == 1 then
               bline[6] = bline[6] .. "##APPROVE?#"
             end
-
-            --gline[6] = gline[6] .. controls["rselect"] .. " " .. controls["SIDSTARview"]
           end
         end
       end
@@ -7265,7 +6956,6 @@ function WPTpage(types, mode, subpage)
               end
               line = line + 1
             end
-
 
             if controls["SIDSTARview"] + 5 <= values["SIDSTAR"]["APP"][values["SIDSTARsel"]["APP"]]["TRANS"]["num"] then
               gline[6] = gline[6] ..
@@ -7388,7 +7078,6 @@ function WPTpage(types, mode, subpage)
           local dist = distance(waypoint[1]["lat"], waypoint[1]["lon"], values["GPSlat"], values["GPSlon"])
           gline[6] = string.format("%s     %snm", gline[6], dynaround(dist, 4))
         end
-        --      end
       else
         gline[3] = gline[3] .. "          U"
         if controls[page .. "select"] == 3 then
@@ -7492,8 +7181,6 @@ function WPTpage(types, mode, subpage)
         10), 4, 1)
         values["INTrad"] = string.format("%04d",
           course(values["INTref"]["lat"], values["INTref"]["lon"], waypoint[1]["lat"], waypoint[1]["lon"]) * 10)
-
-        --elseif waypoint[1]["lat"] == "_" or waypoint[1]["lon"] == "_" then
       else
         if controls[page .. "select"] == 4 then
           gline[3] = gline[3] ..
@@ -7515,9 +7202,6 @@ function WPTpage(types, mode, subpage)
           gline[4] = gline[4] ..
           "DIS:" .. string.sub(values["INTdist"], 1, 3) .. "." .. string.sub(values["INTdist"], 4, 4) .. "nm"
         end
-
-
-        --  gline[4] = gline[4] .. "DIS: " .. dynaround(values["INTdist"], 4) .. "nm"
       end
       if waypoint[1]["USR"] == 0 then
         gline[5] = gline[5] .. convertLatLon(waypoint[1]["lat"], 0)
@@ -8019,26 +7703,6 @@ function ICAOtocountry(ICAO)
   return country
 end
 
--- function shellsort( a, mode )
--- local inc = math.ceil( #a / 2 )
--- while inc > 0 do
--- for i = inc, #a do
--- local tmp = a[i]
--- local j = i
--- if j-inc > 0 then
-
--- end
--- while j > inc and a[j-inc][mode] > tmp[mode] do
--- a[j] = a[j-inc]
--- j = j - inc
--- end
--- a[j] = tmp
--- end
--- inc = math.floor( 0.5 + inc / 2.2 )
--- end
--- return a
--- end
-
 function heapsort(n, ra, mode)
   local j, i, rra
   local l = math.floor(n / 2) + 1
@@ -8075,38 +7739,14 @@ function heapsort(n, ra, mode)
 end
 
 function sorttable(name)
-  -- local x = os.clock()
   if name == 1 and values["sort"] == 0 then
     heapsort(WPTlength, WPTtable, "name1")
     values["sort"] = 1
-    -- print(string.format("name elapsed time: %s, %s, %s", os.clock() - x, x, os.clock()))
   elseif name == 0 and values["sort"] == 1 then
     heapsort(WPTlength, WPTtable, "ident")
     values["sort"] = 0
-    -- print(string.format("ident elapsed time: %s, %s, %s", os.clock() - x, x, os.clock()))
   end
 end
-
--- function sorttable(name)
--- local x = os.clock()
--- if name == 1 and values["sort"] == 0 then
--- shellsort(WPTtable, "name1")
--- values["sort"] = 1
--- print(string.format("name elapsed time: %s, %s, %s", os.clock() - x, x, os.clock()))
--- elseif name == 0 and values["sort"] == 1 then
-
--- table.sort(WPTtable,
--- function(a, b)
--- a = a["ident"]
--- b = b["ident"]
--- return a<b
--- end)
--- values["sort"] = 0
--- print(string.format("ident elapsed time: %s, %s, %s", os.clock() - x, x, os.clock()))
--- end
--- end
-
-
 
 --types: 0 APT, 1 VOR, 2 NDB, 3 INT, 4 SUP, 9 unknown (only when name == 0 )
 --character: -1 prev, 1 next 0 search for this
@@ -8377,11 +8017,8 @@ function convertLatLon(conlatlon, latlon)
   local minute = (conlatlon - hour) * 60
   local second = round((minute - math.floor(minute)) * 100)
   if second == 100 then second = 0 end
-  --  local second =  round(((conlatlon - hour) * 60 - minute) * 60)
 
   conlatlon = string.format("%s*%02d.%02d'", makelength(hour, 3, 1), minute, second)
-
-  --  conlatlon = string.format ("%s*%02d.%02d'", spacer, (conlatlon - math.floor(conlatlon)) * 60, (((conlatlon - math.floor(conlatlon)) * 60) - math.floor(((conlatlon - math.floor(conlatlon)) * 60)))*100)
 
   if latlon == 0 then
     if SE == 1 then
@@ -8448,7 +8085,6 @@ while num1 <= 25 do
   if file then
     while true do
       local line = file:read("*line")
-      --print(line)
       if line == nil then break end
       if string.find(line, "%d+%s+[%w%p]+%s+%d+") then
         local a = string.find(line, "%d")
@@ -8461,9 +8097,7 @@ while num1 <= 25 do
             a = string.find(line, " ", b + 1)
             local ident = makelength(string.sub(line, b + 1, a - 1), 5, 0)
             b = string.find(line, " ", a + 1)
-            --  print(a, b)
             local alt = tonumber(string.sub(line, a + 1, b - 1))
-            --print(a, b, alt)
 
             a = string.find(line, " ", b + 1)
             local lat = tonumber(string.sub(line, b + 1, a - 1))
@@ -8480,9 +8114,7 @@ while num1 <= 25 do
             elseif types == 28 then
               types = 4
             end
-            --print(num1, num2, types, ident, alt, lat, lon)
             WPT = enterident(ident, types, 0, 5, 0, lat, lon)
-            --print(ident, types, WPT["length"])
             if WPT["length"] == 0 then
               --don't remove it, better create a user WPT, you know the type and everything!
               if string.len(ident) > 5 or string.find(ident, "[+-.]") then
@@ -8493,11 +8125,9 @@ while num1 <= 25 do
                   ident = string.format("WPT%02d", num3)
                   WPT2 = enterident(ident, types, 0, 5, 0)
                   found = WPT2["length"]
-                  --  WPT = enterident(ident, 0, 0, 4, 0)
                   num3 = num3 + 1
                 end
               end
-              --print(num1, ident)
               local x = 0
               createWPT(types, ident, 0)
               WPT = enterident(ident, types, 0, 5, 0)
@@ -8544,8 +8174,7 @@ function update()
   set(kln_power, valid_avionics_power)
   set(power, power_knob * valid_avionics_power)
 
-
-  --##############################################################################################################################This is the power off page
+  --This is the power off page
   if get(power) == 0 then
     if rpage ~= -6 then
       reset()
@@ -8562,23 +8191,15 @@ function update()
     set(MD41test, 0)
     --this happens when we turn on the device
   elseif rpage == -6 then
-    -- if values["primary"] == 1 then
-    -- set(overrideGPS, 0)
-    -- --commandOnce(findCommand("sim/FMS/type_vor"))
-    -- end
     rpage = -5
     values["timer"] = 3
   end
 
-
-
   if values["CALC1timer"] > 1 or not ((lpage == 4 and lsubpage[4] == 50) or (rpage == 5 and rsubpage[5] == 50)) then
     Nav5Comp = {}
-    ----Nav5Comp_Serializer = {}
   end
   if not (rpage == 6 and rsubpage[6] == 30) or (rpage == 3 and rsubpage[3] == 30) then
     APT3Comp = {}
-    --APT3Comp_Serializer = {}
   end
   if controls["lspage"] == 1 or controls["lspage"] == 2 or controls["lspage"] == 3 or controls["lspage"] == 4 or controls["rspage"] == 1 or controls["rspage"] == 2 or controls["rspage"] == 3 or controls["rspage"] == 4 then
     controls["sENT"] = controls["ENT"]
@@ -8597,7 +8218,6 @@ function update()
   controls["lspage"] = 0
   if controls["rspage"] == 1 or controls["rspage"] == 2 or controls["rspage"] == 3 or controls["rspage"] == 4 then
     APT3Comp = {}
-    --APT3Comp_Serializer = {}
     controls["rsknobs"] = controls["rknobs"]
     controls["rsknobl"] = controls["rknobl"]
     controls["rknobs"] = 0
@@ -8715,7 +8335,6 @@ function update()
     end
   end
 
-
   if get(APR) == 0 and values["autoscale"] ~= 0 then
     values["scalefactor"] = 5
     values["autoscale"] = 0
@@ -8725,8 +8344,6 @@ function update()
     values["scalefactor"] = values["scalefactor"] - (4 / 30 * passed)
     if values["scalefactor"] < 1 then values["scalefactor"] = 1 end
   end
-
-
 
   if values["warnnum"] > 0 then
     if isSamplePlaying(alert) == false then
@@ -8775,7 +8392,7 @@ function update()
     --the ident tells it's direct
     new["ident"] = "     "
     local cour = values["HSIOBS"] - 180 -
-    get(MAGVARin)                                                 -- getmagvar(values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"]) --error if fpln is deleted while in obs fix in fplan delete
+    get(MAGVARin)
     --For VORs, we use the published magvar.
     if values["activeWPT"][2]["types"] == 1 and get(GPSmode) == 2 then
       cour = values["HSIOBS"] - 180 + values["activeWPT"][2]["magvar"]
@@ -8799,7 +8416,7 @@ function update()
       new["ident"] = "    $"
 
       local cour = values["HSIOBS"] - 180 -
-      get(MAGVARin)                                              --getmagvar(values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
+      get(MAGVARin)
       --For VORs, we use the published magvar.
       if values["activeWPT"][2]["types"] == 1 and get(GPSmode) == 2 then
         cour = values["HSIOBS"] - 180 + values["activeWPT"][2]["magvar"]
@@ -8807,20 +8424,15 @@ function update()
       new["lat"], new["lon"] = raddist(values["direct"]["lat"], values["direct"]["lon"], cour, values["dist"])
 
       local num = FPlan[0]["length"] - values["activeWPT"]["length"] + 1
-      --while num <= FPlan[0]["length"] do
-      --if FPlan[0][num]["types"] == values["direct"]["types"] and FPlan[0][num]["numi"] == values["direct"]["numi"] then
       local found = 0
       values["activeWPT"] = table.copy(FPlan[0])
       values["activeWPT"]["active"] = 0
-      --end
-      --end
       while found == 0 do
         if values["activeWPT"]["length"] > 0 then
           values["activeWPT"]["active"] = values["activeWPT"]["active"] + 1
           if values["activeWPT"][1]["types"] == values["direct"]["types"] and values["activeWPT"][1]["ident"] == values["direct"]["ident"] and values["activeWPT"][1]["lat"] == values["direct"]["lat"] then
             table.insert(values["activeWPT"], 1, new)
             values["activeWPT"]["length"] = values["activeWPT"]["length"] + 1
-            --values["activeWPT"]["active"] = values["activeWPT"]["active"] + 1
             found = 1
             --if this is the case, we can rewrite active
           else
@@ -8841,11 +8453,6 @@ function update()
       activateFPLN0()
     end
 
-    --if values["tofrom"] == 1 then
-    --values["DTK"] = values["HSIOBS"]
-    --else
-    --values["DTK"] = course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
-    --end
   elseif get(OBSreq) == 2 then
     set(OBSreq, 0)
     if values["activeWPT"]["length"] >= 2 then
@@ -8869,23 +8476,14 @@ function update()
       values["statustimer"] = 5
     end
   end
-  --if rpage == -100 then
-  --#########################################################################This is the welcome page
 
+  --This is the welcome page
   values["scaleline"] = ""
-
-
   if rpage == -5 then
-    -- if values["primary"] == 1 then
-    -- -- commandOnce(findCommand("sim/FMS/clear"))
-    -- set(overrideGPS, 1)
-    -- end
     controls["rCRSR"] = 0
-
 
     gline[1] = " GPS             ORS 20"
     gline[2] = " c1994 ALLIEDSIGNAL INC"
-
     gline[3] = values["welcome1"]
     gline[4] = values["welcome2"]
     gline[5] = values["welcome3"]
@@ -8901,7 +8499,6 @@ function update()
     controls["rknobl"] = 0
 
     if controls["lCRSR"] == 1 then
-      --  values["MSGENT"] = 2
       values["timer"] = 99
       if controls["lselect"] == 0 then
         values["welcome1"] = editvalue(4, "l", values["welcome1"])
@@ -8986,7 +8583,7 @@ function update()
       controls["rCRSR"]     = 1
     end
 
-    --#########################################################################This is the selftest page
+    --This is the selftest page
     --Bug: When local time is < 0 then date still remains unchaged
     --Bug: Altimer displays 99 when it should show 100
   elseif rpage == -4 then
@@ -9002,7 +8599,6 @@ function update()
     elseif controls["rselect"] == 1 then
       editvalue(3, "r", values["time"])
     end
-
 
     if controls["rknobl"] == -1 then
       controls["rselect"] = controls["rselect"] - 1
@@ -9056,15 +8652,11 @@ function update()
       set(MD41test, 0)
     end
 
-
-
     if controls["rselect"] < 0 then
       controls["rselect"] = 6
     elseif controls["rselect"] > 6 then
       controls["rselect"] = 0
     end
-
-
 
     if controls["rselect"] == 0 and controls["rCRSRchar"] ~= 0 then
       if values["GPSnum"] ~= 0 then
@@ -9078,9 +8670,6 @@ function update()
       end
     end
 
-
-
-
     if controls["rselect"] == 0 then
       gline[2] = "qqqqqjqÉÀqq|  " .. values["rgstring"]
       bline[2] = "              " .. values["rbstring"]
@@ -9089,8 +8678,6 @@ function update()
       gline[2] = string.format("qqqqqjqÉÀqq|  %02d %s %02d", values["date"]["days"], months, values["date"]["year"])
       bline[2] = ""
     end
-
-
 
     values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
     ["zone"])
@@ -9179,8 +8766,6 @@ function update()
       gline[5] = string.format("RMI    130*|BARO:%sMB", makelength(values["baro"], 4, 1))
     end
 
-
-
     if controls["rselect"] == 6 then
       values["MSGENT"] = 2
       if values["flash"] == 1 then
@@ -9200,7 +8785,7 @@ function update()
     end
 
 
-    --#########################################################################This is the database page
+    --This is the database page
   elseif rpage == -3 then
     if values["soundtest"] == 0 then
       values["warnnum"] = 5
@@ -9219,7 +8804,6 @@ function update()
     gline[1]            = "     INTERNATIONAL"
     gline[7]            = "     "
 
-
     local month2 = string.sub(nav_cycle, 15, 17)
     local days = tonumber(string.sub(nav_cycle, 13, 14))
     local year2 = tonumber(string.sub(nav_cycle, 19, 20))
@@ -9227,7 +8811,6 @@ function update()
     days2 = monthstodays(month2, days)
     local days3 = monthstodays(numbertomonth(values["date"]["month"]), values["date"]["days"])
     local expired = 0
-    -- print(days2, days3)
     if year2 < values["date"]["year"] then
       expired = 1
     elseif year2 == values["date"]["year"] and days2 < days3 then
@@ -9295,8 +8878,10 @@ function update()
       controls["rCRSR"] = 0
     end
   end
-  --*************************************************************************Lpage begins here
-  --#########################################################################This is the TRI page
+  
+  --Lpage begins here
+
+  --This is the TRI page
   if lpage == 1 then
     --all working apart from ESA
     if lsubpage[1] == 0 then
@@ -9391,7 +8976,6 @@ function update()
         end
       end
 
-
       gline[1] = " TRIP PLAN |"
       gline[2] = " ESTIMATES |"
       gline[3] = "           |"
@@ -9402,7 +8986,6 @@ function update()
         bline[4] = highlightchar(gline[4], controls["lCRSRchar"] + 6)
       end
 
-
       gline[5] = "WIND: " .. values["TRI0WHead"] .. "*~|"
       bline[5] = "            "
       if controls["lselect"] == 1 then
@@ -9412,7 +8995,6 @@ function update()
           bline[5] = highlightchar(gline[5], 9)
         end
       end
-
 
       gline[6] = "      " .. values["TRI0WSpeed"] .. "kt|"
       bline[6] = "            "
@@ -9551,14 +9133,12 @@ function update()
           values["TRI1"][2]["lon"])
         gline[2] = string.format("%snm %03d*|", makelength(round(dist), 4, 1), crs)
         if values["TRI1SPD"] == -1 or values["lreturn"] == 1 then
-          --local SWC=(values["TRI0WSpeed"]/values["TRI0TAS"])*sin((values["TRI0WHead"]-crs-getmagvar(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"]))*pi/180)
           local SWC = (values["TRI0WSpeed"] / values["TRI0TAS"]) * sin((values["TRI0WHead"] - crs) * pi / 180)
 
           if (math.abs(SWC) > 1) then
           else
             values["TRI1SPD"] = round(values["TRI0TAS"] * math.sqrt(1 - SWC ^ 2) -
             values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
-            --  values["TRI1SPD"]=round(values["TRI0TAS"]*math.sqrt(1-SWC^2)-values["TRI0WSpeed"]*cos((values["TRI0WHead"]-crs-getmagvar(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"]))*pi/180))
           end
         end
 
@@ -9593,7 +9173,6 @@ function update()
           bline[5] = highlightchar(gline[5], controls["lCRSRchar"] + 4)
         end
       end
-
 
       gline[7] = "TRI 1"
 
@@ -9758,14 +9337,12 @@ function update()
           values["TRI3"][2]["lon"])
         gline[2] = string.format("%snm %03d*|", makelength(round(dist), 4, 1), crs)
         if values["TRI3SPD"] == -1 or values["lreturn"] == 1 then
-          --local SWC=(values["TRI0WSpeed"]/values["TRI0TAS"])*sin((values["TRI0WHead"]-crs-getmagvar(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"]))*pi/180)
           local SWC = (values["TRI0WSpeed"] / values["TRI0TAS"]) * sin((values["TRI0WHead"] - crs) * pi / 180)
 
           if (math.abs(SWC) > 1) then
           else
             values["TRI3SPD"] = round(values["TRI0TAS"] * math.sqrt(1 - SWC ^ 2) -
             values["TRI0WSpeed"] * cos((values["TRI0WHead"] - crs) * pi / 180))
-            --  values["TRI1SPD"]=round(values["TRI0TAS"]*math.sqrt(1-SWC^2)-values["TRI0WSpeed"]*cos((values["TRI0WHead"]-crs-getmagvar(values["TRI1"][1]["lat"], values["TRI1"][1]["lon"]))*pi/180))
           end
         end
 
@@ -9801,7 +9378,6 @@ function update()
         end
       end
 
-
       gline[7] = "TRI 3"
 
       bline[2] = "            "
@@ -9833,8 +9409,6 @@ function update()
         gline[1] = values["TRI3"][1]["ident"] .. "-" .. values["TRI3"][2]["ident"] .. "|"
         bline[1] = "            "
       end
-
-
 
       if values["TRI3"][2]["ident"] == "     " then
         gline[2] = "ESA -----ft|"
@@ -9976,7 +9550,6 @@ function update()
       else
         local dist = distanceFPLN(FPlan[values["TRI5num"]], 1, FPlan[values["TRI5num"]]["length"], 1)
 
-        --  local dist = distance(FPlan[values["TRI5num"]][1]["lat"],FPlan[values["TRI5num"]][1]["lon"], FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["lat"], FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["lon"])
         local crs = course(FPlan[values["TRI5num"]][1]["lat"], FPlan[values["TRI5num"]][1]["lon"],
           FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["lat"],
           FPlan[values["TRI5num"]][FPlan[values["TRI5num"]]["length"]]["lon"])
@@ -10031,7 +9604,6 @@ function update()
         end
       end
 
-
       gline[7] = "TRI 5"
 
       bline[2] = "            "
@@ -10057,7 +9629,6 @@ function update()
         bline[1] = "            "
       end
 
-
       controls["lselect"] = 0
 
       if FPlan[values["TRI5num"]]["length"] < 2 then
@@ -10070,7 +9641,6 @@ function update()
           ESA1 = getMSA(FPlan[values["TRI5num"]][wptnum - 1]["lat"], FPlan[values["TRI5num"]][wptnum - 1]["lon"],
             FPlan[values["TRI5num"]][wptnum]["lat"], FPlan[values["TRI5num"]][wptnum]["lon"])
           if ESA1 ~= "-----" then
-            --print(wptnum, ESA1, ESA)
             if tonumber(ESA1) > tonumber(ESA) then
               ESA = ESA1
             end
@@ -10095,7 +9665,8 @@ function update()
       bline[5] = "            "
       bline[6] = "            "
     end
-    --#########################################################################This is the MOD page
+
+    --This is the MOD page
   elseif lpage == 2 then
     if lsubpage[2] == 10 then
       bline[6] = "            "
@@ -10132,11 +9703,6 @@ function update()
       elseif get(GPSmode) ~= 1 and controls["ENT"] == 1 then
         set(GPSmode, 1)
         controls["ENT"] = 0
-        -- if values["tofrom"] == 1 then
-        -- values["DTK"] = values["HSIOBS"]
-        -- else
-        -- values["DTK"] = course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
-        -- end
       end
       if get(GPSmode) == 1 then
         gline[1] = "ACTIVE MODE|"
@@ -10148,7 +9714,6 @@ function update()
       end
       gline[3] = "           |"
       gline[4] = "LEG        |"
-
 
       gline[5] = "           |"
       gline[6] = "CDI:&" .. float(values["scalefactor"], 2) .. "NM|"
@@ -10222,8 +9787,6 @@ function update()
       elseif get(GPSmode) ~= 2 and controls["ENT"] == 1 then
         set(GPSmode, 2)
 
-
-
         if values["activeWPT"]["length"] >= 2 then
           if values["HSIinterf"] ~= 1 then
             values["HSIOBS"] = values["DTK"]
@@ -10273,7 +9836,8 @@ function update()
       bline[3] = "            "
       bline[5] = "            "
     end
-    --#########################################################################This is the FPL page
+
+    --This is the FPL page
   elseif lpage == 3 then
     --this tells which number of the FPLN is actually selected
     --2 actually means 1
@@ -10312,9 +9876,7 @@ function update()
         end
       end
     end
-    --print(WPTselect)
-    --print(controls["lselect"], WPTselect, FPlan[lsubpage[3]/10]["SIDstart"], FPlan[lsubpage[3]/10]["STARstart"])
-    --  print(maxlen, FPlan[lsubpage[3]/10]["SIDstart"])
+
     if controls["lCRSR"] == 1 then
       if controls["FPLstate"] > 0 then
         values["MSGENT"] = 2
@@ -10325,7 +9887,6 @@ function update()
         values["MSGENT"] = 2
       else
         if controls["ENT"] == 1 and controls["FPLstate"] == 1 then
-          --print(controls["lselect"], WPTselect, FPlan[lsubpage[3]/10]["APPstart"])
           if WPTselect == 200 then
             while FPlan[lsubpage[3] / 10]["SIDend"] >= FPlan[lsubpage[3] / 10]["SIDstart"] do
               table.remove(FPlan[lsubpage[3] / 10], FPlan[lsubpage[3] / 10]["SIDend"])
@@ -10477,9 +10038,6 @@ function update()
             if WPTselect - 1 <= FPlan[lsubpage[3] / 10]["APPend"] then
               FPlan[lsubpage[3] / 10]["APPend"] = FPlan[lsubpage[3] / 10]["APPend"] + 1
             end
-            -- if lsubpage[3] == 0 then
-            -- if values["activeWPT"]["active"] > WPTselect-1 then values["activeWPT"]["active"] = values["activeWPT"]["active"] + 1 end
-            -- end
           end
         elseif controls["lCRSRchar"] > 0 and controls["CLR"] == 1 and values["leditstate"] ~= 2 then
           table.remove(FPlan[lsubpage[3] / 10], WPTselect - 1)
@@ -10504,9 +10062,6 @@ function update()
           if WPTselect - 1 < FPlan[lsubpage[3] / 10]["APPend"] then
             FPlan[lsubpage[3] / 10]["APPend"] = FPlan[lsubpage[3] / 10]["APPend"] - 1
           end
-          -- if lsubpage[3] == 0 then
-          -- if values["activeWPT"]["active"] > WPTselect-1 then values["activeWPT"]["active"] = values["activeWPT"]["active"] - 1 end
-          -- end
           controls["CLR"] = 0
           activateFPLN0()
         end
@@ -10724,7 +10279,6 @@ function update()
             FPlan[lsubpage[3] / 10]["APPend"] = 99
             FPlan[lsubpage[3] / 10]["APPMAP"] = 99
             FPlan[lsubpage[3] / 10]["APPAPT"] = {}
-            --  lsubpage[3] = 0
             controls["ENT"] = 0
             controls["lCRSR"] = 0
           else
@@ -10945,10 +10499,6 @@ function update()
                 dot = " "
               end
 
-
-              -- FPlan[0]["SID"]["ident"] = values["SIDSTARsel"]["SID"]
-              -- FPlan[0]["SID"]["start"] = num + 1
-              -- FPlan[0]["SID"]["end"] = num + 1 + values["SIDSTARsel"]["num"]
               if WPTnum > 0 then
                 if controls["lselect"] == controls["lview"] + line and controls["lCRSR"] == 1 then
                   if controls["FPLstate"] == 1 then
@@ -10983,8 +10533,6 @@ function update()
       line = line + 1
     end
 
-
-
     if controls["lselect"] == controls["lview"] + 6 then
       if controls["FPLstate"] == 1 then
         gline[6] = "DEL " .. FPlan[lsubpage[3] / 10][FPlan[lsubpage[3] / 10]["length"]]["ident"] .. "? |"
@@ -11015,7 +10563,6 @@ function update()
         gline[6] = "           |"
       end
     end
-
 
     gline[7] = "FPL" .. makelength(lsubpage[3] / 10, 2, 1)
 
@@ -11053,8 +10600,7 @@ function update()
       end
     end
 
-    --gline[1] = gline[1] .. controls["lselect"] .. " " .. controls["lview"] .. " " .. controls["lCRSRchar"]
-    --#########################################################################This is the NAV2 page
+    --This is the NAV2 page
   elseif lpage == 4 then
     if lsubpage[4] == 10 then
       controls["lCRSR"] = 0
@@ -11088,12 +10634,9 @@ function update()
         gline[2] = scale(values["XTK"], values["scalefactor"], values["tofrom"]) .. "|"
         gline[3] = "DIS  " .. dynaround(values["dist"], 4) .. "nm|"
         gline[5] = "ETE   " .. convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600) .. "|"
-
-        --gline[5] = "ETE   " ..  convtime(distanceFPLN(values["activeWPT"], 1, values["activeWPT"]["length"], 0) / (get(SPEEDin)* 1.94384449)*3600) .. "|"
         gline[6] = string.format("BRG    %03d*|", round(values["bearing"]))
-
-
         gline[7] = "NAV 1"
+
         bline[1] = "            "
         bline[2] = "            "
         bline[3] = "            "
@@ -11191,9 +10734,6 @@ function update()
           end
         end
 
-
-
-
         if get(GPSmode) == 2 then
           if values["HSIinterf"] == 2 or values["HSIinterf"] == 0 then
             gline[2] = string.format("OBS:   %03d*|", round(values["HSIOBS"]))
@@ -11232,7 +10772,6 @@ function update()
             ESA1 = getMSA(values["activeWPT"][wptnum - 1]["lat"], values["activeWPT"][wptnum - 1]["lon"],
               values["activeWPT"][wptnum]["lat"], values["activeWPT"][wptnum]["lon"])
             if ESA1 ~= "-----" then
-              --print(wptnum, ESA1, ESA)
               if tonumber(ESA1) > tonumber(ESA) then
                 ESA = ESA1
               end
@@ -11261,7 +10800,6 @@ function update()
         values["VNVstat"][2] = -1
         if values["activeWPT"]["length"] >= 2 then
           values["VNVstat"][1] = values["activeWPT"][values["activeWPT"]["length"]]
-          --values["VNVstat"][2] = values["activeWPT"]["length"]
         else
           values["VNVstat"][1] = {}
           values["VNVstat"][1]["ident"] = "     "
@@ -11270,11 +10808,7 @@ function update()
 
       if controls["lCRSR"] == 1 then
         if controls["lCRSRchar"] == 0 and controls["lselect"] ~= 1 then
-          -- if controls["lselect"] == 0 then
-          -- controls["lCRSRchar"] = 5
-          -- else
           controls["lCRSRchar"] = 1
-          --  end
         end
         if controls["lselect"] == 1 then
           if controls["sENT"] == 1 and values["leditstate"] == 3 then
@@ -11342,7 +10876,6 @@ function update()
             if x < 1 then x = 10 end
             values["VNVOFFS"] = replaceChar(values["VNVOFFS"], controls["lCRSRchar"], value2string(x))
             --use FPLN distance
-            --values["VNVANG"] = float(math.atan((IndALT-values["VNVSEL"])/((distance(values["GPSlat"], values["GPSlon"], values["VNVstat"][2]["lat"], values["VNVstat"][2]["lon"])-values["VNVOFFS"])*6076.11549)*pi/180), 1)/pi*180
             values["VNVstat"][0] = 0
           elseif controls["lselect"] == 3 then
             local y = controls["lCRSRchar"]
@@ -11367,7 +10900,6 @@ function update()
             x = string2value(string.sub(values["VNVOFFS"], controls["lCRSRchar"], controls["lCRSRchar"])) + 1
             if x > 10 then x = 1 end
             values["VNVOFFS"] = replaceChar(values["VNVOFFS"], controls["lCRSRchar"], value2string(x))
-            --values["VNVANG"] = float(math.atan((IndALT-values["VNVSEL"])/((distance(values["GPSlat"], values["GPSlon"], values["VNVstat"][2]["lat"], values["VNVstat"][2]["lon"])-values["VNVOFFS"])*6076.11549)*pi/180), 1)/pi*180
             values["VNVstat"][0] = 0
           elseif controls["lselect"] == 3 then
             local y = controls["lCRSRchar"]
@@ -11414,10 +10946,9 @@ function update()
         gline[1] = "VNV" .. makelength(round(values["VNVstat"][2], -2), 6, 1) .. "ft|"
       end
       gline[2] = "           |"
-
       gline[3] = string.format("IND %05dft|", IndALT)
-
       gline[4] = "SEL:" .. values["VNVSEL"] .. "ft|"
+
       bline[4] = "            "
       if controls["lCRSR"] == 1 and controls["lselect"] == 0 then
         bline[4] = highlightchar(gline[4], controls["lCRSRchar"] + 4)
@@ -11443,7 +10974,6 @@ function update()
           bline[6] = highlightchar(gline[6], 10)
         end
       end
-
 
       gline[7] = "NAV 4"
       bline[1] = "            "
@@ -11499,7 +11029,6 @@ function update()
           values["NAV5ORI2"] = get(PSIin)
         end
 
-
         if values["NAV5ORIS"] == 0 then
           gline[6] = strin .. "   " .. makelength(num2range(values["NAV5RNG2"]), 4, 1) .. "|"
         else
@@ -11523,7 +11052,6 @@ function update()
         gline[4] = "           |"
         gline[5] = "           |"
 
-
         gline[7] = "NAV 5"
         bline[1] = "            "
         bline[2] = "            "
@@ -11532,7 +11060,7 @@ function update()
         bline[5] = "            "
       end
     end
-    --#########################################################################This is the CAL page
+    --This is the CAL page
   elseif lpage == 5 then
     --should be working
     if lsubpage[5] == 10 then
@@ -11638,7 +11166,6 @@ function update()
         end
       end
 
-
       local baro = 0
       if values["barounit"] == 1 then
         baro = values["cal1baro"] * 0.0295301
@@ -11647,11 +11174,8 @@ function update()
       end
 
       local PressALT = values["cal1ind"] + (145442.2 * (1 - (baro / 29.92126) ^ 0.190261))
-      --local PressALT =baro
-
 
       local DensALT = PressALT + 118.6 * (values["cal1temp"] - (15 - 0.0019812 * PressALT))
-
 
       gline[2] = string.format("IND:%sft|", values["cal1ind"])
       bline[2] = "            "
@@ -11714,7 +11238,8 @@ function update()
       bline[1] = "            "
       bline[4] = "            "
       bline[6] = "            "
-      --#########################################################################This is the TAS calc page
+
+      --This is the TAS calc page
       --not finished!
     elseif lsubpage[5] == 20 then
       gline[1] = "    TAS    |"
@@ -11840,8 +11365,6 @@ function update()
         bline[2] = highlightchar(gline[2], controls["lCRSRchar"] + 6)
       end
 
-
-
       gline[3] = string.format("ALT:%sft|", values["cal1ind"])
       bline[3] = "            "
       if controls["lselect"] == 1 then
@@ -11958,7 +11481,6 @@ function update()
       gline[3] = "           |"
 
       --We blank gline 3, as we assume that HDG input is there, because it's available on OTH9
-      --gline[3] = string.format("HDG   %03d*|",  values["cal3HDG"])
       local WS = math.sqrt((values["cal2TAS"] / 1.94384 - values["GPSSPD"]) ^ 2 +
       4 * (values["cal2TAS"] / 1.94384 * values["GPSSPD"]) * (sin((get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) / 2)) ^
       2)
@@ -11968,7 +11490,6 @@ function update()
 
       local HW = (WS) * cos(WD - (get(PSIin) * pi / 180))
 
-      --WD =  WD *180/pi + get(MAGVARin) - getmagvar(values["GPSlat"], values["GPSlon"])
       WD = WD * 180 / pi + get(MAGVARin)
 
       if WD > 360 then
@@ -11978,7 +11499,6 @@ function update()
       end
       gline[5] = string.format("WIND  %03d*~|", round(WD))
       gline[6] = string.format("      %skt|", makelength(round(WS * 1.94384), 3, 1))
-
 
       if HW < 0 then
         HW = -HW
@@ -12032,8 +11552,6 @@ function update()
               values["cal4ANG"] = "0.0"
             else
               values["cal4ANG"] = float(math.atan(values["cal4FPM"] / (values["cal4GS"] * 6076 / 60)) * 180 / pi, 1)
-
-              --  values["cal4ANG"] = string.sub(string.format("%f", round((math.atan(values["cal4FPM"]/(values["cal4GS"]*6076/60))*180/pi), 1)), 1, 3)
             end
           elseif controls["lselect"] == 1 then
             x = string2value(string.sub(values["cal4FPM"], controls["lCRSRchar"], controls["lCRSRchar"])) - 1
@@ -12245,7 +11763,6 @@ function update()
         end
       end
 
-
       gline[2] = string.format("   %s*C   |", values["cal5C"])
       bline[2] = "            "
       if controls["lCRSR"] == 1 and controls["lselect"] == 0 then
@@ -12291,8 +11808,6 @@ function update()
       local name2l = ""
       name1, diff1, name1l = timezone(values["timeconftime"]["zone"])
       name2, diff2, name2l = timezone(values["timeconftime"]["zone2"])
-
-
 
       if controls["lCRSR"] == 1 then
         if controls["lselect"] == 0 then
@@ -12391,13 +11906,10 @@ function update()
         values["sunzone"] = values["time"]["zone"]
         if values["activeWPT"]["length"] > 0 then
           values["sunwpt"] = values["activeWPT"][values["activeWPT"]["length"]]
-          --  values["sunwpt"] = FPlan[0][FPlan[0]["length"]]
         else
           values["sunwpt"]["ident"] = "     "
         end
       end
-
-
 
       if controls["lCRSR"] == 1 then
         if controls["lselect"] == 0 then
@@ -12442,8 +11954,6 @@ function update()
         gline[2] = "WPT: " .. values["sunwpt"]["ident"] .. " |"
         bline[2] = "            "
       end
-      --print(gline[2])
-
 
       if controls["lselect"] == 1 then
         gline[3] = "  " .. values["lgstring"] .. "|"
@@ -12478,7 +11988,8 @@ function update()
       bline[5] = "            "
       bline[6] = "            "
     end
-    --#########################################################################This is the STATUS page
+
+    --This is the STATUS page
     --all pages should be complete and bug free
   elseif lpage == 6 then
     if lsubpage[6] == 10 then
@@ -12498,7 +12009,6 @@ function update()
         gline[1] = "STATE   NAV|"
         gline[7] = "STA+1"
       end
-
 
       gline[2] = " SV SNR ELE|"
 
@@ -12625,9 +12135,6 @@ function update()
         controls["lknobl"] = 0
         controls["lknobs"] = 0
 
-
-
-
         gline[1] = "     " .. makelength(values["PONG"]["ScoreL"], 4, 1) .. "  |  " .. values["PONG"]["ScoreR"]
         gline[2] = "           |"
         gline[3] = "           |"
@@ -12695,7 +12202,6 @@ function update()
         local size = { 0, 28, 206, 66 }
 
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
 
         table.insert(Nav5Comp, textureLit2 {
           position = { round(values["PONG"]["x"] - 1.5), round(values["PONG"]["y"] - 1.5), 3, 3 },
@@ -12707,12 +12213,9 @@ function update()
             return true
           end,
         })
-        --table.insert ( Nav5Comp_Serializer, WrapTextLit(round(values["PONG"]["x"]-1.5),round(values["PONG"]["y"]-1.5),3,3,1,brt,1) )
 
         drawline(Nav5Comp, 10, round(values["PONG"]["lpad"]), 10, round(values["PONG"]["lpad"] + 20), size)
-        --table.insert ( Nav5Comp_Serializer, WrapLine(15, round(values["PONG"]["lpad"]), 15, round(values["PONG"]["lpad"] + 20), size) )
         drawline(Nav5Comp, 196, round(values["PONG"]["rpad"]), 196, round(values["PONG"]["rpad"] + 20), size)
-        --table.insert ( Nav5Comp_Serializer, WrapLine(196, round(values["PONG"]["rpad"]), 196, round(values["PONG"]["rpad"] + 20), size) )
 
         bline[1] = "            "
         bline[2] = "            "
@@ -12730,7 +12233,6 @@ function update()
         values["RAIMSTA"] = 0
         if values["activeWPT"]["length"] > 0 then
           values["RAIMwpt"] = values["activeWPT"][values["activeWPT"]["length"]]
-          --  values["sunwpt"] = FPlan[0][FPlan[0]["length"]]
         else
           values["RAIMwpt"]["ident"] = "     "
         end
@@ -12776,7 +12278,6 @@ function update()
 
       values["RAIMtime"]["zonename"], values["RAIMtime"]["zonediff"], values["RAIMtime"]["zonenamel"] = timezone(values
       ["RAIMtime"]["zone"])
-
 
       gline[1] = "RAIM STATUS|"
       if controls["lselect"] == 0 and controls["lCRSR"] == 1 then
@@ -12851,7 +12352,8 @@ function update()
       end
     end
   elseif lpage == 7 then
-    --#########################################################################This is the SET0 page
+
+    --This is the SET0 page
     if lsubpage[7] == 0 then
       if controls["lCRSR"] == 0 then
         gline[1] = "      U P D A T E"
@@ -12924,7 +12426,6 @@ function update()
       days2 = monthstodays(month2, days)
       local days3 = monthstodays(numbertomonth(values["date"]["month"]), values["date"]["days"])
       local expired = 0
-      -- print(days2, days3)
       if year2 < values["date"]["year"] then
         expired = 1
       elseif days2 < days3 then
@@ -12938,11 +12439,8 @@ function update()
         gline[4] = "   DATA BASE EXPIRED"
       end
 
-
       gline[6] = "     U P D A T E ?"
-
       gline[7] = "SET 0"
-
 
       bline[4] = ""
       if values["flash"] == 1 then
@@ -12988,10 +12486,7 @@ function update()
       elseif controls["CLR"] == 1 then
         lsubpage[7] = 1
       end
-    elseif lsubpage[7] == 3 then         -- or lsubpage[7] == 4 then
-      -- gline[7] = "SET 0"
-
-
+    elseif lsubpage[7] == 3 then
       controls["lCRSR"] = 0
       controls["lknobs"] = 0
       controls["lknobl"] = 0
@@ -12999,9 +12494,7 @@ function update()
       controls["rknobl"] = 0
       controls["rCRSR"] = 0
 
-
       --now do lotsa calculations
-
       os.remove("Custom Data/KLN90B_Navdata/airports.txt")
       os.remove("Custom Data/KLN90B_Navdata/APTSUP.txt")
       os.remove("Custom Data/KLN90B_Navdata/navaids.txt")
@@ -13026,7 +12519,6 @@ function update()
         gline[5] = ""
         gline[7] = "SET 0"
       else
-        --sasl.commandOnce(sasl.findCommand("sasl/reload/" .. sasl.getProjectName ()))
         lsubpage[7] = 5
         controls["lCRSR"] = 1
       end
@@ -13054,7 +12546,8 @@ function update()
       else
         bline[6] = ""
       end
-      --#########################################################################This is the SET1 page
+
+      --This is the SET1 page
     elseif lsubpage[7] == 10 then
       if controls["lCRSR"] == 1 then
         if controls["lselect"] == 0 then
@@ -13122,8 +12615,6 @@ function update()
         gline[2] = "WPT: " .. values["initwpt"]["ident"] .. " |"
         bline[2] = "            "
       end
-      --print(gline[2])
-
 
       if controls["lselect"] == 1 then
         gline[3] = values["lgstring"] .. "|"
@@ -13141,15 +12632,13 @@ function update()
         bline[4] = "            "
       end
 
-
-
       gline[5] = string.format("%s KT %03d*|", makelength(round(values["GPSSPD"] * 1.94384449), 3, 1), values["GPSTRK"])
       gline[7] = "SET 1"
 
       bline[1] = "            "
       bline[5] = "            "
 
-      --#########################################################################This is the SET2 page
+      --This is the SET2 page
       --Bug: When local time is < 0 then date still remains unchaged
     elseif lsubpage[7] == 20 then
       if controls["lCRSR"] == 1 then
@@ -13212,8 +12701,6 @@ function update()
         end
       end
 
-
-
       gline[1] = " DATE/TIME |"
       gline[2] = "           |"
       values["time"]["zonename"], values["time"]["zonediff"], values["time"]["zonenamel"] = timezone(values["time"]
@@ -13248,7 +12735,6 @@ function update()
           values["time"]["zonename"])
       end
 
-
       gline[5] = values["time"]["zonenamel"] .. "|"
       if values["GPSlat"] > 74 or values["GPSlat"] < -60 then
         if values["magvar"] < 0 then
@@ -13271,7 +12757,7 @@ function update()
       bline[2] = "            "
       bline[5] = "            "
 
-      --#########################################################################This is the SET3 page
+      --This is the SET3 page
     elseif lsubpage[7] == 30 then
       if controls["lCRSR"] == 1 then
         if controls["lknobs"] == -1 then
@@ -13308,7 +12794,6 @@ function update()
         end
       end
 
-
       gline[1] = "NEAREST APT|"
       gline[2] = " CRITERIA  |"
       gline[3] = "MIN LENGTH:|"
@@ -13318,7 +12803,6 @@ function update()
       if controls["lCRSR"] == 1 and controls["lselect"] == 0 then
         bline[4] = string.format("      %4d' ", values["RWYminlength"])
       end
-
 
       gline[5] = "SURFACE:   |"
       if values["RWYsurface"] == 0 then
@@ -13342,7 +12826,8 @@ function update()
       bline[2] = "            "
       bline[3] = "            "
       bline[5] = "            "
-      --#########################################################################This is the SET4 page
+      
+      --This is the SET4 page
     elseif lsubpage[7] == 40 then
       if controls["lCRSR"] == 1 then
         if controls["lknobs"] == -1 then
@@ -13358,8 +12843,6 @@ function update()
       elseif values["timerstart"] > 1 then
         values["timerstart"] = 0
       end
-
-
 
       gline[1] = "  FLIGHT   |"
       gline[2] = "  TIMER    |"
@@ -13388,7 +12871,7 @@ function update()
         end
       end
 
-      --#########################################################################This is the SET5 page
+      --This is the SET5 page
     elseif lsubpage[7] == 50 then
       if controls["lCRSR"] == 1 then
         if controls["lknobl"] == -1 then
@@ -13427,7 +12910,6 @@ function update()
           controls["lknobs"] = 0
         end
       end
-
 
       if controls["lselect"] < 0 then
         controls["lselect"] = 1
@@ -13470,7 +12952,8 @@ function update()
       bline[2] = "            "
       bline[4] = "            "
       bline[5] = "            "
-      --#########################################################################This is the SET6 page
+
+      --This is the SET6 page
     elseif lsubpage[7] == 60 then
       if controls["lCRSR"] == 1 then
         if controls["lknobs"] == -1 then
@@ -13513,7 +12996,8 @@ function update()
           bline[4] = "  ENABLE    "
         end
       end
-      --#########################################################################This is the SET7 page
+
+      --This is the SET7 page
     elseif lsubpage[7] == 70 then
       if controls["lCRSR"] == 1 then
         if controls["lknobs"] == -1 then
@@ -13566,7 +13050,8 @@ function update()
       bline[3] = "            "
       bline[4] = "            "
       bline[5] = "            "
-      --#########################################################################This is the SET8 page
+
+      --This is the SET8 page
     elseif lsubpage[7] == 80 then
       controls["lCRSR"] = 0
       gline[1] = " AIRSPACE  |"
@@ -13583,7 +13068,8 @@ function update()
       bline[4] = "            "
       bline[5] = "            "
       bline[6] = "            "
-      --#########################################################################This is the SET9 page
+
+      --This is the SET9 page
     elseif lsubpage[7] == 90 then
       if controls["lCRSR"] == 1 then
         if controls["lknobs"] == -1 then
@@ -13603,7 +13089,6 @@ function update()
         end
       end
 
-
       gline[1] = "ALTITUDE   |"
       gline[2] = "  ALERT    |"
       gline[3] = " VOLUME:   |"
@@ -13622,7 +13107,8 @@ function update()
       bline[3] = "            "
       bline[4] = "            "
       bline[6] = "            "
-      --#########################################################################This is the fictional SET10 page
+
+      --This is the fictional SET10 page
     elseif lsubpage[7] == 100 then
       if controls["lCRSR"] == 1 then
         if controls["lknobl"] == -1 then
@@ -13704,18 +13190,11 @@ function update()
         end
       end
 
-
       if controls["lselect"] < 0 then
         controls["lselect"] = 5
       elseif controls["lselect"] > 5 then
         controls["lselect"] = 0
       end
-
-
-
-
-
-
 
       if values["primary"] == 0 then
         gline[1] = "KLN90B: SEC|"
@@ -13734,7 +13213,6 @@ function update()
           bline[1] = "            "
         end
       end
-
 
       if values["HSIinterf"] == 0 and values["primary"] == 1 then
         gline[2] = "HSI:     - |"
@@ -13841,11 +13319,9 @@ function update()
           bline[6] = "            "
         end
       end
-      --gline[6] = "           |"
       gline[7] = "SET10"
 
-      -- bline[6] = "            "
-      --#########################################################################This is the fictional SET11 page
+      --This is the fictional SET11 page
     elseif lsubpage[7] == 110 then
       if controls["lCRSR"] == 1 then
         if controls["lknobl"] == -1 then
@@ -13907,7 +13383,6 @@ function update()
         end
       end
 
-
       if controls["lselect"] < 0 then
         controls["lselect"] = 3
       elseif controls["lselect"] > 3 then
@@ -13931,7 +13406,6 @@ function update()
           bline[3] = "            "
         end
       end
-
 
       if values["showwat"] == 0 then
         gline[4] = "WATER:  OFF|"
@@ -13989,7 +13463,7 @@ function update()
       gline[7] = "SET11"
     end
 
-    --#########################################################################This is the OTH page
+    --This is the OTH page
   elseif lpage == 8 then
     --1 and 2 show FSS and CTR, I don't have a database :-(
     if lsubpage[8] == 10 then
@@ -14037,9 +13511,7 @@ function update()
         num = num + 1
       end
 
-
       --we first need to check if the waypoints are in the FPlan!
-
       local num1 = 0
       local FPLNused = {}
       local num = 1
@@ -14047,7 +13519,6 @@ function update()
         FPLNused[num] = -1
         num = num + 1
       end
-
 
       while num1 <= 25 do
         if FPlan[num1]["length"] > 0 then
@@ -14065,7 +13536,6 @@ function update()
         end
         num1 = num1 + 1
       end
-
 
       if controls["lCRSR"] == 1 then
         if controls["FPLstate"] == 1 then
@@ -14122,7 +13592,6 @@ function update()
           controls["lview"] = controls["lselect"] - 4
         end
 
-
         if controls["lview"] < 0 then
           controls["lview"] = Userlength - 1
         elseif controls["lview"] > Userlength - 1 then
@@ -14141,8 +13610,6 @@ function update()
       end
 
       gline[1] = " USER WPTS |"
-      --  local num = math.ceil((controls["lselect"]+1)/5)
-      --print(num, controls["lselect"])
 
       local line = 2
       while line <= 6 do
@@ -14177,10 +13644,7 @@ function update()
         line = line + 1
       end
 
-
-
       gline[7] = "OTH 3"
-
       bline[1] = "            "
     elseif lsubpage[8] == 40 then
       local RMKlength = 0
@@ -14226,7 +13690,6 @@ function update()
           controls["lview"] = controls["lselect"] - 4
         end
 
-
         if controls["lview"] < 0 then
           controls["lview"] = RMKlength - 1
         elseif controls["lview"] > RMKlength - 1 then
@@ -14237,7 +13700,6 @@ function update()
       end
 
       gline[1] = "APTS W/RMKS|"
-      --print(num, controls["lselect"])
 
       local line = 2
       while line <= 6 do
@@ -14264,9 +13726,7 @@ function update()
         line = line + 1
       end
 
-
       gline[7] = "OTH 4"
-
       bline[1] = "            "
     elseif lsubpage[8] == 50 then
       gline[5] = string.format("RES:  %s|", values["reserve"])
@@ -14299,8 +13759,6 @@ function update()
           controls["lknobs"] = 0
         end
       end
-
-
 
       if values["activeWPT"]["length"] >= 2 then
         if values["activeWPT"]["length"] == 2 then
@@ -14358,16 +13816,12 @@ function update()
         multi = 2.20462262
       end
 
-
-
-
       gline[2] = string.format("FOB%s|", makelength(round(get(FuelTOT) * multi), 8, 1))
 
       if values["activeWPT"]["length"] >= 2 then
         local REQ = distanceFPLN(values["activeWPT"], 2, values["activeWPT"]["length"], 0)
         local endurance = get(FuelTOT) /
         (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
-        --print("1", endurance)
         if endurance > 356400 or endurance < 0 then
           gline[3] = "REQD  -----|"
           gline[4] = "L FOB -----|"
@@ -14467,7 +13921,6 @@ function update()
       --this is how many seconds we can run
       local endurance = (get(FuelTOT) - tonumber(values["reserve"]) / multi) /
       (get(FuelFlow1) + get(FuelFlow2) + get(FuelFlow3) + get(FuelFlow4) + get(FuelFlow5) + get(FuelFlow6) + get(FuelFlow7) + get(FuelFlow8))
-      --print("1", endurance)
 
       if endurance > 356400 or endurance < 0 then
         gline[3] = " ENDUR -:--|"
@@ -14484,16 +13937,11 @@ function update()
           gline[5] = " NM/LB  -.-|"
         end
       else
-        --print("2", endurance)
         local endur1 = math.floor(endurance / 3600)
         local endur2 = math.floor((endurance / 3600 - endur1) * 60)
         gline[3] = string.format(" ENDUR%s:%02d|", makelength(endur1, 2, 1), endur2)
         local range = endurance * values["GPSSPD"] * 0.000539956803
         gline[4] = string.format(" RANGE %s|", makelength(round(range), 4, 1))
-
-
-
-
 
         if values["fuelunit"] == 1 then
           gline[5] = string.format(" NM/GAL%s|", makelength(float(range / (get(FuelTOT) * multi), 1), 4, 1))
@@ -14562,7 +14010,6 @@ function update()
         gline[4] = "           |"
         gline[5] = "           |"
         gline[6] = string.format("     %s|", makelength(makelength(round(get(FuelFlow1) * 3600 * multi), 5, 0), 6, 1))
-        --  gline[4] = gline[4] ..  makelength(makelength(round(d                          ist), 3, 1), 4, 0) .. "  " .. convtime (dist / (get(SPEEDin)* 1.94384449)*3600)
       elseif get(EnginesNum) == 2 then
         gline[2] = "           |"
         gline[4] = string.format("ENG 1%s|", makelength(makelength(round(get(FuelFlow1) * 3600 * multi), 5, 0), 6, 1))
@@ -14638,7 +14085,6 @@ function update()
         multi = 2.20462262
       end
 
-
       if get(EnginesNum) == 1 then
         gline[2] = "           |"
         gline[4] = "           |"
@@ -14686,7 +14132,6 @@ function update()
         get(TASin) * cos(get(PSIin) * pi / 180 - values["GPSTRK"] * pi / 180) - values["GPSSPD"])
       local HW = (WS) * cos(WD - (get(PSIin) * pi / 180))
       WD = WD * 180 / pi + get(MAGVARin)
-      --WD =  WD *180/pi
 
       if WD > 360 then
         WD = WD - 360
@@ -14754,10 +14199,7 @@ function update()
         modename = string.format("arm:%03d", round(values["HSIOBS"]))
       end
     end
-    --gline[7] = string.format("%s|%s    |", gline[7],modename)
     gline[7] = string.format("%s%%%s    %%", gline[7], modename)
-
-    --end
 
     if values["statustimer"] <= 0 then
       bline[7] = bline[7] .. "             "
@@ -14767,12 +14209,9 @@ function update()
     end
   end
 
-
-
-  --values["return"] = 0
-
-  --*************************************************************************Rpage begins here
-  --#########################################################################This is the CTR page
+  --Rpage begins here
+  
+  --This is the CTR page
   if not (lpage == 7 and lsubpage[7] < 10) and not (lpage == 6 and lsubpage[6] == 40 and controls["lCRSR"] == 1) then
     if rpage == 1 then
       controls["rCRSR"] = 0
@@ -14791,7 +14230,7 @@ function update()
         gline[7] = gline[7] .. "CTR 2"
       end
 
-      --#########################################################################This is the REF page
+      --This is the REF page
     elseif rpage == 2 then
       if lpage == 3 then
         gline[3] = gline[3] .. "ENTER REF"
@@ -14803,7 +14242,6 @@ function update()
 
           if values["reditstate"] == 3 then
             --here you need to check each waypoint in the FPLAN if you can create an abeam WPT.
-
             local near = findnearestleg(lsubpage[3] / 10, values["reditvalue"][1]["lat"], values["reditvalue"][1]["lon"])
 
             local lat2 = FPlan[lsubpage[3] / 10][near - 1]["lat"] * pi / 180
@@ -14828,7 +14266,6 @@ function update()
             local ang1 = math.fmod(crs13 - crs12 + pi, 2 * pi) - pi
             local ang2 = math.fmod(crs21 - crs23 + pi, 2 * pi) - pi
 
-
             local ang1 = math.abs(ang1)
             local ang2 = math.abs(ang2)
             local ang3 = math.acos(-cos(ang1) * cos(ang2) + sin(ang1) * sin(ang2) * cos(dst12))
@@ -14836,7 +14273,6 @@ function update()
             local lat3 = asin(sin(lat1) * cos(dst13) + cos(lat1) * sin(dst13) * cos(crs13))
             local dlon = math.atan2(sin(crs13) * sin(dst13) * cos(lat1), cos(dst13) - sin(lat1) * sin(lat3))
             local lon3 = math.fmod(lon1 - dlon + pi, 2 * pi) - pi
-
 
             --we now know the position of the waypoint, we need to check if it's still on the route.
             local dist1 = distance(FPlan[lsubpage[3] / 10][near - 1]["lat"], FPlan[lsubpage[3] / 10][near - 1]["lon"],
@@ -14852,7 +14288,6 @@ function update()
               --We need a unique ident
               local WPTend = string.find(values["reditvalue"][1]["ident"], " ")
               if WPTend == nil then WPTend = 5 end
-
 
               local ident2 = string.sub(values["reditvalue"][1]["ident"], 1, WPTend - 1)
               local letter = "A"
@@ -14874,7 +14309,6 @@ function update()
               local WPT = enterident(ident, 4, 0, 5, 0)
               WPT[1]["lat"] = lat3 / pi * 180
               WPT[1]["lon"] = lon3 / pi * -180
-              --values["reditvalue"] = WPT
 
               --The ref will be the entered WPT
               values["INTref"] = values["reditvalue"][1]
@@ -14885,7 +14319,6 @@ function update()
                 course(values["INTref"]["lat"], values["INTref"]["lon"], WPT[1]["lat"], WPT[1]["lon"]) * 10)
 
               --we simulate that a waypoint is entered normally into the FPLAN
-
               table.insert(FPlan[lsubpage[3] / 10], near, {})
               FPlan[lsubpage[3] / 10][near]["ident"] = "     "
 
@@ -14894,19 +14327,11 @@ function update()
               controls["lselect"]                  = near + 1
               controls["lCRSR"]                    = 1
               controls["lCRSRchar"]                = 5
-              --values["leditvalue"] = {}
               values["leditvalue"]                 = WPT
-              -- if lsubpage[3] == 0 then
-              -- activateFPLN0()
-              -- end
               values["leditstate"]                 = 3
               --The WPT is handed over to the left (FPLN), we don't need it on the right anymore.
               values["reditstate"]                 = 0
-              --values["reditvalue"] = nil
               controls["rCRSRchar"]                = 0
-              --  values["FPLREF"] = table.copy(values["FPLREF"])
-              --  values["FPLREF"] = {}
-              --  values["FPLREF"]["ident"] = "     "
             end
           end
         else
@@ -14922,7 +14347,7 @@ function update()
       end
       gline[7] = gline[7] .. "REF"
 
-      --#########################################################################This is the ACT page
+      --This is the ACT page
     elseif rpage == 3 then
       --should be working
       if rsubpage[3] < 70 then controls["rCRSR"] = 0 end
@@ -14945,8 +14370,7 @@ function update()
         gline[7] = gline[7] .. "ACT"
       end
 
-
-      --#########################################################################This is the D/T page
+      --This is the D/T page
     elseif rpage == 4 then
       if rsubpage[4] == 10 then
         controls["rCRSR"] = 0
@@ -14962,7 +14386,6 @@ function update()
           while line <= 5 do
             WPTnum = controls["lview"] + line - 1
             if WPTnum ~= FPlan[lsubpage[3] / 10]["SIDstart"] and WPTnum > 1 then
-              --gline[line] = gline[line] .. "----  --:--"
               if WPTnum > FPlan[lsubpage[3] / 10]["SIDstart"] then
                 WPTnum = WPTnum - 1
               end
@@ -15035,21 +14458,17 @@ function update()
             end
             if stop == 0 then
               if lsubpage[3] == 0 then
-                --if FPlan[0][FPlan[0]["length"]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)
                   gline[6] = string.sub(gline[6], 1, 12) ..
                   makelength(makelength(round(dist), 3, 1), 4, 0) ..
                   "  " .. convtime(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                 end
-                --end
               else
-                --  if FPlan[lsubpage[3]/10][FPlan[lsubpage[3]/10]["length"]]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.sub(gline[6], 1, 12) ..
                   makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3, 1)
                 end
-                --  end
               end
             end
           end
@@ -15117,7 +14536,6 @@ function update()
           while line <= 5 do
             WPTnum = controls["lview"] + line - 1
             if WPTnum ~= FPlan[lsubpage[3] / 10]["SIDstart"] and WPTnum > 1 then
-              --gline[line] = gline[line] .. "----  --:--"
               if WPTnum > FPlan[lsubpage[3] / 10]["SIDstart"] then
                 WPTnum = WPTnum - 1
               end
@@ -15190,21 +14608,17 @@ function update()
             end
             if stop == 0 then
               if lsubpage[3] == 0 then
-                --if FPlan[0][FPlan[0]["length"]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   local dist = distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)
                   gline[6] = string.sub(gline[6], 1, 12) ..
                   makelength(makelength(round(dist), 3, 1), 4, 0) ..
                   "  " .. FplnETA(dist / (values["GPSSPD"] * 1.94384449) * 3600)
                 end
-                --end
               else
-                --  if FPlan[lsubpage[3]/10][FPlan[lsubpage[3]/10]["length"]]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.sub(gline[6], 1, 12) ..
                   makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3, 1)
                 end
-                --  end
               end
             end
           end
@@ -15252,7 +14666,6 @@ function update()
           while line <= 5 do
             WPTnum = controls["lview"] + line - 1
             if WPTnum ~= FPlan[lsubpage[3] / 10]["SIDstart"] and WPTnum > 1 then
-              --gline[line] = gline[line] .. "----  --:--"
               if WPTnum > FPlan[lsubpage[3] / 10]["SIDstart"] then
                 WPTnum = WPTnum - 1
               end
@@ -15322,23 +14735,19 @@ function update()
             end
             if stop == 0 then
               if lsubpage[3] == 0 then
-                --if FPlan[0][FPlan[0]["length"]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen and values["activeWPT"]["active"] > 0 then
                   gline[6] = string.format("%s%s   %03d*", string.sub(gline[6], 1, 12),
                     makelength(
                     makelength(round(distanceFPLN(FPlan[0], values["activeWPT"]["active"], FPlan[0]["length"], 0)), 3, 1),
                       4, 0), round(courseFPLN(FPlan[0], FPlan[0]["length"])))
                 end
-                --end
               else
-                --  if FPlan[lsubpage[3]/10][FPlan[lsubpage[3]/10]["length"]]["ident"] ~= "     " then
                 if controls["lview"] + 5 <= maxlen then
                   gline[6] = string.format("%s%s   %03d*", string.sub(gline[6], 1, 12),
                     makelength(
                     makelength(round(distanceFPLN(FPlan[lsubpage[3] / 10], 1, FPlan[lsubpage[3] / 10]["length"], 1)), 3,
                       1), 4, 0), round(courseFPLN(FPlan[lsubpage[3] / 10], FPlan[lsubpage[3] / 10]["length"])))
                 end
-                --  end
               end
             end
           end
@@ -15415,13 +14824,11 @@ function update()
           hour2 = hour2 + 24
         end
         gline[3] = gline[3] .. string.format("TIME  %02d:%02d", hour2, values["time"]["minute"])
-        --local dist = makelength(makelength(round(distanceFPLN(FPlan[lsubpage[3]/10], values["active"], FPlan[lsubpage[3]/10]["length"], 0)), 3, 1), 4, 0)
         if values["activeWPT"]["length"] > 1 then
           gline[4] = gline[4] ..
           "ETA   " .. FplnETA(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
           gline[6] = gline[6] ..
           "ETE   " .. convtime(distanceFPLN(values["activeWPT"], 2, dest, 0) / (values["GPSSPD"] * 1.94384449) * 3600)
-          --  gline[4] = distanceFPLN(values["activeWPT"], 1, values["activeWPT"]["length"], 0) .. "  " .. values["activeWPT"]["length"]
         else
           gline[4] = gline[4] .. "ETA   --:--"
           gline[6] = gline[6] .. "ETE   --:--"
@@ -15430,7 +14837,7 @@ function update()
         gline[7] = gline[7] .. "D/T 4"
       end
 
-      --#########################################################################This is the NAV page
+      --This is the NAV page
     elseif rpage == 5 then
       --super nav!
       if rsubpage[5] == 10 then
@@ -15441,7 +14848,6 @@ function update()
           else
             gline[5] = "GS   " .. makelength(round(values["GPSSPD"] * 1.94384449), 4, 1) .. "kt"
           end
-
 
           if values["activeWPT"]["length"] < 2 or values["GPSnum"] < 4 then
             gline[1] = ""
@@ -15475,7 +14881,6 @@ function update()
             gline[4] = "DIS  " ..
             dynaround(values["dist"], 4) ..
             "nm   ETE " .. convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600)
-            --  gline[4] = "DIS  " .. makelength(round(values["dist"]), 4, 1) .. "nm   ETE " ..  convtime(distanceFPLN(values["activeWPT"], 1, values["activeWPT"]["length"], 0) / (get(SPEEDin)* 1.94384449)*3600)
             gline[5] = gline[5] .. string.format("   BRG  %03d*", round(values["bearing"]))
             gline[6] = ""
 
@@ -15510,8 +14915,6 @@ function update()
             gline[2] = gline[2] .. scale(values["XTK"], values["scalefactor"], values["tofrom"])
             gline[3] = gline[3] .. "DIS  " .. dynaround(values["dist"], 4) .. "nm"
             gline[5] = gline[5] .. "ETE   " .. convtime(values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600)
-
-            --gline[5] = gline[5] .. "ETE   " ..  convtime(distanceFPLN(values["activeWPT"], 1, values["activeWPT"]["length"], 0) / (get(SPEEDin)* 1.94384449)*3600)
             gline[6] = gline[6] .. string.format("BRG    %03d*", round(values["bearing"]))
             gline[7] = gline[7] .. "NAV 1"
           end
@@ -15524,7 +14927,6 @@ function update()
           if values["CALC3timer"] > 3 or values["REFVOR"] == nil then
             values["REFVOR"] = closestVOR(values["GPSlat"], values["GPSlon"])
           end
-
 
           gline[3] = gline[3] ..
           string.format("%s%03d*fr", values["REFVOR"]["ident"],
@@ -15593,7 +14995,6 @@ function update()
             end
           end
 
-
           if get(GPSmode) == 2 then
             if values["HSIinterf"] == 2 or values["HSIinterf"] == 0 then
               gline[2] = gline[2] .. string.format("OBS:   %03d*", round(values["HSIOBS"]))
@@ -15632,7 +15033,6 @@ function update()
               ESA1 = getMSA(values["activeWPT"][wptnum - 1]["lat"], values["activeWPT"][wptnum - 1]["lon"],
                 values["activeWPT"][wptnum]["lat"], values["activeWPT"][wptnum]["lon"])
               if ESA1 ~= "-----" then
-                --print(wptnum, ESA1, ESA)
                 if tonumber(ESA1) > tonumber(ESA) then
                   ESA = ESA1
                 end
@@ -15662,7 +15062,6 @@ function update()
           values["VNVstat"][2] = -1
           if values["activeWPT"]["length"] >= 2 then
             values["VNVstat"][1] = values["activeWPT"][values["activeWPT"]["length"]]
-            --values["VNVstat"][2] = values["activeWPT"]["length"]
           else
             values["VNVstat"][1] = {}
             values["VNVstat"][1]["ident"] = "     "
@@ -15671,11 +15070,7 @@ function update()
 
         if controls["rCRSR"] == 1 then
           if controls["rCRSRchar"] == 0 and controls["rselect"] ~= 1 then
-            -- if controls["lselect"] == 0 then
-            -- controls["lCRSRchar"] = 5
-            -- else
             controls["rCRSRchar"] = 1
-            --  end
           end
           if controls["rselect"] == 1 then
             if controls["sENT"] == 1 and values["reditstate"] == 3 then
@@ -15818,8 +15213,6 @@ function update()
           bline[4] = bline[4] .. highlightchar("    " .. values["VNVSEL"], controls["rCRSRchar"] + 4)
         end
 
-
-
         if controls["rselect"] == 1 then
           gline[5] = gline[5] .. values["rgstring"] .. ":-" .. values["VNVOFFS"] .. "nm"
           bline[5] = bline[5] .. values["rbstring"]
@@ -15830,9 +15223,6 @@ function update()
           end
         end
 
-
-
-
         gline[6] = gline[6] .. "ANGLE:" .. values["VNVANG"] .. "*"
         if controls["rselect"] == 3 then
           if controls["rCRSRchar"] == 1 then
@@ -15841,7 +15231,6 @@ function update()
             bline[6] = bline[6] .. highlightchar("      " .. values["VNVANG"], 10)
           end
         end
-
 
         gline[7] = gline[7] .. "NAV 4"
       elseif rsubpage[5] == 50 then
@@ -15979,7 +15368,6 @@ function update()
           else
             gline[4] = makelength(round(values["GPSSPD"] * 1.94384449), 4, 1) .. " àá"
           end
-
 
           if values["activeWPT"]["length"] < 2 or values["GPSnum"] < 4 then
             gline[1] = "--.- Þß"
@@ -16229,9 +15617,6 @@ function update()
               controls["rknobs"] = 0
             end
 
-
-
-
             bline[1] = ""
             bline[2] = ""
             bline[3] = ""
@@ -16388,7 +15773,6 @@ function update()
             values["NAV5ORI2"] = get(PSIin)
           end
 
-
           if values["NAV5ORIS"] == 0 then
             gline[6] = gline[6] .. strin .. "   " .. makelength(num2range(values["NAV5RNG2"]), 4, 1)
           else
@@ -16403,30 +15787,29 @@ function update()
           local size = { 105, 28, 103, 66 }
           drawmap(size, values["NAV5ORIS"], num2range(values["NAV5RNG2"]), 2)
 
-
           gline[7] = gline[7] .. "NAV 5"
         end
       end
     elseif rpage == 6 then
       rsubpage[6] = WPTpage(0, 0, rsubpage[6])
-      --#########################################################################This is the APT1 page
+      --This is the APT1 page
       --we search for airports
 
 
-      --#########################################################################This is the VOR page
+      --This is the VOR page
     elseif rpage == 7 then
       WPTpage(1, 0, 10)
 
-      --#########################################################################This is the NDB page
+      --This is the NDB page
     elseif rpage == 8 then
       WPTpage(2, 0, 10)
 
 
-      --#########################################################################This is the INT page
+      --This is the INT page
     elseif rpage == 9 then
       WPTpage(3, 0, 10)
 
-      --#########################################################################This is the SUP page
+      --This is the SUP page
     elseif rpage == 10 then
       WPTpage(4, 0, 10)
       --This page is only for testing
@@ -16452,7 +15835,6 @@ function update()
       gline[7] = gline[7] .. values["activeWPT"]["active"] .. " " .. values["activeWPT"]["length"]
     end
   end
-
 
   --final assembly of the seventh line
   if values["MSGLIST"]["length"] > 1 and rpage > 0 then
@@ -16487,8 +15869,6 @@ function update()
   end
 
   --1 means armed, only then we check this
-
-
   if values["VNVstat"][0] == 1 then
     local WPTnum = 2
     local WPTfound = 0
@@ -16549,15 +15929,12 @@ function update()
     bline[7] = bline[7] .. "CRSR"
   end
 
-
   --this is the message page
   if controls["MSG"] == 1 then
     controls["lspage"] = 4
     controls["rspage"] = 4
     Nav5Comp = {}
-    --Nav5Comp_Serializer = {}
     APT3Comp = {}
-    --APT3Comp_Serializer = {}
     if values["MSGLIST"]["length"] >= 1 then
       gline[1] = values["MSGLIST"][1]
       if values["MSGLIST"]["length"] >= 2 then
@@ -16604,8 +15981,6 @@ function update()
       gline[6] = ""
     end
 
-
-    --  gline[7] = "      " .. values["GPSmode"]
     bline[1] = ""
     bline[2] = ""
     bline[3] = ""
@@ -16613,7 +15988,6 @@ function update()
     bline[5] = ""
     bline[6] = ""
     bline[7] = "              msg"
-
 
     local modename = get(GPSmode)
     if modename == 1 then
@@ -16648,11 +16022,10 @@ function update()
     controls["lspage"] = 3
     controls["rspage"] = 3
     Nav5Comp = {}
-    --Nav5Comp_Serializer = {}
     APT3Comp = {}
-    --APT3Comp_Serializer = {}
 
-    if values["rseditstate"] ~= 2 then             --fix for unable to move selecton on duplicate wpts in VNAV
+    --fix for unable to move selecton on duplicate wpts in VNAV
+    if values["rseditstate"] ~= 2 then
       gline[1] = " ALTITUDE  |"
       if controls["lsknobl"] == -1 then
         controls["lsselect"] = controls["lsselect"] - 1
@@ -16728,7 +16101,6 @@ function update()
       else
         baro = values["baro"] / 100
       end
-      --  print(PressALT, string.format("%05d", PressALT))
       if values["altalert"] == 0 then
         if values["barounit"] == 0 then
           gline[2] = string.format("BARO:%s.%s@|", string.sub(values["baro"], 1, 2), string.sub(values["baro"], 3, 4))
@@ -16823,7 +16195,7 @@ function update()
           bline[5] = "            "
         end
       end
-    end           --fix end here
+    end
 
     gline[6] = "           |"
     bline[1] = "            "
@@ -16838,21 +16210,14 @@ function update()
       values["VNVstat"][2] = -1
       if values["activeWPT"]["length"] >= 2 then
         values["VNVstat"][1] = values["activeWPT"][values["activeWPT"]["length"]]
-        --values["VNVstat"][2] = values["activeWPT"]["length"]
       else
         values["VNVstat"][1] = {}
         values["VNVstat"][1]["ident"] = "     "
       end
     end
 
-    --  if controls["rCRSR"]  == 1 then
-
     if controls["rsCRSRchar"] == 0 and controls["rsselect"] ~= 1 then
-      -- if controls["lselect"] == 0 then
-      -- controls["lCRSRchar"] = 5
-      -- else
       controls["rsCRSRchar"] = 1
-      --  end
     end
     if controls["rsselect"] == 1 then
       if controls["sENT"] == 1 and values["rseditstate"] == 3 then
@@ -16877,8 +16242,8 @@ function update()
       end
     elseif controls["rsselect"] > 3 then
       controls["rsselect"] = 2
-    end                                                                             --fix for rsselect returnig 11 after waypoint change if duplicate was found
-
+    end
+    --fix for rsselect returnig 11 after waypoint change if duplicate was found
     if controls["rsknobl"] == -1 then
       controls["rsCRSRchar"] = controls["rsCRSRchar"] - 1
       if controls["rsselect"] == 0 and controls["rsCRSRchar"] < 1 then
@@ -16962,7 +16327,6 @@ function update()
       end
       controls["rsknobs"] = 0
     end
-    --end
 
     if values["VNVstat"][0] == 0 then
       gline[1] = gline[1] .. "VNV INACTV"
@@ -17000,8 +16364,6 @@ function update()
       bline[4] = bline[4] .. highlightchar("    " .. values["VNVSEL"], controls["rsCRSRchar"] + 4)
     end
 
-
-
     if controls["rsselect"] == 1 then
       gline[5] = gline[5] .. values["rsgstring"] .. ":-" .. values["VNVOFFS"] .. "nm"
       bline[5] = bline[5] .. values["rsbstring"]
@@ -17012,9 +16374,6 @@ function update()
       end
     end
 
-
-
-
     gline[6] = gline[6] .. "ANGLE:" .. values["VNVANG"] .. "*"
     if controls["rsselect"] == 3 then
       if controls["rsCRSRchar"] == 1 then
@@ -17023,7 +16382,6 @@ function update()
         bline[6] = bline[6] .. highlightchar("      " .. values["VNVANG"], 10)
       end
     end
-
 
     local modename = get(GPSmode)
     if modename == 1 then
@@ -17042,7 +16400,6 @@ function update()
       end
     end
     gline[7] = "     |" .. modename .. "    |"
-
 
     bline[7] = " CRSR             CRSR"
     if values["statustimer"] > 0 then
@@ -17097,7 +16454,6 @@ function update()
         controls["lsCRSRchar"] = 5
         values["lseditvalue"] = table.copy(values["SUPpage"])
         values["lseditstate"] = 3
-        -- elseif values["direct"]["ident"] ~= "     " then
       elseif values["activeWPT"]["length"] >= 2 then
         controls["lsCRSRchar"] = 5
         values["lseditvalue"] = {}
@@ -17135,7 +16491,6 @@ function update()
       end
     end
 
-
     values["direct"] = editvalue(1, "ls", values["direct"])
     if values["lsreturn"] == 1 then
       --here active is modified
@@ -17152,9 +16507,6 @@ function update()
         new["ident"] = "    $"
         new["lat"] = values["GPSlat"]
         new["lon"] = values["GPSlon"]
-        -- local num = FPlan[0]["length"] - values["activeWPT"]["length"] + 1
-        -- while num <= FPlan[0]["length"] do
-        -- if FPlan[0][num]["types"] == values["direct"]["types"] and FPlan[0][num]["numi"] == values["direct"]["numi"] then
         local found = 0
         values["activeWPT"] = table.copy(FPlan[0])
         values["activeWPT"]["active"] = 0
@@ -17164,7 +16516,6 @@ function update()
             if values["activeWPT"][1]["types"] == values["direct"]["types"] and values["activeWPT"][1]["ident"] == values["direct"]["ident"] and values["activeWPT"][1]["lat"] == values["direct"]["lat"] then
               table.insert(values["activeWPT"], 1, new)
               values["activeWPT"]["length"] = values["activeWPT"]["length"] + 1
-              --values["activeWPT"]["active"] = values["activeWPT"]["active"] + 1
               found = 1
               --if this is the case, we can rewrite active
             else
@@ -17207,7 +16558,6 @@ function update()
           end
         end
       end
-      -- values["DTK"] = course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
       controls["lsCRSR"] = 0
       controls["DCT"] = 0
       if not (lpage == 4 and lsubpage[4] == 10) then
@@ -17221,13 +16571,8 @@ function update()
     else
       gline[1] = "ACTIVATE:  |" .. string.sub(gline[1], 13)
     end
-
     gline[2] = "           |" .. string.sub(gline[2], 13)
-
     gline[3] = "  " .. values["lsgstring"] .. "    |" .. string.sub(gline[3], 13)
-    bline[3] = "  " .. values["lsbstring"] .. "     " .. string.sub(bline[3], 13)
-
-
     gline[4] = "           |" .. string.sub(gline[4], 13)
     gline[5] = "           |" .. string.sub(gline[5], 13)
     gline[6] = "           |" .. string.sub(gline[6], 13)
@@ -17235,10 +16580,10 @@ function update()
 
     bline[1] = "            " .. string.sub(bline[1], 13)
     bline[2] = "            " .. string.sub(bline[2], 13)
+    bline[3] = "  " .. values["lsbstring"] .. "     " .. string.sub(bline[3], 13)
     bline[4] = "            " .. string.sub(bline[4], 13)
     bline[5] = "            " .. string.sub(bline[5], 13)
     bline[6] = "            " .. string.sub(bline[6], 13)
-    -- bline[7] = " CRSR".. string.sub(bline[7], 6)
     values["scaleline"] = ""
   else
     values["DCTload"] = 0
@@ -17248,12 +16593,9 @@ function update()
   --The handler is in editvalue
   if controls["lspage"] == 2 then
     Nav5Comp = {}
-    --Nav5Comp_Serializer = {}
     gline[1] = string.format("%s   %s|", makelength(values["multipleWPT"][1]["ident"], 5, 0),
       makelength(values["multipleWPT"]["length"], 3, 1)) .. string.sub(gline[1], 13)
     gline[2] = "  TYPE AREA|" .. string.sub(gline[2], 13)
-    --local num = math.ceil(controls["lsselect"]/4)
-    --local num = controls["sview"]
     if controls["sview"] <= values["multipleWPT"]["length"] then
       gline[3] = string.format("%s %s %s?|", makelength(controls["sview"], 2, 1),
         type2typename(values["multipleWPT"][controls["sview"]]["types"]),
@@ -17283,7 +16625,6 @@ function update()
     else
       gline[6] = "           |" .. string.sub(gline[6], 13)
     end
-
     gline[7] = "     " .. string.sub(gline[7], 6)
 
     bline[1] = "            " .. string.sub(bline[1], 13)
@@ -17312,9 +16653,7 @@ function update()
 
   if controls["rspage"] == 1 then
     Nav5Comp = {}
-    --Nav5Comp_Serializer = {}
     APT3Comp = {}
-    --APT3Comp_Serializer = {}
     values["wptsubpage"] = WPTpage(values["wpteditvalue"][1]["types"], 2, values["wptsubpage"])
   end
 
@@ -17323,7 +16662,6 @@ function update()
     gline[7] = replaceChar(gline[7], 16, "s")
     gline[7] = replaceChar(gline[7], 17, "g")
   end
-
 
   if values["flash"] == 1 and values["MSGENT"] == 2 then
     gline[7] = replaceChar(gline[7], 15, "e")
@@ -17338,36 +16676,28 @@ function update()
     end
   end
 
-
   --we move one page
-
   if controls["lknobl"] == -1 then
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
     lpage = lpage - 1
     controls["lselect"] = 0
     controls["lCRSRchar"] = 0
-    --controls["lCRSR"] = 0
     controls["lview"] = 0
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
   elseif controls["lknobl"] == 1 then
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
     lpage = lpage + 1
     controls["lselect"] = 0
     controls["lCRSRchar"] = 0
-    --controls["lCRSR"] = 0
     controls["lview"] = 0
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
   end
 
@@ -17377,17 +16707,14 @@ function update()
     lpage = 8
   end
 
-
   values["lreturn"] = 0
   values["rreturn"] = 0
   values["lsreturn"] = 0
   values["rsreturn"] = 0
 
-
   if controls["rknobl"] == -1 then
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
     rpage = rpage - 1
     controls["rselect"] = 0
@@ -17395,17 +16722,14 @@ function update()
     values["INTref"] = {}
     values["INTref"]["ident"] = "_____"
     values["REFVOR"] = nil
-    --  controls["rCRSR"] = 0
     controls["rview"] = values["activeWPT"]["active"]
     controls["SIDSTARview"] = 0
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
   elseif controls["rknobl"] == 1 then
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
     rpage = rpage + 1
     controls["rselect"] = 0
@@ -17413,16 +16737,12 @@ function update()
     values["INTref"] = {}
     values["INTref"]["ident"] = "_____"
     values["REFVOR"] = nil
-    --  controls["rCRSR"] = 0
     controls["rview"] = values["activeWPT"]["active"]
     controls["SIDSTARview"] = 0
     if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
       Nav5Comp = {}
-      --Nav5Comp_Serializer = {}
     end
   end
-
-
 
   if controls["lCRSR"] == 0 then
     controls["lselect"] = 0
@@ -17433,11 +16753,7 @@ function update()
     controls["rselect"] = 0
     controls["rCRSRchar"] = 0
     controls["rselect"] = 0
-    --  controls["rview"] = 0
   end
-
-
-
 
   if rpage > 10 then
     rpage = 1
@@ -17448,42 +16764,33 @@ function update()
     if controls["lknobs"] == -1 then
       controls["lselect"] = 0
       controls["lCRSRchar"] = 0
-      --controls["lCRSR"] = 0
       controls["lview"] = 0
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
       lsubpage[lpage] = lsubpage[lpage] - 10
       if lpage == 4 and lsubpage[4] == 0 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
     elseif controls["lknobs"] == 1 then
       controls["lselect"] = 0
       controls["lCRSRchar"] = 0
-      --controls["lCRSR"] = 0
       controls["lview"] = 0
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
       lsubpage[lpage] = lsubpage[lpage] + 10
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
     end
   end
-
-
 
   if lsubpage[1] < 0 then
     lsubpage[1] = 60
   elseif lsubpage[1] > 60 then
     lsubpage[1] = 0
   end
-
 
   if lsubpage[2] < 10 then
     lsubpage[2] = 20
@@ -17502,7 +16809,6 @@ function update()
   elseif lsubpage[4] > 50 then
     lsubpage[4] = 10
   end
-
 
   if lsubpage[5] < 10 then
     lsubpage[5] = 70
@@ -17528,40 +16834,30 @@ function update()
     lsubpage[8] = 10
   end
 
-
-
   if rpage > 0 then
     if controls["rknobs"] == -1 then
       controls["rselect"] = 0
       controls["rCRSRchar"] = 0
       values["REFVOR"] = nil
-      --  controls["rCRSR"] = 0
-      --  controls["rview"] = values["active"]
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
       rsubpage[rpage] = rsubpage[rpage] - 10
       controls["SIDSTARview"] = 0
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 0 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
     elseif controls["rknobs"] == 1 then
       controls["rselect"] = 0
       controls["rCRSRchar"] = 0
       values["REFVOR"] = nil
-      --  controls["rCRSR"] = 0
-      --  controls["rview"] = values["active"]
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
       rsubpage[rpage] = rsubpage[rpage] + 10
       controls["SIDSTARview"] = 0
       if lpage == 4 and lsubpage[4] == 50 and rpage == 5 and rsubpage[5] == 50 then
         Nav5Comp = {}
-        --Nav5Comp_Serializer = {}
       end
     end
   end
@@ -17573,26 +16869,17 @@ function update()
   end
   rsubpage[2] = 10
 
-
-  -- if rpage == 3 and controls["rview"] > 0 then
-  -- if FPlan[0][controls["rview"]]["types"] == 0 then
   if rsubpage[3] < 10 then
     rsubpage[3] = 80
   elseif rsubpage[3] > 80 then
     rsubpage[3] = 10
   end
-  -- else
-  -- rsubpage[3] = 10
-  -- end
-  -- end
 
   if values["wptsubpage"] < 10 then
     values["wptsubpage"] = 80
   elseif values["wptsubpage"] > 80 then
     values["wptsubpage"] = 10
   end
-
-
 
   if rsubpage[4] < 10 then
     rsubpage[4] = 40
@@ -17609,15 +16896,9 @@ function update()
   elseif rsubpage[6] > 80 then
     rsubpage[6] = 10
   end
-  -- rsubpage[7] = 10
-  -- rsubpage[8] = 10
-  -- rsubpage[9] = 10
-  -- rsubpage[10] = 10
 
   controls["ENT"] = 0
   controls["CLR"] = 0
-  --controls["MSG"] = 0
-  --controls["DCT"] = 0
   values["MSGENT"] = 0
 
   controls["lknobl"] = 0
@@ -17626,15 +16907,12 @@ function update()
   controls["rknobs"] = 0
   controls["lknobs"] = 0
 
-
   --limit brighness
   if brt < 0.1 then
     brt = 0.1
   elseif brt > 1 then
     brt = 1
   end
-
-
 
   values["fuelused1"] = values["fuelused1"] + get(FuelFlow1) * passed
   values["fuelused2"] = values["fuelused2"] + get(FuelFlow2) * passed
@@ -17644,8 +16922,6 @@ function update()
   values["fuelused6"] = values["fuelused6"] + get(FuelFlow6) * passed
   values["fuelused7"] = values["fuelused7"] + get(FuelFlow7) * passed
   values["fuelused8"] = values["fuelused8"] + get(FuelFlow8) * passed
-
-
 
   local timediff = 0
 
@@ -17670,7 +16946,6 @@ function update()
       values["flightimer"] = values["flightimer"] + passed
     end
 
-
     --here we calculate the GPS satellites
 
     --we acquire a new satellite
@@ -17686,7 +16961,6 @@ function update()
 
         timediff = time1 - time2
       end
-
 
       local GPSdist = distance(values["initlat"], values["initlon"], get(LATin), get(LONin))
       if GPSdist > 50 then
@@ -17765,28 +17039,21 @@ function update()
       GPSnum = GPSnum + 1
     end
   end
-  --  print(FPlan[0][values["active"]-1]["lat"])
-  --  values["tofrom"] = 0
   if values["primary"] == 0 then
     set(overrideGPS, 0)
     set(overrideNAV1, 0)
   end
-
-
-
 
   --if we get a GPS signal, the date and time are updated automatically, else we have to calculate it
   if values["GPSnum"] >= 1 then
     --Calculations are done only every 1 seconds, as per C-129
     if values["CALCtimer"] >= 1 / values["GPSrate"] then
       if timediff > 600 or timediff < -600 then
-        --values["MSGSTAT"][9] = 1
         table.insert(values["MSGLIST"], 1, "")
         table.insert(values["MSGLIST"], 1, "TO GPS TIME")
         table.insert(values["MSGLIST"], 1, "SYSTEM TIME UPDATED")
         values["MSGLIST"]["length"] = values["MSGLIST"]["length"] + 3
       end
-
 
       values["time"]["second"] = get(secondin)
       values["time"]["minute"] = get(minutein)
@@ -17795,11 +17062,6 @@ function update()
       values["date"]["month"] = get(monthin)
       values["date"]["year"] = tonumber(os.date("%y"))
       if values["GPSnum"] >= 4 then
-        -- if values["activeWPT"]["length"] == 0 and FPlan[0]["length"] >= 2 and FPlan[0][1]["ident"] ~= "     " and FPlan[0][2]["ident"] ~= "     " and values["activeWPT"][1]["ident"] ~= "    $" then
-
-        -- if FPlan[0]["length"] < 2 then
-        -- values["activeWPT"] = FPlan[0]
-        -- end
         if values["MSGSTAT"][6] == 0 then
           if distance(values["GPSlat"], values["GPSlon"], get(LATin), get(LONin)) > 3 then
             table.insert(values["MSGLIST"], 1, "")
@@ -17813,22 +17075,10 @@ function update()
         values["GPSlat"] = get(LATin)
         values["GPSlon"] = get(LONin)
         values["GPSSPD"] = get(SPEEDin)
-        --if values["GPSSPD"] > 1 then
-        values["GPSTRK"] = get(PSIin)               --(get(HPATHin) + get(MAGVARin)) % 360
-        -- if values["GPSTRK"] > 360 then values["GPSTRK"] = values["GPSTRK"] - 360
-        -- elseif values["GPSTRK"] < 0 then values["GPSTRK"] = values["GPSTRK"] + 360 end
-        --end
+        values["GPSTRK"] = get(PSIin)
         if values["activeWPT"]["length"] == 0 and FPlan[0]["length"] >= 2 and FPlan[0][1]["ident"] ~= "     " and FPlan[0][2]["ident"] ~= "     " then
           activateFPLN0()
         end
-        --##############CAUTION, THIS IS EXPERIMENTAL!!
-        -- if values["CALC3timer"] > 3 then
-
-        -- values["GPSTRK"] = course(values["oldlat"], values["oldlon"], values["GPSlat"], values["GPSlon"])
-        -- values["GPSSPD"] = distance(values["oldlat"], values["oldlon"], values["GPSlat"], values["GPSlon"])/values["CALC3timer"]*3600*0.514444444
-        -- values["oldlat"] = values["GPSlat"]
-        -- values["oldlon"] = values["GPSlon"]
-        -- end
 
         if values["activeWPT"]["length"] >= 2 then
           if values["activeWPT"][1]["types"] == values["activeWPT"][2]["types"] and values["activeWPT"][1]["ident"] == values["activeWPT"][2]["ident"] and values["activeWPT"][1]["lat"] == values["activeWPT"][2]["lat"] then
@@ -17844,7 +17094,6 @@ function update()
           if values["activeWPT"]["length"] >= 2 then
           end
           --Be warned, everything here is done every frame!
-          -- values["XTK"] = asin(sin(distance(FPlan[0][values["active"]-1]["lat"], FPlan[0][values["active"]-1]["lon"], values["GPSlat"], values["GPSlon"])*pi/10800)*sin(course(FPlan[0][values["active"]-1]["lat"], FPlan[0][values["active"]-1]["lon"], values["GPSlat"], values["GPSlon"])*pi/180-courseFPLN(FPlan[0], values["active"])*pi/180))*10800/pi
           local bearing = 0
           local diff = 0
 
@@ -17865,14 +17114,11 @@ function update()
           if (diff < -90 or diff > 90) and get(GPSmode) == 2 then
             values["tofrom"] = 2
           end
-          --  values["XTK"] = (distance(values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"], values["GPSlat"], values["GPSlon"]))*sin((diff)*pi/180)
           --remember OBS
           values["dist"] = distance(values["GPSlat"], values["GPSlon"], values["activeWPT"][2]["lat"],
             values["activeWPT"][2]["lon"])
 
           values["bearing"] = bearing
-
-
 
           if get(GPSmode) == 1 then
             values["XTK"] = asin(sin(distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
@@ -17890,16 +17136,12 @@ function update()
             deslat, deslon = intermediat(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
               values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"], f1)
             values["DTK"] = course(deslat, deslon, values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])
-            -- gline[5] = diff .. "        " .. values["XTK"]
           else
             values["XTK"] = asin(sin(distance(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"],
               values["GPSlat"], values["GPSlon"]) * pi / 10800) *
             sin((course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["GPSlat"], values["GPSlon"]) - course(values["activeWPT"][1]["lat"], values["activeWPT"][1]["lon"], values["activeWPT"][2]["lat"], values["activeWPT"][2]["lon"])) *
             pi / 180)) / pi * -10800
           end
-
-
-
 
           if values["primary"] == 1 then
             if get(HSIsource) == 2 then
@@ -17908,7 +17150,7 @@ function update()
               elseif get(overrideNAV1) == 0 and values["NAVSYNC"] == 0 then
                 set(overrideNAV1, 0)
               end
-              local hdef = values["XTK"]               --*get(GPSnmPdot)
+              local hdef = values["XTK"]
 
               if hdef < -2.5 then
                 hdef = -2.5
@@ -17949,8 +17191,6 @@ function update()
               if values["VNVstat"][0] == 2 and values["VNVgs"] == 1 then
                 local InALT = PressALT - (145442.2 * (1 - (baro / 29.92126) ^ 0.190261)), -2
                 local vnvang = (InALT - values["VNVstat"][2]) / 100 --PressALT
-                --print(InALT)
-                --print(vnvang)
                 if vnvang > 2.5 then
                   vnvang = 2.5
                 elseif vnvang < -2.5 then
@@ -17974,12 +17214,6 @@ function update()
           end
           --here we calculate when we switch to the next waypoint (Only leg!)
           --It also work with DCT if the next WPT is a FPlan WPT
-          --turn anti off:
-          --print(values["activeWPT"][3])
-
-
-          --if pos == FPlan[0]["APPMAP"] - 1 then
-
           if values["turnanticipation"] == 0 or values["activeWPT"]["length"] == 2 or values["activeWPT"]["active"] == FPlan[0]["APPMAP"] - 1 or values["activeWPT"][2]["flyo"] == 1 then
             if values["dist"] / (values["GPSSPD"] * 1.94384449) * 3600 <= 36 and get(WPTalert) == 0 then
               set(WPTalert, 1)
@@ -18024,9 +17258,7 @@ function update()
             values["WPTalertdist"] = values["dist"]
           else
             --Do I need to calculate a position (LAT/LON) prior to WPT2 for turning or can I simply subtract the turn distance??
-            --print(turnanti(bearing), values["dist"])
             local dist2 = values["dist"] - turnanti(bearing)
-            -- print(values["dist"],  turnanti(), dist2, dist2 / (values["GPSSPD"]* 1.94384449)*3600, values["WPTalertdist"], get(WPTalert), values["activeWPT"][2]["ident"])
             if dist2 / (values["GPSSPD"] * 1.94384449) * 3600 <= 20 and get(WPTalert) == 0 then
               set(WPTalert, 1)
               values["WPTalertdist"] = dist2
@@ -18054,7 +17286,6 @@ function update()
                   table.insert(values["MSGLIST"], 1, string.format("ADJ NAV IND CRS TO %03d*", round(CRS)))
                   values["MSGLIST"]["length"] = values["MSGLIST"]["length"] + 2
                 end
-                -- values["DTK"] = CRS
                 values["WPTalertdist"] = 0
               end
             end
@@ -18068,9 +17299,6 @@ function update()
               set(NAVfromtoout, 0)
               set(NAVhdefout, 0)
             end
-            -- if get(NavState) == 2 then
-            -- set(APState, 256)
-            -- end
           end
         end
       end
@@ -18118,8 +17346,6 @@ function update()
       set(NAVhdefout, 1, 25)
     end
   end
-  --gline[1] = values["GPStime"]
-
 
   values["flashtimer"] = values["flashtimer"] + passed
   if values["flashtimer"] > 0.5 then
@@ -18146,11 +17372,11 @@ function update()
   values["CALC1timer"] = values["CALC1timer"] + passed
 
   values["CALC3timer"] = values["CALC3timer"] + passed
-  --gline[1] = scale(get(testdat), 1, 0)
 end --update
 
+-- for all commands phase equals: 0 on press; 1 while holding; 2 on release
 local KLNpowerc_command = sasl.createCommand("custom/KLN90/Toggle_Power_Switch", "Power switch ON/OFF")
-function KLNpowerc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNpowerc_handler(phase)
   if 0 == phase then
     if power_knob == 1 then
       power_knob = 0
@@ -18166,7 +17392,7 @@ end
 sasl.registerCommandHandler(KLNpowerc_command, 0, KLNpowerc_handler)
 
 local KLNincbrtc_command = sasl.createCommand("custom/KLN90/Increase_Brightness", "Increase Display Brightness")
-function KLNincbrtc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNincbrtc_handler(phase)
   if 0 == phase then
     brt = brt + 0.1
     if (brt <= 1.0) then
@@ -18180,7 +17406,7 @@ end
 sasl.registerCommandHandler(KLNincbrtc_command, 0, KLNincbrtc_handler)
 
 local KLNdecbrtc_command = sasl.createCommand("custom/KLN90/Decrease_Brightness", "Decrease Display Brightness")
-function KLNdecbrtc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNdecbrtc_handler(phase)
   if 0 == phase then
     brt = brt - 0.1
     if (brt > 0) then
@@ -18193,7 +17419,7 @@ end
 
 sasl.registerCommandHandler(KLNdecbrtc_command, 0, KLNdecbrtc_handler)
 local KLNLCRSRc_command = sasl.createCommand("custom/KLN90/Toggle_Left_Cursor", "Toggle Left Cursor")
-function KLNLCRSRc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNLCRSRc_handler(phase)
   if 0 == phase then
     if controls["lspage"] == 0 then
       if controls["lCRSR"] == 1 then
@@ -18209,7 +17435,7 @@ end
 
 sasl.registerCommandHandler(KLNLCRSRc_command, 0, KLNLCRSRc_handler)
 local KLNRCRSRc_command = sasl.createCommand("custom/KLN90/Toggle_Right_Cursor", "Toggle Right Cursor")
-function KLNRCRSRc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNRCRSRc_handler(phase)
   if 0 == phase then
     if controls["rspage"] == 0 then
       if controls["rCRSR"] == 1 then
@@ -18225,7 +17451,7 @@ end
 
 sasl.registerCommandHandler(KLNRCRSRc_command, 0, KLNRCRSRc_handler)
 local KLNSCANc_command = sasl.createCommand("custom/KLN90/Toggle_Scan_Mode", "Toggle Scan Mode")
-function KLNSCANc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNSCANc_handler(phase)
   if 0 == phase then
     if controls["SCAN"] == 1 then
       controls["SCAN"] = 0
@@ -18241,7 +17467,7 @@ end
 sasl.registerCommandHandler(KLNSCANc_command, 0, KLNSCANc_handler)
 local KLNlknoblccc_command = sasl.createCommand("custom/KLN90/Turn_Left_Large_Knob_Counterclockwise",
   "Turn left large knob counterclockwise")
-function KLNlknoblccc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNlknoblccc_handler(phase)
   if 0 == phase then
     controls["lknobl"] = -1
 
@@ -18256,7 +17482,7 @@ sasl.registerCommandHandler(KLNlknoblccc_command, 0, KLNlknoblccc_handler)
 
 local KLNlknobsccc_command = sasl.createCommand("custom/KLN90/Turn_Left_Small_Knob_Counterclockwise",
   "Turn left small knob counterclockwise")
-function KLNlknobsccc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNlknobsccc_handler(phase)
   if 0 == phase then
     controls["lknobs"] = -1
     controls["lknobsangle"] = controls["lknobsangle"] - 1
@@ -18269,7 +17495,7 @@ end
 sasl.registerCommandHandler(KLNlknobsccc_command, 0, KLNlknobsccc_handler)
 local KLNlknobscc_command = sasl.createCommand("custom/KLN90/Turn_Left_Small_Knob_Clockwise",
   "Turn left small knob clockwise")
-function KLNlknobscc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNlknobscc_handler(phase)
   if 0 == phase then
     controls["lknobs"] = 1
     controls["lknobsangle"] = controls["lknobsangle"] + 1
@@ -18282,7 +17508,7 @@ end
 sasl.registerCommandHandler(KLNlknobscc_command, 0, KLNlknobscc_handler)
 local KLNlknoblcc_command = sasl.createCommand("custom/KLN90/Turn_Left_Large_Knob_Clockwise",
   "Turn left large knob clockwise")
-function KLNlknoblcc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNlknoblcc_handler(phase)
   if 0 == phase then
     controls["lknobl"] = 1
 
@@ -18295,7 +17521,7 @@ end
 
 sasl.registerCommandHandler(KLNlknoblcc_command, 0, KLNlknoblcc_handler)
 local KLNMSGc_command = sasl.createCommand("custom/KLN90/Toggle_Message_Page", "Toggle MSG button")
-function KLNMSGc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNMSGc_handler(phase)
   if 0 == phase then
     if rpage > 0 then
       if controls["MSG"] == 1 then
@@ -18323,7 +17549,7 @@ end
 
 sasl.registerCommandHandler(KLNMSGc_command, 0, KLNMSGc_handler)
 local KLNALTc_command = sasl.createCommand("custom/KLN90/Toggle_Altitude_Page", "Toggle ALT button")
-function KLNALTc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNALTc_handler(phase)
   if 0 == phase then
     if controls["ALT"] == 0 then
       controls["ALT"] = 1
@@ -18337,7 +17563,7 @@ end
 
 sasl.registerCommandHandler(KLNALTc_command, 0, KLNALTc_handler)
 local KLNDTOc_command = sasl.createCommand("custom/KLN90/Toggle_Direct_To_Page", "Toggle Direct To button")
-function KLNDTOc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNDTOc_handler(phase)
   if 0 == phase then
     if get(GPSmode) == 2 and controls["DCT"] == 1 then
       controls["DCT"] = 2
@@ -18351,7 +17577,7 @@ end
 
 sasl.registerCommandHandler(KLNDTOc_command, 0, KLNDTOc_handler)
 local KLNCLRc_command = sasl.createCommand("custom/KLN90/Press_CLR", "Toggle CLR button")
-function KLNCLRc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNCLRc_handler(phase)
   if 0 == phase then
     controls["CLR"] = 1
     sasl.al.playSample(button_click, false)
@@ -18361,7 +17587,7 @@ end
 
 sasl.registerCommandHandler(KLNCLRc_command, 0, KLNCLRc_handler)
 local KLNENTc_command = sasl.createCommand("custom/KLN90/Press_ENT", "Toggle ENT button")
-function KLNENTc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNENTc_handler(phase)
   if 0 == phase then
     controls["ENT"] = 1
     sasl.al.playSample(button_click, false)
@@ -18372,7 +17598,7 @@ end
 sasl.registerCommandHandler(KLNENTc_command, 0, KLNENTc_handler)
 local KLNrknoblccc_command = sasl.createCommand("custom/KLN90/Turn_Right_Large_Knob_Counterclockwise",
   "Turn right large knob counterclockwise")
-function KLNrknoblccc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNrknoblccc_handler(phase)
   if 0 == phase then
     controls["rknobl"] = -1
     controls["brknobsangle"] = controls["brknobsangle"] - 1
@@ -18385,7 +17611,7 @@ end
 sasl.registerCommandHandler(KLNrknoblccc_command, 0, KLNrknoblccc_handler)
 local KLNrknobsccc_command = sasl.createCommand("custom/KLN90/Turn_Right_Small_Knob_Counterclockwise",
   "Turn right small knob counterclockwise")
-function KLNrknobsccc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNrknobsccc_handler(phase)
   if 0 == phase then
     controls["rknobs"] = -1
     controls["rknobsangle"] = controls["rknobsangle"] - 1
@@ -18398,7 +17624,7 @@ end
 sasl.registerCommandHandler(KLNrknobsccc_command, 0, KLNrknobsccc_handler)
 local KLNrknobscc_command = sasl.createCommand("custom/KLN90/Turn_Right_Small_Knob_Clockwise",
   "Turn right small knob clockwise")
-function KLNrknobscc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNrknobscc_handler(phase)
   if 0 == phase then
     controls["rknobs"] = 1
     controls["rknobsangle"] = controls["rknobsangle"] + 1
@@ -18411,7 +17637,7 @@ end
 sasl.registerCommandHandler(KLNrknobscc_command, 0, KLNrknobscc_handler)
 local KLNrknoblcc_command = sasl.createCommand("custom/KLN90/Turn_Right_Large_Knob_Clockwise",
   "Turn right large knob clockwise")
-function KLNrknoblcc_handler(phase)        -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function KLNrknoblcc_handler(phase)
   if 0 == phase then
     controls["rknobl"] = 1
     controls["brknobsangle"] = controls["brknobsangle"] + 1
@@ -18425,7 +17651,7 @@ sasl.registerCommandHandler(KLNrknoblcc_command, 0, KLNrknoblcc_handler)
 
 
 MD41NAVGPSc_command = sasl.createCommand("custom/KLN90/MD_41_Toggle_NAV-GPS", "MD41 Toggle NAV/GPS button")
-function MD41NAVGPSc_handler(phase)               -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function MD41NAVGPSc_handler(phase)
   if 0 == phase then
     if get(HSIsource) ~= 0 then
       set(HSIsource, 0)
@@ -18444,7 +17670,7 @@ end
 sasl.registerCommandHandler(MD41NAVGPSc_command, 0, MD41NAVGPSc_handler)
 
 local MD41APRc_command = sasl.createCommand("custom/KLN90/MD_41_Toggle_Approach", "MD41 Toggle Approach button")
-function MD41APRc_handler(phase)               -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function MD41APRc_handler(phase)
   if 0 == phase then
     if get(APR) == 0 then
       set(APR, 1)
@@ -18459,7 +17685,7 @@ end
 sasl.registerCommandHandler(MD41APRc_command, 0, MD41APRc_handler)
 
 local MD41OBSc_command = sasl.createCommand("custom/KLN90/MD_41_Toggle_OBS-LEG", "MD41 Toggle OBS/LEG button")
-function MD41OBSc_handler(phase)               -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function MD41OBSc_handler(phase)
   if 0 == phase then
     if get(OBS) == 1 then
       set(OBSreq, 2)
@@ -18474,7 +17700,7 @@ end
 sasl.registerCommandHandler(MD41OBSc_command, 0, MD41OBSc_handler)
 
 local MD41testc_command = sasl.createCommand("custom/KLN90/MD_41_Test_Lamps", "MD41 Toggle lamp test button")
-function MD41testc_handler(phase)               -- for all commands phase equals: 0 on press; 1 while holding; 2 on release
+function MD41testc_handler(phase)
   if 0 == phase then
     sasl.al.playSample(button_click, false)
     set(MD41test, 1)
@@ -18486,10 +17712,6 @@ function MD41testc_handler(phase)               -- for all commands phase equals
 end
 
 sasl.registerCommandHandler(MD41testc_command, 0, MD41testc_handler)
-
-
-
-
 
 components2 = {
   rectangle2 {
@@ -18511,10 +17733,7 @@ components2 = {
 }
 
 Nav5Comp = {}
---Nav5Comp_Serializer = {}
 APT3Comp = {}
---APT3Comp_Serializer = {}
-
 
 function draw()
   if draw3d == true then
