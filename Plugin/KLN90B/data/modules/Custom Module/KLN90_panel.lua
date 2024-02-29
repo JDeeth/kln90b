@@ -1026,7 +1026,7 @@ function parse_nav(path, data)
             filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
           goto continue
         end
-      end       --check format
+      end --check format
       fields[1] = string.format("%.6f", fields[1])
       fields[2] = string.format("%.6f", fields[2])
       if #fields > 10 then
@@ -1048,7 +1048,7 @@ function parse_nav(path, data)
         0,                  --dme
         " "
       }
-    elseif words[1] == "3" then
+    elseif words[1] == "3" or words[1] == "13" then
       local fields = {}
       for w in words[2]:gmatch("([^%s]+)") do fields[#fields + 1] = w end
       for i = 1, 10, 1 do
@@ -1057,7 +1057,7 @@ function parse_nav(path, data)
             filename .. "\r" .. "CASE " .. words[1] .. " FIELD: " .. i .. " LINE: " .. line)
           goto continue
         end
-      end       --check format
+      end --check format
 
       fields[1] = string.format("%.6f", fields[1])
       fields[2] = string.format("%.6f", fields[2])
