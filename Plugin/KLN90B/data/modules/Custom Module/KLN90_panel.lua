@@ -156,6 +156,7 @@ LATin = globalProperty("sim/flightmodel/position/latitude")
 LONin = globalProperty("sim/flightmodel/position/longitude")
 SPEEDin = globalProperty("sim/flightmodel/position/groundspeed")
 PSIin = globalProperty("sim/flightmodel2/position/mag_psi")
+HPATHin = globalProperty("sim/flightmodel2/position/hpath")
 
 MAGVARin = globalProperty("sim/flightmodel/position/magnetic_variation")
 paused = globalProperty("sim/time/paused")
@@ -17142,7 +17143,7 @@ function update()
         values["GPSlat"] = get(LATin)
         values["GPSlon"] = get(LONin)
         values["GPSSPD"] = get(SPEEDin)
-        values["GPSTRK"] = get(PSIin)
+        values["GPSTRK"] = (get(HPATHin) + get(MAGVARin)) % 360
         if values["activeWPT"]["length"] == 0 and FPlan[0]["length"] >= 2 and FPlan[0][1]["ident"] ~= "     " and FPlan[0][2]["ident"] ~= "     " then
           activateFPLN0()
         end
